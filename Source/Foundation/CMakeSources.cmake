@@ -1,0 +1,33 @@
+set(CPF_DEBUG_INC
+    "Debug/Debug.hpp")
+set(CPF_DEBUG_SRC
+    "Debug/Debug.cpp")
+
+set(CPF_PREREQUISITES_INC
+    "Prerequisites/PlatformDefines.hpp"
+    "Prerequisites/Prerequisitesutil.hpp"
+    "Prerequisites/StdHeaders.hpp")
+set(CPF_PREREQUISITES_SRC)
+
+set(CPF_RENDERING_INC
+    "Rendering/RenderTarget.hpp")
+set(CPF_RENDERING_SRC
+    "Rendering/RenderTarget.cpp")
+
+set(CPF_STRING_INC
+    "String/String.hpp")
+set(CPF_STRING_SRC
+    "String/String.cpp")
+
+set(CPF_NOFILTER_INC
+    "Application.hpp"
+    "cpf.hpp")
+set(CPF_NOFILTER_SRC
+    "Application.cpp")
+
+set(CPF_SRCS 
+    ${CPF_DEBUG_INC} ${CPF_DEBUG_SRC}
+    ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
+    ${CPF_RENDERING_INC} ${CPF_RENDERING_SRC}
+    ${CPF_STRING_INC} ${CPF_STRING_SRC}
+    ${CPF_NOFILTER_INC} ${CPF_NOFILTER_SRC})
