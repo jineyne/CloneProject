@@ -2,13 +2,15 @@
 
 #include "cpf.hpp"
 
+#include "Utility/Module.hpp"
+
 namespace cpf {
     struct ApplicationCreateInfo {
         uint32_t width, height;
         String title;
     };
 
-    class DLL_EXPORT Application {
+    class DLL_EXPORT Application : public TModule<Application> {
     protected:
         ApplicationCreateInfo mInfo;
 
@@ -20,6 +22,10 @@ namespace cpf {
 
     public:
         void runMainLoop();
+
+    protected:
+        void onStartUp() override;
+        void onShutDown() override;
 
     private:
         void initializeCore();
