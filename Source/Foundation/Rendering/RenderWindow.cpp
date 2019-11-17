@@ -11,12 +11,10 @@ namespace cpf {
 
         GLFWmonitor *monitor = nullptr;
         if (mInfo.fullscreen) {
-            monitor = glfwGetMonitor(0);
+            monitor = glfwGetPrimaryMonitor();
         }
         mWindowPtr = glfwCreateWindow(mInfo.width, mInfo.height, mInfo.title.c_str(), monitor, nullptr);
         glfwMakeContextCurrent(mWindowPtr);
-
-        gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
     }
 
     void RenderWindow::swapBuffers(uint32_t mask) {
