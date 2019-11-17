@@ -9,9 +9,9 @@ namespace cpf {
 #   define TMODULE_IMPLEMENT(EXPORT_MACRO, CLASSNAME)
 #else
 #   define TMODULE_IMPLEMENT(EXPORT_MACRO, CLASSNAME) \
-            template <typename T> T TModule<T>::mInstance = nullptr;        \
-            template <typename T> bool TModule<T>::mIsStartedUp = false;    \
-            template <typename T> bool TModule<T>::mIsDestroyed = false;
+            template <> EXPORT_MACRO CLASSNAME *TModule<CLASSNAME>::mInstance = nullptr;        \
+            template <> EXPORT_MACRO bool TModule<CLASSNAME>::mIsStartedUp = false;             \
+            template <> EXPORT_MACRO bool TModule<CLASSNAME>::mIsDestroyed = false;
 #endif
     /** 
      * 하나의 엔진 모듈입니다.
@@ -57,7 +57,9 @@ namespace cpf {
             }
 
             _Instance() = Allocator::New<T>(std::forward<Args>(args)...);
-            _Instance()->onStartUp();
+            static_cast<TModule<T> *>(_Instance())->onStartUp();
+
+            IsStartedUp() = true;
         }
 
         /**
@@ -75,7 +77,9 @@ namespace cpf {
             }
 
             _Instance() = Allocator::New<U>(std::forward<Args>(args)...);
-            _Instance()->onShutDown();
+            static_cast<TModule<T> *>(_Instance())->onShutDown();
+
+            IsStartedUp() = true;
         }
 
         /**
@@ -91,10 +95,11 @@ namespace cpf {
                 Debug::LogFatal("Trying to shut down module already shut down");
             }
 
-            _Instance()->onShutDown();
+            static_cast<TModule<T> *>(_Instance())->onShutDown();
             Allocator::Free(_Instance());
 
             _Instance() = nullptr;
+            IsDestroyed() = true;
         }
 
         /**
@@ -121,16 +126,16 @@ namespace cpf {
         static T *&_Instance() {
 #if COMPILE == COMPILER_MSVC
             static T *inst = nullptr;
-            return &inst;
+            return inst;
 #else 
-            return mInst;
+            return mInstance;
 #endif
         }
 
         static bool &IsStartedUp() {
 #if COMPILE == COMPILER_MSVC
             static bool inst = false;
-            return &inst;
+            return inst;
 #else
             return mIsStartedUp;
 #endif
@@ -139,7 +144,7 @@ namespace cpf {
         static bool &IsDestroyed() {
 #if COMPILE == COMPILER_MSVC 
             static bool inst = false;
-            return &inst;
+            return inst;
 #else
             return mIsDestroyed;
 #endif
