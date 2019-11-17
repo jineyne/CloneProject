@@ -6,6 +6,10 @@ namespace cpf {
 
     TMODULE_IMPLEMENT(DLL_EXPORT, Application);
 
+    void glfwErrorCallback(int error, const char* description) {
+        Debug::LogError(description);
+    }
+
     Application::Application(const ApplicationCreateInfo &info) : mInfo(info), mIsRunning(false) {
     }
 
@@ -14,11 +18,22 @@ namespace cpf {
 
     void Application::runMainLoop() {
         mIsRunning = true;
-        auto &app = Application::Instance();
+
+        while (mIsRunning) {
+        }
+    }
+
+    void Application::stopMainLoop() {
+        mIsRunning = false;
+    }
+
+    void Application::quitRequest() {
+        stopMainLoop();
     }
 
     void Application::onStartUp() {
         initializeCore();
+
     }
 
     void Application::onShutDown() {
@@ -26,8 +41,15 @@ namespace cpf {
     }
 
     void Application::initializeCore() {
+        if (!glfwInit()) {
+            Debug::LogFatal("Failed to initialize glfw!");
+        }
+
+        glfwSetErrorCallback(glfwErrorCallback);
     }
 
     void Application::destroyCore() {
+
+        glfwTerminate();
     }
 }
