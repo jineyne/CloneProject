@@ -5,14 +5,14 @@ set(CPF_DEBUG_SRC
 
 set(CPF_PREREQUISITES_INC
     "Prerequisites/PlatformDefines.hpp"
-    "Prerequisites/Prerequisitesutil.hpp"
+    "Prerequisites/PrerequisitesUtil.hpp"
     "Prerequisites/StdHeaders.hpp")
 set(CPF_PREREQUISITES_SRC)
 
 set(CPF_RENDERING_INC
-    "Rendering/RenderTarget.hpp")
+    )
 set(CPF_RENDERING_SRC
-    "Rendering/RenderTarget.cpp")
+    )
 
 set(CPF_STRING_INC
     "String/String.hpp")
