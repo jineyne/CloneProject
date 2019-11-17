@@ -4,11 +4,14 @@
 using namespace cpf;
 
 int main() {
-    Debug::LogInfo("{}, {}", "Hello", "World");
-    Debug::LogInfo("{1}, {0}", 1, "World");
-    Debug::LogWarning("{}, {}", "This is", "Warning!");
-    Debug::LogError("{}, {}", "Oh my GOD!", "Error!");
-    Debug::LogFatal("{}, {}, {}", "Good norning", "Good afternoon", "Good evening");
+    ApplicationCreateInfo appCI{};
+    appCI.primaryWindowCreateInfo.width = 1280;
+    appCI.primaryWindowCreateInfo.height = 720;
+    appCI.primaryWindowCreateInfo.title = "Sandbox";
+    appCI.primaryWindowCreateInfo.fullscreen = false;
+    Application::StartUp(appCI);
+    Application::Instance().runMainLoop();
+    Application::ShutDown();
 
     return 0;
 }
