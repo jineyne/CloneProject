@@ -25,6 +25,7 @@ set(CPF_STRING_SRC
     "String/String.cpp")
 
 set(CPF_UTILITY_INC
+    "Utility/Module.hpp"
     "Utility/NonCopyable.hpp")
 set(CPF_UTILITY_SRC
     )
