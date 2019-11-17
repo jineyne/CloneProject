@@ -10,5 +10,5 @@ namespace cpf {
     public:
         // 버퍼를 교체합니다.
         virtual void swapBuffers(uint32_t mask = 0xffffffff) = 0;
-    }
+    };
 }
