@@ -1,3 +1,8 @@
+set(CPF_ALLOC_INC
+    "Alloc/System.hpp")
+set(CPF_ALLOC_SRC
+    )
+
 set(CPF_DEBUG_INC
     "Debug/Debug.hpp")
 set(CPF_DEBUG_SRC
@@ -26,6 +31,7 @@ set(CPF_NOFILTER_SRC
     "Application.cpp")
 
 set(CPF_SRCS 
+    ${CPF_ALLOC_INC} ${CPF_ALLOC_SRC}
     ${CPF_DEBUG_INC} ${CPF_DEBUG_SRC}
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
     ${CPF_RENDERING_INC} ${CPF_RENDERING_SRC}
