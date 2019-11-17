@@ -1,0 +1,170 @@
+\hypertarget{classcpf_1_1_string_util}{}\section{cpf\+:\+:String\+Util 클래스 참조}
+\label{classcpf_1_1_string_util}\index{cpf\+::\+String\+Util@{cpf\+::\+String\+Util}}
+
+
+{\ttfamily \#include $<$String.\+hpp$>$}
+
+
+
+cpf\+:\+:String\+Util에 대한 협력 다이어그램\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classcpf_1_1_string_util__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{정적 Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\static std\+::string \hyperlink{classcpf_1_1_string_util_a53a8571bef952fecc7008f309171b8c5}{To\+String} (const T \&arg)
+\item 
+{\footnotesize template$<$typename ... Args$>$ }\\static \hyperlink{namespacecpf_a4dbd6992c3ed4440ce7ed8982ff7ffea}{String} \hyperlink{classcpf_1_1_string_util_a965cca44ea396f01f2f3c5e3851f1001}{Format} (const \hyperlink{namespacecpf_a4dbd6992c3ed4440ce7ed8982ff7ffea}{String} \&fmt, Args \&\&...arguments)
+\begin{DoxyCompactList}\small\item\em \{\} =$>$ 해당 순서에 맞는 인자를 대입시킵니다. \{n\} =$>$ n에 해당하는 순서에 맞는 인자를 대입시킵니다. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{정적 Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$size\+\_\+t Count$>$ }\\static void \hyperlink{classcpf_1_1_string_util_af6a0483e9f189a49f9f25a6ca74d94a2}{Format\+Arguments} (std\+::array$<$ std\+::string, Count $>$ \&fmt)
+\item 
+{\footnotesize template$<$size\+\_\+t Count, typename T , typename... Args$>$ }\\static void \hyperlink{classcpf_1_1_string_util_a42ad0dd4e29fef98117340ae1193cd95}{Format\+Arguments} (std\+::array$<$ std\+::string, Count $>$ \&fmt, T \&\&arg, Args \&\&...args)
+\end{DoxyCompactItemize}
+
+
+\subsection{상세한 설명}
+
+
+String.\+hpp 파일의 24 번째 라인에서 정의되었습니다.
+
+
+
+\subsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classcpf_1_1_string_util_a965cca44ea396f01f2f3c5e3851f1001}\label{classcpf_1_1_string_util_a965cca44ea396f01f2f3c5e3851f1001}} 
+\index{cpf\+::\+String\+Util@{cpf\+::\+String\+Util}!Format@{Format}}
+\index{Format@{Format}!cpf\+::\+String\+Util@{cpf\+::\+String\+Util}}
+\subsubsection{\texorpdfstring{Format()}{Format()}}
+{\footnotesize\ttfamily template$<$typename ... Args$>$ \\
+static \hyperlink{namespacecpf_a4dbd6992c3ed4440ce7ed8982ff7ffea}{String} cpf\+::\+String\+Util\+::\+Format (\begin{DoxyParamCaption}\item[{const \hyperlink{namespacecpf_a4dbd6992c3ed4440ce7ed8982ff7ffea}{String} \&}]{fmt,  }\item[{Args \&\&...}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+\{\} =$>$ 해당 순서에 맞는 인자를 대입시킵니다. \{n\} =$>$ n에 해당하는 순서에 맞는 인자를 대입시킵니다. 
+
+주어진 포멧에 맞게 인자들을 재배치시킵니다. \begin{DoxyRefDesc}{할일}
+\item[\hyperlink{todo__todo000001}{할일}]해당 위치에 특정한 타입으로 대입 시킬 수 있는 포멧을 추가할 예정입니다. \end{DoxyRefDesc}
+
+
+String.\+hpp 파일의 55 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+55                                                                     \{
+56             std::array<std::string, \textcolor{keyword}{sizeof}...(Args)> args;
+57             \hyperlink{classcpf_1_1_string_util_af6a0483e9f189a49f9f25a6ca74d94a2}{FormatArguments}(args, std::forward<Args>(arguments)...);
+58 
+59             \textcolor{keyword}{auto} check = [&fmt](String::const\_iterator it, std::function<bool(const char &ch)> fn) \{
+60                 \textcolor{keywordflow}{return} it != fmt.end() && fn(*it);
+61             \};
+62 
+63             \hyperlink{namespacecpf_a6e5583a51165e808f1a480563a2d98b2}{StringStream} ss;
+64             \hyperlink{namespacecpf_a6e5583a51165e808f1a480563a2d98b2}{StringStream} tmp;
+65             uint32\_t forceOfNature = 0;
+66 
+67             \textcolor{keywordflow}{for} (String::const\_iterator it = fmt.begin(); it != fmt.end();) \{
+68                 \textcolor{keywordflow}{if} (check(it, [](\textcolor{keyword}{const} \textcolor{keywordtype}{char} &ch) -> \textcolor{keywordtype}{bool} \{ \textcolor{keywordflow}{return} ch == \textcolor{charliteral}{'\{'}; \})) \{
+69                     it++;
+70                     tmp.str(\textcolor{stringliteral}{""});
+71 
+72                     \textcolor{comment}{// check args}
+73                     \textcolor{keywordflow}{while} (check(it, [](\textcolor{keyword}{const} \textcolor{keywordtype}{char} &ch) -> \textcolor{keywordtype}{bool} \{ \textcolor{keywordflow}{return} std::isdigit(ch); \})) \{
+74                         tmp << *it;
+75                         it++;
+76                     \}
+77 
+78                     \textcolor{keywordflow}{if} (tmp.str().empty()) \{
+79                         ss << args[forceOfNature];
+80                     \} \textcolor{keywordflow}{else} \{
+81                         int32\_t index = std::atoi(tmp.str().c\_str());
+82                         \textcolor{keywordflow}{if} (index < args.size()) \{
+83                             ss << args[index];
+84                         \} \textcolor{keywordflow}{else} \{
+85                             std::cout << \textcolor{stringliteral}{"ERROR: Out of range!"} << std::endl 
+86                                 << \textcolor{stringliteral}{"Request index is "} << index 
+87                                 << \textcolor{stringliteral}{", but max args index is "} << args.size() - 1 << std::endl;
+88                             \textcolor{keywordflow}{return} \textcolor{stringliteral}{""};
+89                         \}
+90     
+91                     \}
+92 
+93                     \textcolor{keywordflow}{if} (!check(it++, [](\textcolor{keyword}{const} \textcolor{keywordtype}{char} &ch) -> \textcolor{keywordtype}{bool} \{ \textcolor{keywordflow}{return} ch == \textcolor{charliteral}{'\}'}; \})) \{
+94                         std::cout << \textcolor{stringliteral}{"ERROR: Invalid token! "} << *it << std::endl;
+95                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{""};
+96                     \}
+97 
+98                     forceOfNature++;
+99                 \} \textcolor{keywordflow}{else} \{
+100                     ss << *it;
+101                     it++;
+102                 \}
+103             \}
+104 
+105             \textcolor{keywordflow}{return} ss.str();
+106         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_string_util_af6a0483e9f189a49f9f25a6ca74d94a2}\label{classcpf_1_1_string_util_af6a0483e9f189a49f9f25a6ca74d94a2}} 
+\index{cpf\+::\+String\+Util@{cpf\+::\+String\+Util}!Format\+Arguments@{Format\+Arguments}}
+\index{Format\+Arguments@{Format\+Arguments}!cpf\+::\+String\+Util@{cpf\+::\+String\+Util}}
+\subsubsection{\texorpdfstring{Format\+Arguments()}{FormatArguments()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$size\+\_\+t Count$>$ \\
+static void cpf\+::\+String\+Util\+::\+Format\+Arguments (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::string, Count $>$ \&}]{fmt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+String.\+hpp 파일의 27 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+27                                                                             \{
+28             \textcolor{comment}{// base}
+29         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_string_util_a42ad0dd4e29fef98117340ae1193cd95}\label{classcpf_1_1_string_util_a42ad0dd4e29fef98117340ae1193cd95}} 
+\index{cpf\+::\+String\+Util@{cpf\+::\+String\+Util}!Format\+Arguments@{Format\+Arguments}}
+\index{Format\+Arguments@{Format\+Arguments}!cpf\+::\+String\+Util@{cpf\+::\+String\+Util}}
+\subsubsection{\texorpdfstring{Format\+Arguments()}{FormatArguments()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$size\+\_\+t Count, typename T , typename... Args$>$ \\
+static void cpf\+::\+String\+Util\+::\+Format\+Arguments (\begin{DoxyParamCaption}\item[{std\+::array$<$ std\+::string, Count $>$ \&}]{fmt,  }\item[{T \&\&}]{arg,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+String.\+hpp 파일의 32 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+32                                                                                                     \{
+33             fmt[Count - 1 - \textcolor{keyword}{sizeof}...(args)] = \hyperlink{classcpf_1_1_string_util_a53a8571bef952fecc7008f309171b8c5}{ToString}(arg);
+34             \hyperlink{classcpf_1_1_string_util_af6a0483e9f189a49f9f25a6ca74d94a2}{FormatArguments}(fmt, std::forward<Args>(args)...);
+35         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_string_util_a53a8571bef952fecc7008f309171b8c5}\label{classcpf_1_1_string_util_a53a8571bef952fecc7008f309171b8c5}} 
+\index{cpf\+::\+String\+Util@{cpf\+::\+String\+Util}!To\+String@{To\+String}}
+\index{To\+String@{To\+String}!cpf\+::\+String\+Util@{cpf\+::\+String\+Util}}
+\subsubsection{\texorpdfstring{To\+String()}{ToString()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static std\+::string cpf\+::\+String\+Util\+::\+To\+String (\begin{DoxyParamCaption}\item[{const T \&}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+String.\+hpp 파일의 39 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+39                                                        \{
+40             \hyperlink{namespacecpf_a6e5583a51165e808f1a480563a2d98b2}{StringStream} ss;
+41             ss << arg;
+42             \textcolor{keywordflow}{return} ss.str();
+43         \}
+\end{DoxyCode}
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Foundation/\+String/\hyperlink{_string_8hpp}{String.\+hpp}\end{DoxyCompactItemize}
