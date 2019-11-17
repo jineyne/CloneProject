@@ -42,6 +42,15 @@ namespace cpf {
             return ss.str();
         }
 
+        /**
+         * 주어진 포멧에 맞게 인자들을 재배치시킵니다.
+         * @brief
+         *  {} => 해당 순서에 맞는 인자를 대입시킵니다.
+         *  {n} => n에 해당하는 순서에 맞는 인자를 대입시킵니다.
+         *
+         * @todo
+         *  해당 위치에 특정한 타입으로 대입 시킬 수 있는 포멧을 추가할 예정입니다.
+         */
         template<typename ...Args>
         static String Format(const String &fmt, Args&&...arguments) {
             std::array<std::string, sizeof...(Args)> args;
