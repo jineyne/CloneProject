@@ -24,6 +24,11 @@ set(CPF_STRING_INC
 set(CPF_STRING_SRC
     "String/String.cpp")
 
+set(CPF_UTILITY_INC
+    "Utility/NonCopyable.hpp")
+set(CPF_UTILITY_SRC
+    )
+
 set(CPF_NOFILTER_INC
     "Application.hpp"
     "cpf.hpp")
@@ -36,4 +41,5 @@ set(CPF_SRCS
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
     ${CPF_RENDERING_INC} ${CPF_RENDERING_SRC}
     ${CPF_STRING_INC} ${CPF_STRING_SRC}
+    ${CPF_UTILITY_INC} ${CPF_UTILITY_SRC}
     ${CPF_NOFILTER_INC} ${CPF_NOFILTER_SRC})
