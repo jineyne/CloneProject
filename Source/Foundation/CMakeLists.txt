@@ -12,5 +12,5 @@ target_compile_definitions(cpf
 target_include_directories(cpf
     PUBLIC .)
 target_link_libraries(cpf
-    PUBLIC )
+    PUBLIC glfw glad stb)
 set_compile_options(cpf)
