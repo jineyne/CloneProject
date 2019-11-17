@@ -4,7 +4,7 @@
 
 #include "String/String.hpp"
 
-namespace cgf {
+namespace cpf {
     template<class T>
     using SPtr = std::shared_ptr<T>;
     template<class T>
