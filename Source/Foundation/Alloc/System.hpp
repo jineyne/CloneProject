@@ -41,11 +41,21 @@ namespace cpf {
             Free(ptr);
         }
 
+        /**
+         * 주어진 인자를 shared_ptr로 변환합니다.
+         * @warning 주어진 인자를 가지고 shared_ptr을 생성하려면 MakeShared를 사용하세요.
+         */
         template <typename T, class ...Args>
         static std::shared_ptr<T> SharedPtr(Args &&...args) {
             return std::shared_ptr<T>(std::forward<Args>(args)...);
         }
 
+        /**
+         * 주어진 인자를 통해 shared_ptr을 생성합니다.
+         *
+         * @tparam T shared_ptr의 타입입니다.
+         * @param args T 타입의 생성자에 들어갈 인자들입니다.
+         */
         template <typename T, class ...Args>
         static std::shared_ptr<T> MakeShared(Args &&...args) {
             return SharedPtr<T>(Allocator::New<T>(std::forward<Args>(args)...));

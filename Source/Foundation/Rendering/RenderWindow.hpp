@@ -16,10 +16,13 @@ namespace cpf {
         bool fullscreen = false;    //< 윈도우 최대화 여부
     };
 
+    /**
+     * 직접적으로 그려지는 윈도우입니다.
+     */
     class DLL_EXPORT RenderWindow : public RenderTarget {
     private:
         GLFWwindow *mWindowPtr;
-        uint32_t mWindowId = 0;
+        uint32_t mWindowId = 0; //< 윈도우 식별자
 
         RenderWindowCreateInfo mInfo;
 
@@ -28,8 +31,10 @@ namespace cpf {
         ~RenderWindow();
 
     public:
+        // 윈도우를 초기화합니다.
         void initialize(uint32_t id);
 
+        // 윈도우 버퍼를 교체합니다.
         void swapBuffers(uint32_t mask) override;
     };
 }
