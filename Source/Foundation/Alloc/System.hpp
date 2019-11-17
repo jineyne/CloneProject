@@ -40,5 +40,15 @@ namespace cpf {
             ptr->~T();
             Free(ptr);
         }
+
+        template <typename T, class ...Args>
+        static std::shared_ptr<T> SharedPtr(Args &&...args) {
+            return std::shared_ptr<T>(std::forward<Args>(args)...);
+        }
+
+        template <typename T, class ...Args>
+        static std::shared_ptr<T> MakeShared(Args &&...args) {
+            return SharedPtr<T>(Allocator::New<T>(std::forward<Args>(args)...));
+        }
     };
 }
