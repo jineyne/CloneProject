@@ -1,5 +1,7 @@
 #include "Application.hpp"
 
+#include "Manager/RenderWindowManager.hpp"
+
 #include "Debug/Debug.hpp"
 
 namespace cpf {
@@ -20,6 +22,7 @@ namespace cpf {
         mIsRunning = true;
 
         while (mIsRunning) {
+            RenderWindowManager::Instance().update();
         }
     }
 
@@ -33,7 +36,6 @@ namespace cpf {
 
     void Application::onStartUp() {
         initializeCore();
-
     }
 
     void Application::onShutDown() {
@@ -46,9 +48,13 @@ namespace cpf {
         }
 
         glfwSetErrorCallback(glfwErrorCallback);
+        RenderWindowManager::StartUp();
+
+        mPrimaryWindow = RenderWindowManager::Instance().initialize(mInfo.primaryWindowCreateInfo);
     }
 
     void Application::destroyCore() {
+        RenderWindowManager::ShutDown();
 
         glfwTerminate();
     }
