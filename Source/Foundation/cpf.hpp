@@ -12,5 +12,8 @@ namespace cpf {
 
     class RenderTarget;
     using HRenderTarget = SPtr<RenderTarget>;
+    class RenderWindow;
+    using HRenderWindow = SPtr<RenderWindow>;
+
     class Application;
 }

@@ -15,9 +15,11 @@ set(CPF_PREREQUISITES_INC
 set(CPF_PREREQUISITES_SRC)
 
 set(CPF_RENDERING_INC
-    "Rendering/RenderTarget.hpp")
+    "Rendering/RenderTarget.hpp"
+    "Rendering/RenderWindow.hpp")
 set(CPF_RENDERING_SRC
-    "Rendering/RenderTarget.cpp")
+    "Rendering/RenderTarget.cpp"
+    "Rendering/RenderWindow.cpp")
 
 set(CPF_STRING_INC
     "String/String.hpp")
