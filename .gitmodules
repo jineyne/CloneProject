@@ -4,3 +4,6 @@
 [submodule "Vender/stb"]
 	path = Vender/stb
 	url = https://github.com/jineyne/stb.git
+[submodule "Vender/glad"]
+	path = Vender/glad
+	url = https://github.com/jineyne/glad-cmake.git
