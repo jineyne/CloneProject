@@ -8,6 +8,11 @@ set(CPF_DEBUG_INC
 set(CPF_DEBUG_SRC
     "Debug/Debug.cpp")
 
+set(CPF_MANAGER_INC
+    "Manager/RenderWindowManager.hpp")
+set(CPF_MANAGER_SRC
+    "Manager/RenderWindowManager.cpp")
+
 set(CPF_PREREQUISITES_INC
     "Prerequisites/PlatformDefines.hpp"
     "Prerequisites/PrerequisitesUtil.hpp"
@@ -41,6 +46,7 @@ set(CPF_NOFILTER_SRC
 set(CPF_SRCS 
     ${CPF_ALLOC_INC} ${CPF_ALLOC_SRC}
     ${CPF_DEBUG_INC} ${CPF_DEBUG_SRC}
+    ${CPF_MANAGER_INC} ${CPF_MANAGER_SRC}
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
     ${CPF_RENDERING_INC} ${CPF_RENDERING_SRC}
     ${CPF_STRING_INC} ${CPF_STRING_SRC}
