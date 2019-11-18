@@ -1,7 +1,0 @@
-<map id="Source/Foundation/String/String.hpp" name="Source/Foundation/String/String.hpp">
-<area shape="rect" id="node3" href="$_prerequisites_util_8hpp.html" title="Prerequisites/Prerequisites\lUtil.hpp" alt="" coords="1295,95,1474,136"/>
-<area shape="rect" id="node5" href="$_platform_defines_8hpp.html" title="PlatformDefines.hpp" alt="" coords="1089,184,1230,211"/>
-<area shape="rect" id="node6" href="$_std_headers_8hpp.html" title="StdHeaders.hpp" alt="" coords="1255,184,1371,211"/>
-<area shape="rect" id="node39" href="$_system_8hpp.html" title="Alloc/System.hpp" alt="" coords="1395,184,1521,211"/>
-<area shape="rect" id="node40" href="$_non_copyable_8hpp.html" title="Utility/NonCopyable.hpp" alt="" coords="1545,184,1709,211"/>
-</map>
