@@ -14,9 +14,11 @@ set(CPF_MANAGER_SRC
     "Manager/RenderWindowManager.cpp")
 
 set(CPF_MATH_INC
-    "Math/Utility.hpp")
+    "Math/Utility.hpp"
+    "Math/Vector2.hpp")
 set(CPF_MATH_SRC
-    "Math/Utility.cpp")
+    "Math/Utility.cpp"
+    "Math/Vector2.cpp")
 
 set(CPF_PREREQUISITES_INC
     "Prerequisites/PlatformDefines.hpp"
