@@ -15,10 +15,12 @@ set(CPF_MANAGER_SRC
 
 set(CPF_MATH_INC
     "Math/Utility.hpp"
-    "Math/Vector2.hpp")
+    "Math/Vector2.hpp"
+    "Math/Vector3.hpp")
 set(CPF_MATH_SRC
     "Math/Utility.cpp"
-    "Math/Vector2.cpp")
+    "Math/Vector2.cpp"
+    "Math/Vector3.cpp")
 
 set(CPF_PREREQUISITES_INC
     "Prerequisites/PlatformDefines.hpp"
