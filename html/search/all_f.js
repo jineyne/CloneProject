@@ -1,13 +1,7 @@
 var searchData=
 [
-  ['shutdown',['ShutDown',['../classcpf_1_1_t_module.html#a61452801c61e2546b75a7a6a545e82ee',1,'cpf::TModule']]],
-  ['sptr',['SPtr',['../namespacecpf.html#a91e72db639307e12a24546a0eebb1a42',1,'cpf']]],
-  ['startup',['StartUp',['../classcpf_1_1_t_module.html#a02fbf3c4d28a3328e81b0e8d0bdd93b0',1,'cpf::TModule::StartUp(Args &amp;&amp;...args)'],['../classcpf_1_1_t_module.html#ac553266ad6255da045ef3f34b0f9bc16',1,'cpf::TModule::StartUp(Args &amp;&amp;...args)']]],
-  ['stdheaders_2ehpp',['StdHeaders.hpp',['../_std_headers_8hpp.html',1,'']]],
-  ['string',['String',['../namespacecpf.html#a4dbd6992c3ed4440ce7ed8982ff7ffea',1,'cpf']]],
-  ['string_2ecpp',['String.cpp',['../_string_8cpp.html',1,'']]],
-  ['string_2ehpp',['String.hpp',['../_string_8hpp.html',1,'']]],
-  ['stringstream',['StringStream',['../namespacecpf.html#a6e5583a51165e808f1a480563a2d98b2',1,'cpf']]],
-  ['stringutil',['StringUtil',['../classcpf_1_1_string_util.html',1,'cpf']]],
-  ['system_2ehpp',['System.hpp',['../_system_8hpp.html',1,'']]]
+  ['quaternion',['Quaternion',['../classcpf_1_1_quaternion.html',1,'cpf::Quaternion'],['../classcpf_1_1_quaternion.html#aae3cc98fcdb7a419a29db4ee988972bc',1,'cpf::Quaternion::Quaternion(float value=0.0f)'],['../classcpf_1_1_quaternion.html#ad50037ab0bea9e9ea33296f4ca081204',1,'cpf::Quaternion::Quaternion(float x, float y, float z, float w)'],['../classcpf_1_1_quaternion.html#a1667174c0626cdd7319cb4f5ec552db3',1,'cpf::Quaternion::Quaternion(const Vector3 &amp;axis, float angle)'],['../classcpf_1_1_quaternion.html#a480873e169c88e8e6a53b268cd3b2505',1,'cpf::Quaternion::Quaternion(float xAngle, float yAngle, float zAngle)']]],
+  ['quaternion_2ecpp',['Quaternion.cpp',['../_quaternion_8cpp.html',1,'']]],
+  ['quaternion_2ehpp',['Quaternion.hpp',['../_quaternion_8hpp.html',1,'']]],
+  ['quitrequest',['quitRequest',['../classcpf_1_1_application.html#ac5c5b81ebccee1f09d777a9fc200eca6',1,'cpf::Application']]]
 ];

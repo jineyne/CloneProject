@@ -1,4 +1,5 @@
 <map id="Source/Foundation/Application.hpp" name="Source/Foundation/Application.hpp">
 <area shape="rect" id="node2" href="$_application_8cpp.html" title="Source/Foundation/Application.cpp" alt="" coords="5,87,229,114"/>
-<area shape="rect" id="node3" href="$_game_8cpp.html" title="Source/Game/Sandbox\l/Game.cpp" alt="" coords="253,80,411,121"/>
+<area shape="rect" id="node3" href="$_render_window_manager_8cpp.html" title="Source/Foundation/Manager\l/RenderWindowManager.cpp" alt="" coords="254,80,445,121"/>
+<area shape="rect" id="node4" href="$_game_8cpp.html" title="Source/Game/Sandbox\l/Game.cpp" alt="" coords="469,80,627,121"/>
 </map>

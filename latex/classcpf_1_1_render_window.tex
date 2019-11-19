@@ -1,0 +1,172 @@
+\hypertarget{classcpf_1_1_render_window}{}\section{cpf\+:\+:Render\+Window 클래스 참조}
+\label{classcpf_1_1_render_window}\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+
+
+{\ttfamily \#include $<$Render\+Window.\+hpp$>$}
+
+
+
+cpf\+:\+:Render\+Window에 대한 상속 다이어그램 \+: 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classcpf_1_1_render_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cpf\+:\+:Render\+Window에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classcpf_1_1_render_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcpf_1_1_render_window_a9421d01e20c4efa5937b6d3bc418c18b}{Render\+Window} (const \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} \&info)
+\item 
+\hyperlink{classcpf_1_1_render_window_a1422898fc6458538f6665fa6555ef86c}{$\sim$\+Render\+Window} ()
+\item 
+void \hyperlink{classcpf_1_1_render_window_a173081ae0a9f72968e8ecf3461c22b3b}{initialize} (uint32\+\_\+t id)
+\item 
+void \hyperlink{classcpf_1_1_render_window_aebc9f2d43f5802a2affb26a2179312c9}{swap\+Buffers} (uint32\+\_\+t mask) override
+\end{DoxyCompactItemize}
+\subsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}{m\+Window\+Ptr}
+\item 
+uint32\+\_\+t \hyperlink{classcpf_1_1_render_window_af4d30f7fd51910725a814828ea9cc33e}{m\+Window\+Id} = 0
+\item 
+\hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} \hyperlink{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}{m\+Info}
+\end{DoxyCompactItemize}
+
+
+\subsection{상세한 설명}
+직접적으로 그려지는 윈도우입니다. 
+
+Render\+Window.\+hpp 파일의 22 번째 라인에서 정의되었습니다.
+
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\mbox{\Hypertarget{classcpf_1_1_render_window_a9421d01e20c4efa5937b6d3bc418c18b}\label{classcpf_1_1_render_window_a9421d01e20c4efa5937b6d3bc418c18b}} 
+\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}!Render\+Window@{Render\+Window}}
+\index{Render\+Window@{Render\+Window}!cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+\subsubsection{\texorpdfstring{Render\+Window()}{RenderWindow()}}
+{\footnotesize\ttfamily cpf\+::\+Render\+Window\+::\+Render\+Window (\begin{DoxyParamCaption}\item[{const \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} \&}]{info }\end{DoxyParamCaption})}
+
+
+
+Render\+Window.\+cpp 파일의 6 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+7         : \hyperlink{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}{mWindowPtr}(\textcolor{keyword}{nullptr}), \hyperlink{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}{mInfo}(info) \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_render_window_a1422898fc6458538f6665fa6555ef86c}\label{classcpf_1_1_render_window_a1422898fc6458538f6665fa6555ef86c}} 
+\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}!````~Render\+Window@{$\sim$\+Render\+Window}}
+\index{````~Render\+Window@{$\sim$\+Render\+Window}!cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Render\+Window()}{~RenderWindow()}}
+{\footnotesize\ttfamily cpf\+::\+Render\+Window\+::$\sim$\+Render\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Render\+Window.\+cpp 파일의 9 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+9 \{\}
+\end{DoxyCode}
+
+
+\subsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classcpf_1_1_render_window_a173081ae0a9f72968e8ecf3461c22b3b}\label{classcpf_1_1_render_window_a173081ae0a9f72968e8ecf3461c22b3b}} 
+\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}!initialize@{initialize}}
+\index{initialize@{initialize}!cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void cpf\+::\+Render\+Window\+::initialize (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Render\+Window.\+cpp 파일의 11 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+11                                              \{
+12         \hyperlink{classcpf_1_1_render_window_af4d30f7fd51910725a814828ea9cc33e}{mWindowId} = id;
+13 
+14         GLFWmonitor *monitor = \textcolor{keyword}{nullptr};
+15         \textcolor{keywordflow}{if} (\hyperlink{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}{mInfo}.\hyperlink{structcpf_1_1_render_window_create_info_a72ea6911da5c022c63670045041b86c3}{fullscreen}) \{
+16             monitor = glfwGetPrimaryMonitor();
+17         \}
+18         \hyperlink{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}{mWindowPtr} = glfwCreateWindow(\hyperlink{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}{mInfo}.\hyperlink{structcpf_1_1_render_window_create_info_a28983e1803a3065c8cc8beacb2b72f22}{width}, \hyperlink{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}{mInfo}.
+      \hyperlink{structcpf_1_1_render_window_create_info_a6af4056c0776858a053126de8c2b9011}{height}, \hyperlink{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}{mInfo}.\hyperlink{structcpf_1_1_render_window_create_info_a47f2dbdd922a53792e16bd650064c77e}{title}.c\_str(), monitor, \textcolor{keyword}{nullptr});
+19         glfwMakeContextCurrent(\hyperlink{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}{mWindowPtr});
+20         glfwSetWindowCloseCallback(\hyperlink{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}{mWindowPtr}, 
+      \hyperlink{classcpf_1_1_render_window_manager_a3b667bdac352e584a3dc6b8132054b36}{RenderWindowManager::WindowCloseRequest});
+21     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_render_window_aebc9f2d43f5802a2affb26a2179312c9}\label{classcpf_1_1_render_window_aebc9f2d43f5802a2affb26a2179312c9}} 
+\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}!swap\+Buffers@{swap\+Buffers}}
+\index{swap\+Buffers@{swap\+Buffers}!cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+\subsubsection{\texorpdfstring{swap\+Buffers()}{swapBuffers()}}
+{\footnotesize\ttfamily void cpf\+::\+Render\+Window\+::swap\+Buffers (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\hyperlink{classcpf_1_1_render_target_aaa9d8d7751c1cc33fbe896600ba0e459}{cpf\+::\+Render\+Target}를 구현.
+
+
+
+Render\+Window.\+cpp 파일의 23 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+23                                                 \{
+24         glfwSwapBuffers(\hyperlink{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}{mWindowPtr});
+25     \}
+\end{DoxyCode}
+
+
+\subsection{멤버 데이터 문서화}
+\mbox{\Hypertarget{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}\label{classcpf_1_1_render_window_ad3608b5ed5c1b0c5471f96e5c5199eb0}} 
+\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}!m\+Info@{m\+Info}}
+\index{m\+Info@{m\+Info}!cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+\subsubsection{\texorpdfstring{m\+Info}{mInfo}}
+{\footnotesize\ttfamily \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} cpf\+::\+Render\+Window\+::m\+Info\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Render\+Window.\+hpp 파일의 27 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcpf_1_1_render_window_af4d30f7fd51910725a814828ea9cc33e}\label{classcpf_1_1_render_window_af4d30f7fd51910725a814828ea9cc33e}} 
+\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}!m\+Window\+Id@{m\+Window\+Id}}
+\index{m\+Window\+Id@{m\+Window\+Id}!cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+\subsubsection{\texorpdfstring{m\+Window\+Id}{mWindowId}}
+{\footnotesize\ttfamily uint32\+\_\+t cpf\+::\+Render\+Window\+::m\+Window\+Id = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Render\+Window.\+hpp 파일의 25 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}\label{classcpf_1_1_render_window_a871b4de6be0b9fa29b9394e38c395a04}} 
+\index{cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}!m\+Window\+Ptr@{m\+Window\+Ptr}}
+\index{m\+Window\+Ptr@{m\+Window\+Ptr}!cpf\+::\+Render\+Window@{cpf\+::\+Render\+Window}}
+\subsubsection{\texorpdfstring{m\+Window\+Ptr}{mWindowPtr}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow$\ast$ cpf\+::\+Render\+Window\+::m\+Window\+Ptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Render\+Window.\+hpp 파일의 24 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Foundation/\+Rendering/\hyperlink{_render_window_8hpp}{Render\+Window.\+hpp}\item 
+Source/\+Foundation/\+Rendering/\hyperlink{_render_window_8cpp}{Render\+Window.\+cpp}\end{DoxyCompactItemize}

@@ -11,11 +11,29 @@ struct \hyperlink{structcpf_1_1_application_create_info}{Application\+Create\+In
 \item 
 class \hyperlink{classcpf_1_1_debug}{Debug}
 \item 
+class \hyperlink{classcpf_1_1_math}{Math}
+\item 
+class \hyperlink{classcpf_1_1_matrix3}{Matrix3}
+\item 
 class \hyperlink{classcpf_1_1_non_copyable}{Non\+Copyable}
+\item 
+class \hyperlink{classcpf_1_1_quaternion}{Quaternion}
+\item 
+class \hyperlink{classcpf_1_1_render_target}{Render\+Target}
+\item 
+class \hyperlink{classcpf_1_1_render_window}{Render\+Window}
+\item 
+struct \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info}
+\item 
+class \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}
 \item 
 class \hyperlink{classcpf_1_1_string_util}{String\+Util}
 \item 
 class \hyperlink{classcpf_1_1_t_module}{T\+Module}
+\item 
+class \hyperlink{classcpf_1_1_t_vector2}{T\+Vector2}
+\item 
+class \hyperlink{classcpf_1_1_t_vector3}{T\+Vector3}
 \end{DoxyCompactItemize}
 \subsection*{타입정의}
 \begin{DoxyCompactItemize}
@@ -24,7 +42,17 @@ class \hyperlink{classcpf_1_1_t_module}{T\+Module}
 \item 
 {\footnotesize template$<$class T $>$ }\\using \hyperlink{namespacecpf_ae8ac5e55927cc357960f1d47c19fe0b9}{U\+Ptr} = std\+::unique\+\_\+ptr$<$ T $>$
 \item 
-using \hyperlink{namespacecpf_a3f0ea2ea743b0adb7c12e52131d485b5}{H\+Render\+Target} = \hyperlink{namespacecpf_a91e72db639307e12a24546a0eebb1a42}{S\+Ptr}$<$ Render\+Target $>$
+using \hyperlink{namespacecpf_a3f0ea2ea743b0adb7c12e52131d485b5}{H\+Render\+Target} = \hyperlink{namespacecpf_a91e72db639307e12a24546a0eebb1a42}{S\+Ptr}$<$ \hyperlink{classcpf_1_1_render_target}{Render\+Target} $>$
+\item 
+using \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} = \hyperlink{namespacecpf_a91e72db639307e12a24546a0eebb1a42}{S\+Ptr}$<$ \hyperlink{classcpf_1_1_render_window}{Render\+Window} $>$
+\item 
+using \hyperlink{namespacecpf_a2f1e39acef158fd0946044e6ea9547fe}{Int\+Vector2} = \hyperlink{classcpf_1_1_t_vector2}{T\+Vector2}$<$ int $>$
+\item 
+using \hyperlink{namespacecpf_a53b08b8672bd40979ad59ad208cc9970}{Vector2} = \hyperlink{classcpf_1_1_t_vector2}{T\+Vector2}$<$ float $>$
+\item 
+using \hyperlink{namespacecpf_a4308e51999664b7c52e0a33d6e6af1a6}{Int\+Vector3} = \hyperlink{classcpf_1_1_t_vector3}{T\+Vector3}$<$ int $>$
+\item 
+using \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} = \hyperlink{classcpf_1_1_t_vector3}{T\+Vector3}$<$ float $>$
 \item 
 {\footnotesize template$<$typename T $>$ }\\using \hyperlink{namespacecpf_ac91c8c57a370a5bef21ac23f876ad536}{Basic\+String} = std\+::basic\+\_\+string$<$ T, std\+::char\+\_\+traits$<$ T $>$ $>$
 \item 
@@ -45,6 +73,15 @@ using \hyperlink{namespacecpf_a7e79dec7a6790331bee7ef1e85dafba6}{W\+String\+Stre
 using \hyperlink{namespacecpf_a401e80bf9227c14c3f1f27121ba489d1}{U16\+String\+Stream} = \hyperlink{namespacecpf_a1fe334b3d2422535a1cfe51785d98cb8}{Basic\+String\+Stream}$<$ char16\+\_\+t $>$
 \item 
 using \hyperlink{namespacecpf_a7e95b195d831b69d8e661dd685128097}{U32\+String\+Stream} = \hyperlink{namespacecpf_a1fe334b3d2422535a1cfe51785d98cb8}{Basic\+String\+Stream}$<$ char32\+\_\+t $>$
+\end{DoxyCompactItemize}
+\subsection*{함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecpf_a795ee006ebcf092f9fa44444e150544e}{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT} (\hyperlink{_platform_defines_8hpp_a1ca888bd091694c05472e1b91df1a97b}{D\+L\+L\+\_\+\+E\+X\+P\+O\+RT}, \hyperlink{classcpf_1_1_application}{Application})
+\item 
+void \hyperlink{namespacecpf_a2aa8b9856909234833858da9b6c466dd}{glfw\+Error\+Callback} (int error, const char $\ast$description)
+\item 
+\hyperlink{namespacecpf_a1167b3088599fca20112d444efd29154}{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT} (\hyperlink{_platform_defines_8hpp_a1ca888bd091694c05472e1b91df1a97b}{D\+L\+L\+\_\+\+E\+X\+P\+O\+RT}, \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager})
 \end{DoxyCompactItemize}
 
 
@@ -75,11 +112,41 @@ String.\+hpp 파일의 12 번째 라인에서 정의되었습니다.
 \index{cpf@{cpf}!H\+Render\+Target@{H\+Render\+Target}}
 \index{H\+Render\+Target@{H\+Render\+Target}!cpf@{cpf}}
 \subsubsection{\texorpdfstring{H\+Render\+Target}{HRenderTarget}}
-{\footnotesize\ttfamily using \hyperlink{namespacecpf_a3f0ea2ea743b0adb7c12e52131d485b5}{cpf\+::\+H\+Render\+Target} = typedef \hyperlink{namespacecpf_a91e72db639307e12a24546a0eebb1a42}{S\+Ptr}$<$Render\+Target$>$}
+{\footnotesize\ttfamily using \hyperlink{namespacecpf_a3f0ea2ea743b0adb7c12e52131d485b5}{cpf\+::\+H\+Render\+Target} = typedef \hyperlink{namespacecpf_a91e72db639307e12a24546a0eebb1a42}{S\+Ptr}$<$\hyperlink{classcpf_1_1_render_target}{Render\+Target}$>$}
 
 
 
 cpf.\+hpp 파일의 14 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}\label{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}} 
+\index{cpf@{cpf}!H\+Render\+Window@{H\+Render\+Window}}
+\index{H\+Render\+Window@{H\+Render\+Window}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{H\+Render\+Window}{HRenderWindow}}
+{\footnotesize\ttfamily using \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{cpf\+::\+H\+Render\+Window} = typedef \hyperlink{namespacecpf_a91e72db639307e12a24546a0eebb1a42}{S\+Ptr}$<$\hyperlink{classcpf_1_1_render_window}{Render\+Window}$>$}
+
+
+
+cpf.\+hpp 파일의 16 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacecpf_a2f1e39acef158fd0946044e6ea9547fe}\label{namespacecpf_a2f1e39acef158fd0946044e6ea9547fe}} 
+\index{cpf@{cpf}!Int\+Vector2@{Int\+Vector2}}
+\index{Int\+Vector2@{Int\+Vector2}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{Int\+Vector2}{IntVector2}}
+{\footnotesize\ttfamily using \hyperlink{namespacecpf_a2f1e39acef158fd0946044e6ea9547fe}{cpf\+::\+Int\+Vector2} = typedef \hyperlink{classcpf_1_1_t_vector2}{T\+Vector2}$<$int$>$}
+
+
+
+Vector2.\+hpp 파일의 112 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacecpf_a4308e51999664b7c52e0a33d6e6af1a6}\label{namespacecpf_a4308e51999664b7c52e0a33d6e6af1a6}} 
+\index{cpf@{cpf}!Int\+Vector3@{Int\+Vector3}}
+\index{Int\+Vector3@{Int\+Vector3}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{Int\+Vector3}{IntVector3}}
+{\footnotesize\ttfamily using \hyperlink{namespacecpf_a4308e51999664b7c52e0a33d6e6af1a6}{cpf\+::\+Int\+Vector3} = typedef \hyperlink{classcpf_1_1_t_vector3}{T\+Vector3}$<$int$>$}
+
+
+
+Vector3.\+hpp 파일의 123 번째 라인에서 정의되었습니다.
 
 \mbox{\Hypertarget{namespacecpf_a91e72db639307e12a24546a0eebb1a42}\label{namespacecpf_a91e72db639307e12a24546a0eebb1a42}} 
 \index{cpf@{cpf}!S\+Ptr@{S\+Ptr}}
@@ -163,6 +230,26 @@ using \hyperlink{namespacecpf_ae8ac5e55927cc357960f1d47c19fe0b9}{cpf\+::\+U\+Ptr
 
 cpf.\+hpp 파일의 11 번째 라인에서 정의되었습니다.
 
+\mbox{\Hypertarget{namespacecpf_a53b08b8672bd40979ad59ad208cc9970}\label{namespacecpf_a53b08b8672bd40979ad59ad208cc9970}} 
+\index{cpf@{cpf}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{Vector2}{Vector2}}
+{\footnotesize\ttfamily using \hyperlink{namespacecpf_a53b08b8672bd40979ad59ad208cc9970}{cpf\+::\+Vector2} = typedef \hyperlink{classcpf_1_1_t_vector2}{T\+Vector2}$<$float$>$}
+
+
+
+Vector2.\+hpp 파일의 113 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{namespacecpf_a50675f369f5384c7543c7672e3441ba0}\label{namespacecpf_a50675f369f5384c7543c7672e3441ba0}} 
+\index{cpf@{cpf}!Vector3@{Vector3}}
+\index{Vector3@{Vector3}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{Vector3}{Vector3}}
+{\footnotesize\ttfamily using \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{cpf\+::\+Vector3} = typedef \hyperlink{classcpf_1_1_t_vector3}{T\+Vector3}$<$float$>$}
+
+
+
+Vector3.\+hpp 파일의 124 번째 라인에서 정의되었습니다.
+
 \mbox{\Hypertarget{namespacecpf_ad36115a5fb55fb1cc257eeab6aed2d7a}\label{namespacecpf_ad36115a5fb55fb1cc257eeab6aed2d7a}} 
 \index{cpf@{cpf}!W\+String@{W\+String}}
 \index{W\+String@{W\+String}!cpf@{cpf}}
@@ -182,4 +269,35 @@ String.\+hpp 파일의 15 번째 라인에서 정의되었습니다.
 
 
 String.\+hpp 파일의 20 번째 라인에서 정의되었습니다.
+
+
+
+\subsection{함수 문서화}
+\mbox{\Hypertarget{namespacecpf_a2aa8b9856909234833858da9b6c466dd}\label{namespacecpf_a2aa8b9856909234833858da9b6c466dd}} 
+\index{cpf@{cpf}!glfw\+Error\+Callback@{glfw\+Error\+Callback}}
+\index{glfw\+Error\+Callback@{glfw\+Error\+Callback}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{glfw\+Error\+Callback()}{glfwErrorCallback()}}
+{\footnotesize\ttfamily void cpf\+::glfw\+Error\+Callback (\begin{DoxyParamCaption}\item[{int}]{error,  }\item[{const char $\ast$}]{description }\end{DoxyParamCaption})}
+
+
+
+Application.\+cpp 파일의 11 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+11                                                                \{
+12         Debug::LogError(description);
+13     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacecpf_a1167b3088599fca20112d444efd29154}\label{namespacecpf_a1167b3088599fca20112d444efd29154}} 
+\index{cpf@{cpf}!T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT@{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT}}
+\index{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT@{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T()}{TMODULE\_IMPLEMENT()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily cpf\+::\+T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT (\begin{DoxyParamCaption}\item[{\hyperlink{_platform_defines_8hpp_a1ca888bd091694c05472e1b91df1a97b}{D\+L\+L\+\_\+\+E\+X\+P\+O\+RT}}]{,  }\item[{\hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacecpf_a795ee006ebcf092f9fa44444e150544e}\label{namespacecpf_a795ee006ebcf092f9fa44444e150544e}} 
+\index{cpf@{cpf}!T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT@{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT}}
+\index{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT@{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT}!cpf@{cpf}}
+\subsubsection{\texorpdfstring{T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+N\+T()}{TMODULE\_IMPLEMENT()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily cpf\+::\+T\+M\+O\+D\+U\+L\+E\+\_\+\+I\+M\+P\+L\+E\+M\+E\+NT (\begin{DoxyParamCaption}\item[{\hyperlink{_platform_defines_8hpp_a1ca888bd091694c05472e1b91df1a97b}{D\+L\+L\+\_\+\+E\+X\+P\+O\+RT}}]{,  }\item[{\hyperlink{classcpf_1_1_application}{Application}}]{ }\end{DoxyParamCaption})}
 

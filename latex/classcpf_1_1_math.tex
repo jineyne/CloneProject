@@ -1,0 +1,139 @@
+\hypertarget{classcpf_1_1_math}{}\section{cpf\+:\+:Math 클래스 참조}
+\label{classcpf_1_1_math}\index{cpf\+::\+Math@{cpf\+::\+Math}}
+
+
+{\ttfamily \#include $<$Math.\+hpp$>$}
+
+
+
+cpf\+:\+:Math에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=140pt]{classcpf_1_1_math__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{정적 Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\static T \hyperlink{classcpf_1_1_math_af254e4be01c64cf73906a0edf3c091e2}{Clamp} (T val, T min, T max)
+\item 
+{\footnotesize template$<$typename T $>$ }\\static T \hyperlink{classcpf_1_1_math_a33cf05f577c2f756b37478de7a6817bb}{Lerp} (T min, T max, T amount)
+\item 
+{\footnotesize template$<$typename T $>$ }\\static T \hyperlink{classcpf_1_1_math_aabd6b0e775e2a0e6eea07ab9be0bf60e}{Max} (T a, T b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\static T \hyperlink{classcpf_1_1_math_a182737f1c3c7268808951fffb3287293}{Min} (T a, T b)
+\end{DoxyCompactItemize}
+\subsection*{정적 Public 속성}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{classcpf_1_1_math_ad004555e859d1018bd7778120cc83a78}{PI} = 3.\+14159265358979323846
+\end{DoxyCompactItemize}
+
+
+\subsection{상세한 설명}
+기타 수학 함수들입니다. 
+
+Math.\+hpp 파일의 9 번째 라인에서 정의되었습니다.
+
+
+
+\subsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classcpf_1_1_math_af254e4be01c64cf73906a0edf3c091e2}\label{classcpf_1_1_math_af254e4be01c64cf73906a0edf3c091e2}} 
+\index{cpf\+::\+Math@{cpf\+::\+Math}!Clamp@{Clamp}}
+\index{Clamp@{Clamp}!cpf\+::\+Math@{cpf\+::\+Math}}
+\subsubsection{\texorpdfstring{Clamp()}{Clamp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static T cpf\+::\+Math\+::\+Clamp (\begin{DoxyParamCaption}\item[{T}]{val,  }\item[{T}]{min,  }\item[{T}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+값을 최솟값과 최대값 사이로 제한합니다. 
+\begin{DoxyParams}{매개변수}
+{\em val} & 제한시킬 값 \\
+\hline
+{\em min} & 최저값 \\
+\hline
+{\em max} & 최대값 \\
+\hline
+\end{DoxyParams}
+
+
+Math.\+hpp 파일의 20 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+20                                             \{
+21             val = \hyperlink{classcpf_1_1_math_aabd6b0e775e2a0e6eea07ab9be0bf60e}{Max}(val, min);
+22             val = \hyperlink{classcpf_1_1_math_a182737f1c3c7268808951fffb3287293}{Min}(val, max);
+23         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_math_a33cf05f577c2f756b37478de7a6817bb}\label{classcpf_1_1_math_a33cf05f577c2f756b37478de7a6817bb}} 
+\index{cpf\+::\+Math@{cpf\+::\+Math}!Lerp@{Lerp}}
+\index{Lerp@{Lerp}!cpf\+::\+Math@{cpf\+::\+Math}}
+\subsubsection{\texorpdfstring{Lerp()}{Lerp()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static T cpf\+::\+Math\+::\+Lerp (\begin{DoxyParamCaption}\item[{T}]{min,  }\item[{T}]{max,  }\item[{T}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+min max 사이중 amount 만큼의 위치를 계산합니다. 
+
+Math.\+hpp 파일의 29 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+29                                               \{
+30             \textcolor{keywordflow}{return} min + (max - min) * amount;
+31         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_math_aabd6b0e775e2a0e6eea07ab9be0bf60e}\label{classcpf_1_1_math_aabd6b0e775e2a0e6eea07ab9be0bf60e}} 
+\index{cpf\+::\+Math@{cpf\+::\+Math}!Max@{Max}}
+\index{Max@{Max}!cpf\+::\+Math@{cpf\+::\+Math}}
+\subsubsection{\texorpdfstring{Max()}{Max()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static T cpf\+::\+Math\+::\+Max (\begin{DoxyParamCaption}\item[{T}]{a,  }\item[{T}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Math.\+hpp 파일의 35 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+35                                \{
+36             \textcolor{keywordflow}{return} (a > b) ? a : b;
+37         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_math_a182737f1c3c7268808951fffb3287293}\label{classcpf_1_1_math_a182737f1c3c7268808951fffb3287293}} 
+\index{cpf\+::\+Math@{cpf\+::\+Math}!Min@{Min}}
+\index{Min@{Min}!cpf\+::\+Math@{cpf\+::\+Math}}
+\subsubsection{\texorpdfstring{Min()}{Min()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static T cpf\+::\+Math\+::\+Min (\begin{DoxyParamCaption}\item[{T}]{a,  }\item[{T}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Math.\+hpp 파일의 41 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+41                                \{
+42             \textcolor{keywordflow}{return} (a > b) ? b : a;
+43         \}
+\end{DoxyCode}
+
+
+\subsection{멤버 데이터 문서화}
+\mbox{\Hypertarget{classcpf_1_1_math_ad004555e859d1018bd7778120cc83a78}\label{classcpf_1_1_math_ad004555e859d1018bd7778120cc83a78}} 
+\index{cpf\+::\+Math@{cpf\+::\+Math}!PI@{PI}}
+\index{PI@{PI}!cpf\+::\+Math@{cpf\+::\+Math}}
+\subsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily double cpf\+::\+Math\+::\+PI = 3.\+14159265358979323846\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Math.\+hpp 파일의 11 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Foundation/\+Math/\hyperlink{_math_8hpp}{Math.\+hpp}\item 
+Source/\+Foundation/\+Math/\hyperlink{_math_8cpp}{Math.\+cpp}\end{DoxyCompactItemize}

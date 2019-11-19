@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['initializecore',['initializeCore',['../classcpf_1_1_application.html#a676898244f732414360ced11ed65379c',1,'cpf::Application']]],
-  ['instance',['Instance',['../classcpf_1_1_t_module.html#ac8065254584cb0a6656c42f96859d190',1,'cpf::TModule']]],
-  ['isdestroyed',['IsDestroyed',['../classcpf_1_1_t_module.html#a9f70f0a70ac59b13b7a874f82c877337',1,'cpf::TModule']]],
-  ['isrunning',['IsRunning',['../classcpf_1_1_t_module.html#acd38943803d522ba6dcf7f0871b2f502',1,'cpf::TModule']]],
-  ['isstartedup',['IsStartedUp',['../classcpf_1_1_t_module.html#a73732afee7131dad652bf3e00c75cef9',1,'cpf::TModule']]]
+  ['height',['height',['../structcpf_1_1_render_window_create_info.html#a6af4056c0776858a053126de8c2b9011',1,'cpf::RenderWindowCreateInfo']]],
+  ['hrendertarget',['HRenderTarget',['../namespacecpf.html#a3f0ea2ea743b0adb7c12e52131d485b5',1,'cpf']]],
+  ['hrenderwindow',['HRenderWindow',['../namespacecpf.html#af5ffcc39bb6465427fc3b91366c917f6',1,'cpf']]]
 ];

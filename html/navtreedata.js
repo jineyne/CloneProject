@@ -6,6 +6,7 @@ var NAVTREE =
       [ "네임스페이스 목록", "namespaces.html", "namespaces" ],
       [ "네임스페이스 멤버", "namespacemembers.html", [
         [ "모두", "namespacemembers.html", null ],
+        [ "함수", "namespacemembers_func.html", null ],
         [ "타입정의", "namespacemembers_type.html", null ]
       ] ]
     ] ],
@@ -16,7 +17,8 @@ var NAVTREE =
       [ "클래스 멤버", "functions.html", [
         [ "모두", "functions.html", null ],
         [ "함수", "functions_func.html", null ],
-        [ "변수", "functions_vars.html", null ]
+        [ "변수", "functions_vars.html", null ],
+        [ "관련된 함수들", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "파일들", null, [
@@ -32,7 +34,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_application_8cpp.html"
+"_application_8cpp.html",
+"classcpf_1_1_t_vector3.html#a32e8331dbaec9ff1cc18982c0c847ebe"
 ];
 
 var SYNCONMSG = '패널 동기화를 비활성화하기 위해 클릭하십시오';

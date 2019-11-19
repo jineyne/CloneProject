@@ -1,0 +1,549 @@
+\hypertarget{classcpf_1_1_quaternion}{}\section{cpf\+:\+:Quaternion 클래스 참조}
+\label{classcpf_1_1_quaternion}\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+
+
+{\ttfamily \#include $<$Quaternion.\+hpp$>$}
+
+
+
+cpf\+:\+:Quaternion에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classcpf_1_1_quaternion__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion} (float value=0.\+0f)
+\item 
+\hyperlink{classcpf_1_1_quaternion_ad50037ab0bea9e9ea33296f4ca081204}{Quaternion} (float \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x}, float \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y}, float \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z}, float \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w})
+\item 
+\hyperlink{classcpf_1_1_quaternion_a1667174c0626cdd7319cb4f5ec552db3}{Quaternion} (const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&axis, float angle)
+\item 
+\hyperlink{classcpf_1_1_quaternion_a480873e169c88e8e6a53b268cd3b2505}{Quaternion} (float x\+Angle, float y\+Angle, float z\+Angle)
+\item 
+void \hyperlink{classcpf_1_1_quaternion_a7d0860d74452a6b5de4ea70357bf3d95}{from\+Axis\+Angle} (const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&axis, float radian)
+\item 
+void \hyperlink{classcpf_1_1_quaternion_ae9fbd4524f10dd2b2cd6108cf6adbd22}{from\+Axis} (const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&x\+Axis, const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&y\+Axis, const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&z\+Axis)
+\item 
+void \hyperlink{classcpf_1_1_quaternion_a7cf9179b0d364d55c501666af142086a}{from\+Euler\+Angles} (float x\+Angle, float y\+Angle, float \&z\+Angle)
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_a9e55ee3dded0a62bd7374bd058c51ec9}{operator+} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs) const
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_aa16967dd4f4d49018ef64e5b0e88b3fd}{operator-\/} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs) const
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_a6f21995cdf9bfc8892b41f64e88c7fac}{operator$\ast$} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs) const
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_a248bcc49e9e22d152e8e0dad9b5346da}{operator$\ast$} (float rhs) const
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_a17d09acedf7ab8fd7dd125bedf395662}{operator/} (float rhs) const
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_a3334827293427e76daab54a9ab3ca2c3}{operator-\/} () const
+\item 
+bool \hyperlink{classcpf_1_1_quaternion_ac8b812eebaf1a27cdd844267bb19cf61}{operator==} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs) const
+\item 
+bool \hyperlink{classcpf_1_1_quaternion_a9a1695acee02b317fb4140a2e63e8132}{operator!=} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs) const
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \& \hyperlink{classcpf_1_1_quaternion_ac4720430dfd27c0f77b8eaa0f3439e55}{operator+=} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs)
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \& \hyperlink{classcpf_1_1_quaternion_a02f597bd2b0d9c3c7410e409f7f63090}{operator-\/=} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs)
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \& \hyperlink{classcpf_1_1_quaternion_a7dde75afc2e3e840efcd7cd782929c3e}{operator$\ast$=} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs)
+\item 
+float \hyperlink{classcpf_1_1_quaternion_af5daf9d5ace6555f220e3af815c7cc5c}{dot} (const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&quat) const
+\item 
+float \hyperlink{classcpf_1_1_quaternion_aa49b8cb06b215e91f36fb2ec0d8741ed}{normalize} (float tolerance=1e-\/04f)
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_a0cae7c07c095413e9eaf91dc7400ace2}{inverse} () const
+\end{DoxyCompactItemize}
+\subsection*{Public 속성}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x}
+\item 
+float \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y}
+\item 
+float \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z}
+\item 
+float \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcpf_1_1_quaternion}{Quaternion} \hyperlink{classcpf_1_1_quaternion_ac4687317eafd9a3cfcfc56ed1af8299e}{operator$\ast$} (float lhs, const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&rhs)
+\end{DoxyCompactItemize}
+
+
+\subsection{상세한 설명}
+사원소(\+Quaternion)은 회전을 표현하기 위해 사용됩니다. 
+
+Quaternion.\+hpp 파일의 11 번째 라인에서 정의되었습니다.
+
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}\label{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily cpf\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{float}]{value = {\ttfamily 0.0f} }\end{DoxyParamCaption})}
+
+원소들을 주어진 인자로 초기화한다. 
+
+Quaternion.\+cpp 파일의 4 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+4 : \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x}(val), \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y}(val), \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z}(val), \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w}(val) \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_ad50037ab0bea9e9ea33296f4ca081204}\label{classcpf_1_1_quaternion_ad50037ab0bea9e9ea33296f4ca081204}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily cpf\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z,  }\item[{float}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+원소들을 주어진 인자들로 초기화한다. 
+
+Quaternion.\+hpp 파일의 24 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+25             : \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x}(\hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x}), \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y}(\hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y}), \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z}(\hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z}), \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w}(\hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w}) \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a1667174c0626cdd7319cb4f5ec552db3}\label{classcpf_1_1_quaternion_a1667174c0626cdd7319cb4f5ec552db3}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily cpf\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&}]{axis,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+원소들을 주어진 Axis\+Angle로 초기화한다. 
+
+Quaternion.\+hpp 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+30                                                      \{
+31             \hyperlink{classcpf_1_1_quaternion_a7d0860d74452a6b5de4ea70357bf3d95}{fromAxisAngle}(axis, angle);
+32         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a480873e169c88e8e6a53b268cd3b2505}\label{classcpf_1_1_quaternion_a480873e169c88e8e6a53b268cd3b2505}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily cpf\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{float}]{x\+Angle,  }\item[{float}]{y\+Angle,  }\item[{float}]{z\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+원소들을 주어진 Euler\+Angle들로 초기화한다. 
+
+Quaternion.\+hpp 파일의 37 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+37                                                              \{
+38             \hyperlink{classcpf_1_1_quaternion_a7cf9179b0d364d55c501666af142086a}{fromEulerAngles}(xAngle, yAngle, zAngle);
+39         \}
+\end{DoxyCode}
+
+
+\subsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_af5daf9d5ace6555f220e3af815c7cc5c}\label{classcpf_1_1_quaternion_af5daf9d5ace6555f220e3af815c7cc5c}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!dot@{dot}}
+\index{dot@{dot}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{dot()}{dot()}}
+{\footnotesize\ttfamily float cpf\+::\+Quaternion\+::dot (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{quat }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 125 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+125                                                 \{
+126             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * quat.x + \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * quat.y + \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * quat.z + \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * quat.w;
+127         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_ae9fbd4524f10dd2b2cd6108cf6adbd22}\label{classcpf_1_1_quaternion_ae9fbd4524f10dd2b2cd6108cf6adbd22}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!from\+Axis@{from\+Axis}}
+\index{from\+Axis@{from\+Axis}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{from\+Axis()}{fromAxis()}}
+{\footnotesize\ttfamily void cpf\+::\+Quaternion\+::from\+Axis (\begin{DoxyParamCaption}\item[{const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&}]{x\+Axis,  }\item[{const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&}]{y\+Axis,  }\item[{const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&}]{z\+Axis }\end{DoxyParamCaption})}
+
+
+
+Quaternion.\+cpp 파일의 16 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+16                                                                                               \{
+17         \textcolor{comment}{// TODO:}
+18     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a7d0860d74452a6b5de4ea70357bf3d95}\label{classcpf_1_1_quaternion_a7d0860d74452a6b5de4ea70357bf3d95}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!from\+Axis\+Angle@{from\+Axis\+Angle}}
+\index{from\+Axis\+Angle@{from\+Axis\+Angle}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{from\+Axis\+Angle()}{fromAxisAngle()}}
+{\footnotesize\ttfamily void cpf\+::\+Quaternion\+::from\+Axis\+Angle (\begin{DoxyParamCaption}\item[{const \hyperlink{namespacecpf_a50675f369f5384c7543c7672e3441ba0}{Vector3} \&}]{axis,  }\item[{float}]{radian }\end{DoxyParamCaption})}
+
+Axis 앵글로 Quaternion을 초기화합니다. 
+
+Quaternion.\+cpp 파일의 6 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+6                                                                     \{
+7         \textcolor{keywordtype}{float} half = 0.5f * radian;
+8         \textcolor{keywordtype}{float} s = std::sin(half);
+9 
+10         \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} = s * axis.x;
+11         \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} = s * axis.y;
+12         \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} = s * axis.z;
+13         \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} = std::cos(half);
+14     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a7cf9179b0d364d55c501666af142086a}\label{classcpf_1_1_quaternion_a7cf9179b0d364d55c501666af142086a}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!from\+Euler\+Angles@{from\+Euler\+Angles}}
+\index{from\+Euler\+Angles@{from\+Euler\+Angles}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{from\+Euler\+Angles()}{fromEulerAngles()}}
+{\footnotesize\ttfamily void cpf\+::\+Quaternion\+::from\+Euler\+Angles (\begin{DoxyParamCaption}\item[{float}]{x\+Angle,  }\item[{float}]{y\+Angle,  }\item[{float \&}]{z\+Angle }\end{DoxyParamCaption})}
+
+
+
+Quaternion.\+cpp 파일의 20 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+20                                                                               \{
+21         \textcolor{keywordtype}{float} halfX = xAngle * 0.5f;
+22         \textcolor{keywordtype}{float} halfY = yAngle * 0.5f;
+23         \textcolor{keywordtype}{float} halfZ = zAngle * 0.5f;
+24 
+25         \textcolor{keywordtype}{float} cx = std::cos(halfX);
+26         \textcolor{keywordtype}{float} sx = std::sin(halfX);
+27 
+28         \textcolor{keywordtype}{float} cy = std::cos(halfY);
+29         \textcolor{keywordtype}{float} sy = std::sin(halfY);
+30 
+31         \textcolor{keywordtype}{float} cz = std::cos(halfZ);
+32         \textcolor{keywordtype}{float} sz = std::sin(halfZ);
+33 
+34         \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion} quatX(sx, 0.0f, 0.0f, cx);
+35         \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion} quatY(0.0f, sy, 0.0f, cy);
+36         \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion} quatZ(0.0f, 0.0f, sz, cz);
+37 
+38         *\textcolor{keyword}{this} = quatZ * (quatX * quatY);
+39     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a0cae7c07c095413e9eaf91dc7400ace2}\label{classcpf_1_1_quaternion_a0cae7c07c095413e9eaf91dc7400ace2}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!inverse@{inverse}}
+\index{inverse@{inverse}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} cpf\+::\+Quaternion\+::inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Quaternion.\+cpp 파일의 41 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+41                                          \{
+42         \textcolor{keywordtype}{float} fNorm = \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} + \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} + \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} + \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w};
+43         \textcolor{keywordflow}{if} (fNorm > 0.0f) \{
+44             \textcolor{keywordtype}{float} fInvNorm = 1.0f / fNorm;
+45             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}(-\hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * fInvNorm, -\hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * fInvNorm, -\hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * fInvNorm, w * fInvNorm);
+46         \} \textcolor{keywordflow}{else} \{
+47             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}();
+48         \}
+49     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_aa49b8cb06b215e91f36fb2ec0d8741ed}\label{classcpf_1_1_quaternion_aa49b8cb06b215e91f36fb2ec0d8741ed}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!normalize@{normalize}}
+\index{normalize@{normalize}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily float cpf\+::\+Quaternion\+::normalize (\begin{DoxyParamCaption}\item[{float}]{tolerance = {\ttfamily 1e-\/04f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 130 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+130                                                   \{
+131             \textcolor{keywordtype}{float} len = std::sqrt(\hyperlink{classcpf_1_1_quaternion_af5daf9d5ace6555f220e3af815c7cc5c}{dot}(*\textcolor{keyword}{this}));
+132             \textcolor{keywordflow}{if} (len > (tolerance * tolerance)) \{
+133                 *\textcolor{keyword}{this} = *\textcolor{keyword}{this} *(1.0f / len);
+134             \}
+135 
+136             \textcolor{keywordflow}{return} len;
+137         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a9a1695acee02b317fb4140a2e63e8132}\label{classcpf_1_1_quaternion_a9a1695acee02b317fb4140a2e63e8132}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool cpf\+::\+Quaternion\+::operator!= (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 87 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+87                                                      \{
+88             \textcolor{keywordflow}{return} !(*\textcolor{keyword}{this} == rhs);
+89         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a6f21995cdf9bfc8892b41f64e88c7fac}\label{classcpf_1_1_quaternion_a6f21995cdf9bfc8892b41f64e88c7fac}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} cpf\+::\+Quaternion\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 59 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+59                                                           \{
+60             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion} (
+61                     \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.x + \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.w + \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.z - \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.y,
+62                     \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.y + \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.w + \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.x - \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.z,
+63                     \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.z + \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.w + \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.y - \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.x,
+64                     \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.w - \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.x - \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.y - \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.z
+65             );
+66         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a248bcc49e9e22d152e8e0dad9b5346da}\label{classcpf_1_1_quaternion_a248bcc49e9e22d152e8e0dad9b5346da}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} cpf\+::\+Quaternion\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{float}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 68 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+68                                               \{
+69             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}(rhs * \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x}, rhs * \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y}, rhs * \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z}, rhs * \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w});
+70         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a7dde75afc2e3e840efcd7cd782929c3e}\label{classcpf_1_1_quaternion_a7dde75afc2e3e840efcd7cd782929c3e}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion}\& cpf\+::\+Quaternion\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 109 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+109                                                       \{
+110             \textcolor{keywordtype}{float} newX = \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.x + \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.w + \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.z - \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.y;
+111             \textcolor{keywordtype}{float} newY = \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.y + \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.w + \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.x - \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.z;
+112             \textcolor{keywordtype}{float} newZ = \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.z + \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.w + \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.y - \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.x;
+113             \textcolor{keywordtype}{float} newW = \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * rhs.w - \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * rhs.x - \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * rhs.y - \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * rhs.z;
+114 
+115             \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} = newX; \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} = newY; \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} = newZ; \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} = newW;
+116 
+117             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+118         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a9e55ee3dded0a62bd7374bd058c51ec9}\label{classcpf_1_1_quaternion_a9e55ee3dded0a62bd7374bd058c51ec9}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator+@{operator+}}
+\index{operator+@{operator+}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} cpf\+::\+Quaternion\+::operator+ (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 51 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+51                                                            \{
+52             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}(\hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} + rhs.x, \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} + rhs.y, \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} + rhs.z, \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} + rhs.w);
+53         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_ac4720430dfd27c0f77b8eaa0f3439e55}\label{classcpf_1_1_quaternion_ac4720430dfd27c0f77b8eaa0f3439e55}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion}\& cpf\+::\+Quaternion\+::operator+= (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 91 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+91                                                       \{
+92             \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} += rhs.x;
+93             \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} += rhs.y;
+94             \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} += rhs.z;
+95             \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} += rhs.w;
+96 
+97             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+98         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_aa16967dd4f4d49018ef64e5b0e88b3fd}\label{classcpf_1_1_quaternion_aa16967dd4f4d49018ef64e5b0e88b3fd}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} cpf\+::\+Quaternion\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 55 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+55                                                           \{
+56             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}(\hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} - rhs.x, \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} - rhs.y, \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} - rhs.z, \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} - rhs.z);
+57         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a3334827293427e76daab54a9ab3ca2c3}\label{classcpf_1_1_quaternion_a3334827293427e76daab54a9ab3ca2c3}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} cpf\+::\+Quaternion\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 79 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+79                                      \{
+80             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}(-\hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x}, -\hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y}, -\hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z}, -\hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w});
+81         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a02f597bd2b0d9c3c7410e409f7f63090}\label{classcpf_1_1_quaternion_a02f597bd2b0d9c3c7410e409f7f63090}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion}\& cpf\+::\+Quaternion\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 100 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+100                                                       \{
+101             \hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} -= rhs.x;
+102             \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} -= rhs.y;
+103             \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} -= rhs.z;
+104             \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} -= rhs.w;
+105 
+106             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+107         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a17d09acedf7ab8fd7dd125bedf395662}\label{classcpf_1_1_quaternion_a17d09acedf7ab8fd7dd125bedf395662}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator/@{operator/}}
+\index{operator/@{operator/}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} cpf\+::\+Quaternion\+::operator/ (\begin{DoxyParamCaption}\item[{float}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 72 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+72                                               \{
+73             assert(rhs != 0.0);
+74 
+75             \textcolor{keywordtype}{float} inv = 1.0f / rhs;
+76             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}(\hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} * inv, \hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} * inv, \hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} * inv, \hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} * inv);
+77         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_ac8b812eebaf1a27cdd844267bb19cf61}\label{classcpf_1_1_quaternion_ac8b812eebaf1a27cdd844267bb19cf61}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator==@{operator==}}
+\index{operator==@{operator==}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool cpf\+::\+Quaternion\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Quaternion.\+hpp 파일의 83 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+83                                                      \{
+84             \textcolor{keywordflow}{return} (\hyperlink{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}{x} == rhs.x) && (\hyperlink{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}{y} == rhs.y) && (\hyperlink{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}{z} == rhs.z) && (\hyperlink{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}{w} == rhs.w);
+85         \}
+\end{DoxyCode}
+
+
+\subsection{Friend, 그리고 관련된 함수 문서화}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_ac4687317eafd9a3cfcfc56ed1af8299e}\label{classcpf_1_1_quaternion_ac4687317eafd9a3cfcfc56ed1af8299e}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{operator$\ast$}{operator*}}
+{\footnotesize\ttfamily \hyperlink{classcpf_1_1_quaternion}{Quaternion} operator$\ast$ (\begin{DoxyParamCaption}\item[{float}]{lhs,  }\item[{const \hyperlink{classcpf_1_1_quaternion}{Quaternion} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Quaternion.\+hpp 파일의 120 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+120                                                                       \{
+121             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_quaternion_aae3cc98fcdb7a419a29db4ee988972bc}{Quaternion}(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w);
+122         \}
+\end{DoxyCode}
+
+
+\subsection{멤버 데이터 문서화}
+\mbox{\Hypertarget{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}\label{classcpf_1_1_quaternion_af312a196b39bb4903b876bc454ac15f8}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!w@{w}}
+\index{w@{w}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily float cpf\+::\+Quaternion\+::w}
+
+
+
+Quaternion.\+hpp 파일의 13 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}\label{classcpf_1_1_quaternion_a200f7bce4e673281af8cc7dd75cb0677}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!x@{x}}
+\index{x@{x}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily float cpf\+::\+Quaternion\+::x}
+
+
+
+Quaternion.\+hpp 파일의 13 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}\label{classcpf_1_1_quaternion_a4fbade6e58be55a49c94e7f157988136}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!y@{y}}
+\index{y@{y}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily float cpf\+::\+Quaternion\+::y}
+
+
+
+Quaternion.\+hpp 파일의 13 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}\label{classcpf_1_1_quaternion_ade9c41b717605118e5fdf95d96a843b4}} 
+\index{cpf\+::\+Quaternion@{cpf\+::\+Quaternion}!z@{z}}
+\index{z@{z}!cpf\+::\+Quaternion@{cpf\+::\+Quaternion}}
+\subsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily float cpf\+::\+Quaternion\+::z}
+
+
+
+Quaternion.\+hpp 파일의 13 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Foundation/\+Math/\hyperlink{_quaternion_8hpp}{Quaternion.\+hpp}\item 
+Source/\+Foundation/\+Math/\hyperlink{_quaternion_8cpp}{Quaternion.\+cpp}\end{DoxyCompactItemize}

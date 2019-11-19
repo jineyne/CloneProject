@@ -1,0 +1,412 @@
+\hypertarget{classcpf_1_1_render_window_manager}{}\section{cpf\+:\+:Render\+Window\+Manager 클래스 참조}
+\label{classcpf_1_1_render_window_manager}\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+
+
+{\ttfamily \#include $<$Render\+Window\+Manager.\+hpp$>$}
+
+
+
+cpf\+:\+:Render\+Window\+Manager에 대한 상속 다이어그램 \+: 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classcpf_1_1_render_window_manager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+cpf\+:\+:Render\+Window\+Manager에 대한 협력 다이어그램\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classcpf_1_1_render_window_manager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcpf_1_1_render_window_manager_ad4053984a55f9f773c35482731b3e384}{Render\+Window\+Manager} ()=default
+\item 
+\hyperlink{classcpf_1_1_render_window_manager_a6d119e5105d1e11a875d16715e05a1f9}{$\sim$\+Render\+Window\+Manager} ()=default
+\item 
+\hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} \hyperlink{classcpf_1_1_render_window_manager_a9e198c25b9f2eb5dd5b248e47532677d}{initialize} (const \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} \&info)
+\begin{DoxyCompactList}\small\item\em 초기화 할때 윈도우가 필요한 라이브러리를 추가적으로 초기화하는 과정을 거칩니다. \end{DoxyCompactList}\item 
+\hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} \hyperlink{classcpf_1_1_render_window_manager_a9fa02758ec62cd361e8abd2c03b7cc17}{create} (const \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} \&info)
+\item 
+void \hyperlink{classcpf_1_1_render_window_manager_adc7ef3bd3f5c4ad9b86899adeb69b0ee}{update} ()
+\item 
+const \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} \& \hyperlink{classcpf_1_1_render_window_manager_a84798567443280ffacaaaf6f701483b9}{get\+Window} (uint32\+\_\+t id) const
+\end{DoxyCompactItemize}
+\subsection*{정적 Public 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager} \& \hyperlink{classcpf_1_1_t_module_ac8065254584cb0a6656c42f96859d190}{Instance} ()
+\item 
+static void \hyperlink{classcpf_1_1_t_module_a02fbf3c4d28a3328e81b0e8d0bdd93b0}{Start\+Up} (Args \&\&...args)
+\item 
+static void \hyperlink{classcpf_1_1_t_module_ac553266ad6255da045ef3f34b0f9bc16}{Start\+Up} (Args \&\&...args)
+\item 
+static void \hyperlink{classcpf_1_1_t_module_a61452801c61e2546b75a7a6a545e82ee}{Shut\+Down} ()
+\item 
+static bool \hyperlink{classcpf_1_1_t_module_acd38943803d522ba6dcf7f0871b2f502}{Is\+Running} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classcpf_1_1_t_module_a4eb83b0848794e422d2d345439f51a04}{on\+Start\+Up} ()
+\item 
+virtual void \hyperlink{classcpf_1_1_t_module_a15c93b1aca54022e145961bea8e3ea7d}{on\+Shut\+Down} ()
+\end{DoxyCompactItemize}
+\subsection*{정적 Private 멤버 함수}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classcpf_1_1_render_window_manager_a3b667bdac352e584a3dc6b8132054b36}{Window\+Close\+Request} (G\+L\+F\+Wwindow $\ast$window)
+\end{DoxyCompactItemize}
+\subsection*{Private 속성}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} $>$ \hyperlink{classcpf_1_1_render_window_manager_a06f8628fd71091311dd2cbb908f744a2}{m\+Render\+Window\+List}
+\item 
+uint32\+\_\+t \hyperlink{classcpf_1_1_render_window_manager_a9066e525180a325989d0f4f97524d6f6}{m\+Next\+Window\+Id} = 1
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcpf_1_1_render_window_manager_a6752354900753e609e76d5e224630518}{Render\+Window}
+\end{DoxyCompactItemize}
+
+
+\subsection{상세한 설명}
+윈도우를 컨트롤하는 매니저 모듈입니다. 
+
+Render\+Window\+Manager.\+hpp 파일의 12 번째 라인에서 정의되었습니다.
+
+
+
+\subsection{생성자 \& 소멸자 문서화}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_ad4053984a55f9f773c35482731b3e384}\label{classcpf_1_1_render_window_manager_ad4053984a55f9f773c35482731b3e384}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Render\+Window\+Manager@{Render\+Window\+Manager}}
+\index{Render\+Window\+Manager@{Render\+Window\+Manager}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Render\+Window\+Manager()}{RenderWindowManager()}}
+{\footnotesize\ttfamily cpf\+::\+Render\+Window\+Manager\+::\+Render\+Window\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a6d119e5105d1e11a875d16715e05a1f9}\label{classcpf_1_1_render_window_manager_a6d119e5105d1e11a875d16715e05a1f9}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!````~Render\+Window\+Manager@{$\sim$\+Render\+Window\+Manager}}
+\index{````~Render\+Window\+Manager@{$\sim$\+Render\+Window\+Manager}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{$\sim$\+Render\+Window\+Manager()}{~RenderWindowManager()}}
+{\footnotesize\ttfamily cpf\+::\+Render\+Window\+Manager\+::$\sim$\+Render\+Window\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{멤버 함수 문서화}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a9fa02758ec62cd361e8abd2c03b7cc17}\label{classcpf_1_1_render_window_manager_a9fa02758ec62cd361e8abd2c03b7cc17}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!create@{create}}
+\index{create@{create}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} cpf\+::\+Render\+Window\+Manager\+::create (\begin{DoxyParamCaption}\item[{const \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} \&}]{info }\end{DoxyParamCaption})}
+
+
+
+Render\+Window\+Manager.\+cpp 파일의 16 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+16                                                                                 \{
+17         uint32\_t \textcolor{keywordtype}{id} = \hyperlink{classcpf_1_1_render_window_manager_a9066e525180a325989d0f4f97524d6f6}{mNextWindowId}++; 
+18         \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{HRenderWindow} window = Allocator::MakeShared<RenderWindow>(info);
+19         window->initialize(\textcolor{keywordtype}{id});
+20 
+21         \hyperlink{classcpf_1_1_render_window_manager_a06f8628fd71091311dd2cbb908f744a2}{mRenderWindowList}.insert(std::make\_pair(\textcolor{keywordtype}{id}, window));
+22 
+23         \textcolor{keywordflow}{return} window;
+24     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a84798567443280ffacaaaf6f701483b9}\label{classcpf_1_1_render_window_manager_a84798567443280ffacaaaf6f701483b9}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!get\+Window@{get\+Window}}
+\index{get\+Window@{get\+Window}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{get\+Window()}{getWindow()}}
+{\footnotesize\ttfamily const \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} \& cpf\+::\+Render\+Window\+Manager\+::get\+Window (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption}) const}
+
+
+
+Render\+Window\+Manager.\+cpp 파일의 30 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+30                                                                          \{
+31         \textcolor{keyword}{auto} it = \hyperlink{classcpf_1_1_render_window_manager_a06f8628fd71091311dd2cbb908f744a2}{mRenderWindowList}.find(\textcolor{keywordtype}{id});
+32         \textcolor{keywordflow}{if} (it != \hyperlink{classcpf_1_1_render_window_manager_a06f8628fd71091311dd2cbb908f744a2}{mRenderWindowList}.end()) \{
+33             \textcolor{keywordflow}{return} it->second;
+34         \}
+35 
+36         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};
+37     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a9e198c25b9f2eb5dd5b248e47532677d}\label{classcpf_1_1_render_window_manager_a9e198c25b9f2eb5dd5b248e47532677d}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!initialize@{initialize}}
+\index{initialize@{initialize}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window} cpf\+::\+Render\+Window\+Manager\+::initialize (\begin{DoxyParamCaption}\item[{const \hyperlink{structcpf_1_1_render_window_create_info}{Render\+Window\+Create\+Info} \&}]{info }\end{DoxyParamCaption})}
+
+
+
+초기화 할때 윈도우가 필요한 라이브러리를 추가적으로 초기화하는 과정을 거칩니다. 
+
+윈도우를 생성 후 초기화가 필요한 라이브러리를 초기화합니다. 
+
+Render\+Window\+Manager.\+cpp 파일의 8 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+8                                                                                     \{
+9         \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{HRenderWindow} window = \hyperlink{classcpf_1_1_render_window_manager_a9fa02758ec62cd361e8abd2c03b7cc17}{create}(info);
+10 
+11         gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+12 
+13         \textcolor{keywordflow}{return} window;
+14     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_t_module_ac8065254584cb0a6656c42f96859d190}\label{classcpf_1_1_t_module_ac8065254584cb0a6656c42f96859d190}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Instance@{Instance}}
+\index{Instance@{Instance}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily static \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager} \& \hyperlink{classcpf_1_1_t_module}{cpf\+::\+T\+Module}$<$ \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}  $>$\+::Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+모듈 객체의 참조를 반환합니다. \begin{DoxyWarning}{경고}
+모듈이 실행중이 아니라면 에러를 출력하고 프로그램이 종료됩니다. 
+\end{DoxyWarning}
+
+
+Module.\+hpp 파일의 32 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+32                              \{
+33             \textcolor{keywordflow}{if} (!\hyperlink{classcpf_1_1_t_module_a73732afee7131dad652bf3e00c75cef9}{IsStartedUp}()) \{
+34                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to access not start module!"});
+35             \}
+36 
+37             \textcolor{keywordflow}{if} (\hyperlink{classcpf_1_1_t_module_a9f70f0a70ac59b13b7a874f82c877337}{IsDestroyed}()) \{
+38                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to access destroyed module!"});
+39             \}
+40 
+41             \textcolor{keywordflow}{return} *\hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}();
+42         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_t_module_acd38943803d522ba6dcf7f0871b2f502}\label{classcpf_1_1_t_module_acd38943803d522ba6dcf7f0871b2f502}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Is\+Running@{Is\+Running}}
+\index{Is\+Running@{Is\+Running}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Is\+Running()}{IsRunning()}}
+{\footnotesize\ttfamily static bool \hyperlink{classcpf_1_1_t_module}{cpf\+::\+T\+Module}$<$ \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}  $>$\+::Is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+모듈이 실행 중인지 확인합니다. 
+
+Module.\+hpp 파일의 108 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+108                                 \{
+109             \textcolor{keywordflow}{return} \hyperlink{classcpf_1_1_t_module_a73732afee7131dad652bf3e00c75cef9}{IsStartedUp}() && !\hyperlink{classcpf_1_1_t_module_a9f70f0a70ac59b13b7a874f82c877337}{IsDestroyed}();
+110         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_t_module_a15c93b1aca54022e145961bea8e3ea7d}\label{classcpf_1_1_t_module_a15c93b1aca54022e145961bea8e3ea7d}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!on\+Shut\+Down@{on\+Shut\+Down}}
+\index{on\+Shut\+Down@{on\+Shut\+Down}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{on\+Shut\+Down()}{onShutDown()}}
+{\footnotesize\ttfamily virtual void \hyperlink{classcpf_1_1_t_module}{cpf\+::\+T\+Module}$<$ \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}  $>$\+::on\+Shut\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+모듈 해제 직전에 호출됩니다. \begin{DoxyNote}{주의}
+해제 직전에 처리해야할 문제가 있다면 해당 함수를 재정의 하세요. 
+\end{DoxyNote}
+
+
+Module.\+hpp 파일의 123 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+123 \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_t_module_a4eb83b0848794e422d2d345439f51a04}\label{classcpf_1_1_t_module_a4eb83b0848794e422d2d345439f51a04}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!on\+Start\+Up@{on\+Start\+Up}}
+\index{on\+Start\+Up@{on\+Start\+Up}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{on\+Start\+Up()}{onStartUp()}}
+{\footnotesize\ttfamily virtual void \hyperlink{classcpf_1_1_t_module}{cpf\+::\+T\+Module}$<$ \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}  $>$\+::on\+Start\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [inherited]}}
+
+모듈 생성 직후에 호출됩니다. \begin{DoxyNote}{주의}
+할당 직후에 처리해야할 문제가 있다면 해당 함수를 재정의 하세요. 
+\end{DoxyNote}
+
+
+Module.\+hpp 파일의 117 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+117 \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_t_module_a61452801c61e2546b75a7a6a545e82ee}\label{classcpf_1_1_t_module_a61452801c61e2546b75a7a6a545e82ee}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Shut\+Down@{Shut\+Down}}
+\index{Shut\+Down@{Shut\+Down}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Shut\+Down()}{ShutDown()}}
+{\footnotesize\ttfamily static void \hyperlink{classcpf_1_1_t_module}{cpf\+::\+T\+Module}$<$ \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}  $>$\+::Shut\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+모듈을 종료합니다. \begin{DoxyWarning}{경고}
+모듈이 실행 중이 아니라면 에러를 출력하고 프로그램이 종료됩니다. 
+\end{DoxyWarning}
+
+
+Module.\+hpp 파일의 89 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+89                                \{
+90             \textcolor{keywordflow}{if} (!\hyperlink{classcpf_1_1_t_module_a73732afee7131dad652bf3e00c75cef9}{IsStartedUp}()) \{
+91                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to shut down module start yet"});
+92             \}
+93 
+94             \textcolor{keywordflow}{if} (\hyperlink{classcpf_1_1_t_module_a9f70f0a70ac59b13b7a874f82c877337}{IsDestroyed}()) \{
+95                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to shut down module already shut down"});
+96             \}
+97 
+98             \textcolor{keyword}{static\_cast<}TModule<T> *\textcolor{keyword}{>}(\hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}())->\hyperlink{classcpf_1_1_t_module_a15c93b1aca54022e145961bea8e3ea7d}{onShutDown}();
+99             Allocator::Free(\hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}());
+100 
+101             \hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}() = \textcolor{keyword}{nullptr};
+102             \hyperlink{classcpf_1_1_t_module_a9f70f0a70ac59b13b7a874f82c877337}{IsDestroyed}() = \textcolor{keyword}{true};
+103         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_t_module_a02fbf3c4d28a3328e81b0e8d0bdd93b0}\label{classcpf_1_1_t_module_a02fbf3c4d28a3328e81b0e8d0bdd93b0}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Start\+Up@{Start\+Up}}
+\index{Start\+Up@{Start\+Up}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Start\+Up()}{StartUp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void \hyperlink{classcpf_1_1_t_module}{cpf\+::\+T\+Module}$<$ \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}  $>$\+::Start\+Up (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+모듈을 주어진 인자와 함께 생성합니다. \begin{DoxyWarning}{경고}
+모듈이 실행 중이 아니라면 에러를 출력하고 프로그램이 종료됩니다. 
+\end{DoxyWarning}
+
+
+Module.\+hpp 파일의 50 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+50                                             \{
+51             \textcolor{keywordflow}{if} (\hyperlink{classcpf_1_1_t_module_a73732afee7131dad652bf3e00c75cef9}{IsStartedUp}()) \{
+52                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to start up module already started"});
+53             \}
+54 
+55             \textcolor{keywordflow}{if} (\hyperlink{classcpf_1_1_t_module_a9f70f0a70ac59b13b7a874f82c877337}{IsDestroyed}()) \{
+56                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to start up module already destroyed"});
+57             \}
+58 
+59             \hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}() = Allocator::New<T>(std::forward<Args>(args)...);
+60             \textcolor{keyword}{static\_cast<}TModule<T> *\textcolor{keyword}{>}(\hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}())->\hyperlink{classcpf_1_1_t_module_a4eb83b0848794e422d2d345439f51a04}{onStartUp}();
+61 
+62             \hyperlink{classcpf_1_1_t_module_a73732afee7131dad652bf3e00c75cef9}{IsStartedUp}() = \textcolor{keyword}{true};
+63         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_t_module_ac553266ad6255da045ef3f34b0f9bc16}\label{classcpf_1_1_t_module_ac553266ad6255da045ef3f34b0f9bc16}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Start\+Up@{Start\+Up}}
+\index{Start\+Up@{Start\+Up}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Start\+Up()}{StartUp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void \hyperlink{classcpf_1_1_t_module}{cpf\+::\+T\+Module}$<$ \hyperlink{classcpf_1_1_render_window_manager}{Render\+Window\+Manager}  $>$\+::Start\+Up (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [inherited]}}
+
+모듈을 주어진 하위 시스템과 인자로 생성합니다. \begin{DoxyWarning}{경고}
+모듈이 실행 중이 아니라면 에러를 출력하고 프로그램이 종료됩니다. 
+\end{DoxyWarning}
+
+
+Module.\+hpp 파일의 70 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+70                                             \{
+71             \textcolor{keywordflow}{if} (\hyperlink{classcpf_1_1_t_module_a73732afee7131dad652bf3e00c75cef9}{IsStartedUp}()) \{
+72                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to start up module already started"});
+73             \}
+74 
+75             \textcolor{keywordflow}{if} (\hyperlink{classcpf_1_1_t_module_a9f70f0a70ac59b13b7a874f82c877337}{IsDestroyed}()) \{
+76                 Debug::LogFatal(\textcolor{stringliteral}{"Trying to start up module already destroyed"});
+77             \}
+78 
+79             \hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}() = Allocator::New<U>(std::forward<Args>(args)...);
+80             \textcolor{keyword}{static\_cast<}TModule<T> *\textcolor{keyword}{>}(\hyperlink{classcpf_1_1_t_module_a06ab8af8ea6b294959937fd2bbc1e615}{\_Instance}())->\hyperlink{classcpf_1_1_t_module_a15c93b1aca54022e145961bea8e3ea7d}{onShutDown}();
+81 
+82             \hyperlink{classcpf_1_1_t_module_a73732afee7131dad652bf3e00c75cef9}{IsStartedUp}() = \textcolor{keyword}{true};
+83         \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_adc7ef3bd3f5c4ad9b86899adeb69b0ee}\label{classcpf_1_1_render_window_manager_adc7ef3bd3f5c4ad9b86899adeb69b0ee}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!update@{update}}
+\index{update@{update}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void cpf\+::\+Render\+Window\+Manager\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Render\+Window\+Manager.\+cpp 파일의 26 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+26                                      \{
+27         glfwPollEvents();
+28     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a3b667bdac352e584a3dc6b8132054b36}\label{classcpf_1_1_render_window_manager_a3b667bdac352e584a3dc6b8132054b36}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Window\+Close\+Request@{Window\+Close\+Request}}
+\index{Window\+Close\+Request@{Window\+Close\+Request}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Window\+Close\+Request()}{WindowCloseRequest()}}
+{\footnotesize\ttfamily void cpf\+::\+Render\+Window\+Manager\+::\+Window\+Close\+Request (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Render\+Window\+Manager.\+cpp 파일의 39 번째 라인에서 정의되었습니다.
+
+
+\begin{DoxyCode}
+39                                                                    \{
+40         \hyperlink{classcpf_1_1_t_module_ac8065254584cb0a6656c42f96859d190}{Application::Instance}().\hyperlink{classcpf_1_1_application_ac5c5b81ebccee1f09d777a9fc200eca6}{quitRequest}();
+41     \}
+\end{DoxyCode}
+
+
+\subsection{Friend, 그리고 관련된 함수 문서화}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a6752354900753e609e76d5e224630518}\label{classcpf_1_1_render_window_manager_a6752354900753e609e76d5e224630518}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!Render\+Window@{Render\+Window}}
+\index{Render\+Window@{Render\+Window}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{Render\+Window}{RenderWindow}}
+{\footnotesize\ttfamily friend class \hyperlink{classcpf_1_1_render_window}{Render\+Window}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Render\+Window\+Manager.\+hpp 파일의 41 번째 라인에서 정의되었습니다.
+
+
+
+\subsection{멤버 데이터 문서화}
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a9066e525180a325989d0f4f97524d6f6}\label{classcpf_1_1_render_window_manager_a9066e525180a325989d0f4f97524d6f6}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!m\+Next\+Window\+Id@{m\+Next\+Window\+Id}}
+\index{m\+Next\+Window\+Id@{m\+Next\+Window\+Id}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{m\+Next\+Window\+Id}{mNextWindowId}}
+{\footnotesize\ttfamily uint32\+\_\+t cpf\+::\+Render\+Window\+Manager\+::m\+Next\+Window\+Id = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Render\+Window\+Manager.\+hpp 파일의 17 번째 라인에서 정의되었습니다.
+
+\mbox{\Hypertarget{classcpf_1_1_render_window_manager_a06f8628fd71091311dd2cbb908f744a2}\label{classcpf_1_1_render_window_manager_a06f8628fd71091311dd2cbb908f744a2}} 
+\index{cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}!m\+Render\+Window\+List@{m\+Render\+Window\+List}}
+\index{m\+Render\+Window\+List@{m\+Render\+Window\+List}!cpf\+::\+Render\+Window\+Manager@{cpf\+::\+Render\+Window\+Manager}}
+\subsubsection{\texorpdfstring{m\+Render\+Window\+List}{mRenderWindowList}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$uint32\+\_\+t, \hyperlink{namespacecpf_af5ffcc39bb6465427fc3b91366c917f6}{H\+Render\+Window}$>$ cpf\+::\+Render\+Window\+Manager\+::m\+Render\+Window\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Render\+Window\+Manager.\+hpp 파일의 14 번째 라인에서 정의되었습니다.
+
+
+
+이 클래스에 대한 문서화 페이지는 다음의 파일들로부터 생성되었습니다.\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Foundation/\+Manager/\hyperlink{_render_window_manager_8hpp}{Render\+Window\+Manager.\+hpp}\item 
+Source/\+Foundation/\+Manager/\hyperlink{_render_window_manager_8cpp}{Render\+Window\+Manager.\+cpp}\end{DoxyCompactItemize}

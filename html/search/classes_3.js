@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stringutil',['StringUtil',['../classcpf_1_1_string_util.html',1,'cpf']]]
+  ['noncopyable',['NonCopyable',['../classcpf_1_1_non_copyable.html',1,'cpf']]]
 ];

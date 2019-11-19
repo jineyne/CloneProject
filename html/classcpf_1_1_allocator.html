@@ -93,6 +93,8 @@ $(document).ready(function(){initNavTree('classcpf_1_1_allocator.html','');});
 cpf::Allocator에 대한 협력 다이어그램:</div>
 <div class="dyncontent">
 <div class="center"><img src="classcpf_1_1_allocator__coll__graph.png" border="0" usemap="#cpf_1_1_allocator_coll__map" alt="Collaboration graph"/></div>
+<map name="cpf_1_1_allocator_coll__map" id="cpf_1_1_allocator_coll__map">
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -109,6 +111,12 @@ cpf::Allocator에 대한 협력 다이어그램:</div>
 <tr class="memitem:a6c7808c532c47dc997deaf296aae4f27"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a6c7808c532c47dc997deaf296aae4f27"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpf_1_1_allocator.html#a6c7808c532c47dc997deaf296aae4f27">Delete</a> (T *ptr)</td></tr>
 <tr class="separator:a6c7808c532c47dc997deaf296aae4f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60701a3cdd64b6feb7d0b1643200b412"><td class="memTemplParams" colspan="2">template&lt;typename T , class ... Args&gt; </td></tr>
+<tr class="memitem:a60701a3cdd64b6feb7d0b1643200b412"><td class="memTemplItemLeft" align="right" valign="top">static std::shared_ptr&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpf_1_1_allocator.html#a60701a3cdd64b6feb7d0b1643200b412">SharedPtr</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="separator:a60701a3cdd64b6feb7d0b1643200b412"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc750d11bdf4c19e498fd855bcf8c70"><td class="memTemplParams" colspan="2">template&lt;typename T , class ... Args&gt; </td></tr>
+<tr class="memitem:a3dc750d11bdf4c19e498fd855bcf8c70"><td class="memTemplItemLeft" align="right" valign="top">static std::shared_ptr&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcpf_1_1_allocator.html#a3dc750d11bdf4c19e498fd855bcf8c70">MakeShared</a> (Args &amp;&amp;...args)</td></tr>
+<tr class="separator:a3dc750d11bdf4c19e498fd855bcf8c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">상세한 설명</h2>
 <div class="textblock"><p>메모리 할당을 도와줄 핼퍼 클래스입니다. </p>
@@ -220,6 +228,49 @@ template&lt;typename T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                 {</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            free(ptr);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div></div><!-- fragment -->
 </div>
 </div>
+<a id="a3dc750d11bdf4c19e498fd855bcf8c70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc750d11bdf4c19e498fd855bcf8c70">&#9670;&nbsp;</a></span>MakeShared()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , class ... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::shared_ptr&lt;T&gt; cpf::Allocator::MakeShared </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>주어진 인자를 통해 shared_ptr을 생성합니다.</p>
+<dl class="tparams"><dt>템플릿 파라메터</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>shared_ptr의 타입입니다. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>매개변수</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>T 타입의 생성자에 들어갈 인자들입니다. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"><a class="el" href="_system_8hpp_source.html">System.hpp</a> 파일의 <a class="el" href="_system_8hpp_source.html#l00060">60</a> 번째 라인에서 정의되었습니다.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                                           {</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> SharedPtr&lt;T&gt;(Allocator::New&lt;T&gt;(std::forward&lt;Args&gt;(args)...));</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div></div><!-- fragment -->
+</div>
+</div>
 <a id="ab224979f67fae21e9db39b211a67b2e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab224979f67fae21e9db39b211a67b2e9">&#9670;&nbsp;</a></span>New()</h2>
 
@@ -249,6 +300,37 @@ template&lt;typename T , class ... Args&gt; </div>
 
 <p class="definition"><a class="el" href="_system_8hpp_source.html">System.hpp</a> 파일의 <a class="el" href="_system_8hpp_source.html#l00031">31</a> 번째 라인에서 정의되었습니다.</p>
 <div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                       {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> (Alloc&lt;T&gt;()) T(std::forward&lt;Args&gt;(args)...);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a60701a3cdd64b6feb7d0b1643200b412"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60701a3cdd64b6feb7d0b1643200b412">&#9670;&nbsp;</a></span>SharedPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , class ... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::shared_ptr&lt;T&gt; cpf::Allocator::SharedPtr </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>주어진 인자를 shared_ptr로 변환합니다. </p><dl class="section warning"><dt>경고</dt><dd>주어진 인자를 가지고 shared_ptr을 생성하려면 MakeShared를 사용하세요. </dd></dl>
+
+<p class="definition"><a class="el" href="_system_8hpp_source.html">System.hpp</a> 파일의 <a class="el" href="_system_8hpp_source.html#l00049">49</a> 번째 라인에서 정의되었습니다.</p>
+<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                                          {</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> std::shared_ptr&lt;T&gt;(std::forward&lt;Args&gt;(args)...);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.:<ul>

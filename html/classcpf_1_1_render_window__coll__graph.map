@@ -1,0 +1,4 @@
+<map id="cpf::RenderWindow" name="cpf::RenderWindow">
+<area shape="rect" id="node2" href="$classcpf_1_1_render_target.html" title="{cpf::RenderTarget\n||+ swapBuffers()\l}" alt="" coords="5,27,132,105"/>
+<area shape="rect" id="node3" href="$structcpf_1_1_render_window_create_info.html" title="{cpf::RenderWindowCreateInfo\n|+ width\l+ height\l+ title\l+ fullscreen\l|}" alt="" coords="156,5,355,127"/>
+</map>

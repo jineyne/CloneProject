@@ -2,7 +2,8 @@
 \label{_game_8cpp}\index{Source/\+Game/\+Sandbox/\+Game.\+cpp@{Source/\+Game/\+Sandbox/\+Game.\+cpp}}
 {\ttfamily \#include \char`\"{}Application.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Debug/\+Debug.\+hpp\char`\"{}}\newline
-Game.\+cpp에 대한 include 의존 그래프\nopagebreak
+Game.\+cpp에 대한 include 의존 그래프
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,12 +31,15 @@ Game.\+cpp 파일의 6 번째 라인에서 정의되었습니다.
 
 \begin{DoxyCode}
 6            \{
-7     Debug::LogInfo(\textcolor{stringliteral}{"\{\}, \{\}"}, \textcolor{stringliteral}{"Hello"}, \textcolor{stringliteral}{"World"});
-8     Debug::LogInfo(\textcolor{stringliteral}{"\{1\}, \{0\}"}, 1, \textcolor{stringliteral}{"World"});
-9     Debug::LogWarning(\textcolor{stringliteral}{"\{\}, \{\}"}, \textcolor{stringliteral}{"This is"}, \textcolor{stringliteral}{"Warning!"});
-10     Debug::LogError(\textcolor{stringliteral}{"\{\}, \{\}"}, \textcolor{stringliteral}{"Oh my GOD!"}, \textcolor{stringliteral}{"Error!"});
-11     Debug::LogFatal(\textcolor{stringliteral}{"\{\}, \{\}, \{\}"}, \textcolor{stringliteral}{"Good norning"}, \textcolor{stringliteral}{"Good afternoon"}, \textcolor{stringliteral}{"Good evening"});
-12 
-13     \textcolor{keywordflow}{return} 0;
-14 \}
+7     \hyperlink{structcpf_1_1_application_create_info}{ApplicationCreateInfo} appCI\{\};
+8     appCI.\hyperlink{structcpf_1_1_application_create_info_a1cd605f921ac5ac29474cbe52f7ea499}{primaryWindowCreateInfo}.\hyperlink{structcpf_1_1_render_window_create_info_a28983e1803a3065c8cc8beacb2b72f22}{width} = 1280;
+9     appCI.primaryWindowCreateInfo.height = 720;
+10     appCI.primaryWindowCreateInfo.title = \textcolor{stringliteral}{"Sandbox"};
+11     appCI.primaryWindowCreateInfo.fullscreen = \textcolor{keyword}{false};
+12     Application::StartUp(appCI);
+13     Application::Instance().runMainLoop();
+14     Application::ShutDown();
+15 
+16     \textcolor{keywordflow}{return} 0;
+17 \}
 \end{DoxyCode}
