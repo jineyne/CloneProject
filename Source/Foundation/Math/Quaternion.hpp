@@ -1,7 +1,8 @@
 #pragma once
 
 #include "cpf.hpp"
-#include "Math/Utility.hpp"
+#include "Math/Math.hpp"
+#include "Math/Vector3.hpp"
 
 namespace cpf {
     class DLL_EXPORT Quaternion {

@@ -1,7 +1,8 @@
 #pragma once
 
 #include "cpf.hpp"
-#include "Math/Utility.hpp"
+#include "Math/Math.hpp"
+#include "Math/Vector2.hpp"
 
 namespace cpf {
     // 3차원 좌표
@@ -56,9 +57,9 @@ namespace cpf {
     public:
         // Vector 값을 두 사이 값으로 제한시킵니다.
         TVector3 &clamp(TVector3 min, TVector3 max) {
-            x = MathUtility::Clamp(x, min.x, max.x);
-            y = MathUtility::Clamp(y, min.y, max.y);
-            z = MathUtility::Clamp(z, min.z, max.z);
+            x = Math::Clamp(x, min.x, max.x);
+            y = Math::Clamp(y, min.y, max.y);
+            z = Math::Clamp(z, min.z, max.z);
             return *this;
         }
         
@@ -116,4 +117,7 @@ namespace cpf {
             return x == other.x && y == other.y && z == other.z;
         }
     };
+
+    using IntVector3 = TVector3<int>;
+    using Vector3 = TVector3<float>;
 }

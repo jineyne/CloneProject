@@ -6,7 +6,7 @@ namespace cpf {
     /**
      * 기타 수학 함수들입니다.
      */
-    class MathUtility {
+    class Math {
     public:
         static double PI;
 

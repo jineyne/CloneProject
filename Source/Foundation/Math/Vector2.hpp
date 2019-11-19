@@ -1,7 +1,7 @@
 #pragma once
 
 #include "cpf.hpp"
-#include "Math/Utility.hpp"
+#include "Math/Math.hpp"
 
 namespace cpf {
     template <typename T> class TVector2 {
@@ -53,8 +53,8 @@ namespace cpf {
     public:
         // Vector 값을 두 사이 값으로 제한시킵니다.
         TVector2 &clamp(TVector2 min, TVector2 max) {
-            x = MathUtility::Clamp(x, min.x, max.x);
-            y = MathUtility::Clamp(y, min.y, max.y);
+            x = Math::Clamp(x, min.x, max.x);
+            y = Math::Clamp(y, min.y, max.y);
             return *this;
         }
 
