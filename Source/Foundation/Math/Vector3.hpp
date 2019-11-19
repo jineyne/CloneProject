@@ -5,7 +5,9 @@
 #include "Math/Vector2.hpp"
 
 namespace cpf {
-    // 3차원 좌표
+    /**
+     * 3차원 좌표를 표현하기 위해 사용됩니다.
+     */
     template <typename T> class TVector3 {
     public:
         T x{0};

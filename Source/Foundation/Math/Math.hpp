@@ -13,6 +13,8 @@ namespace cpf {
         /**
          * 값을 최솟값과 최대값 사이로 제한합니다.
          * @param val 제한시킬 값
+         * @param min 최저값
+         * @param max 최대값
          */
         template <typename T>
         static T Clamp(T val, T min, T max) {

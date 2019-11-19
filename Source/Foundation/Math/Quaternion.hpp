@@ -5,27 +5,47 @@
 #include "Math/Vector3.hpp"
 
 namespace cpf {
+    /**
+     * 사원소(Quaternion)은 회전을 표현하기 위해 사용됩니다.
+     */
     class DLL_EXPORT Quaternion {
     public:
         float x, y, z, w;
 
     public:
+        /**
+         * 원소들을 주어진 인자로 초기화한다.
+         */
         Quaternion(float value = 0.0f);
 
+        /**
+         * 원소들을 주어진 인자들로 초기화한다.
+         */
         Quaternion(float x, float y, float z, float w) 
             : x(x), y(y), z(z), w(w) {}
 
+        /**
+         * 원소들을 주어진 AxisAngle로 초기화한다.
+         */
         Quaternion(const Vector3 &axis, float angle) {
             fromAxisAngle(axis, angle);
         }
 
+        /**
+         * 원소들을 주어진 EulerAngle들로 초기화한다.
+         */
         Quaternion(float xAngle, float yAngle, float zAngle) {
             fromEulerAngles(xAngle, yAngle, zAngle);
         }
 
     public:
+        /**
+         * Axis 앵글로 Quaternion을 초기화합니다.
+         */
         void fromAxisAngle(const Vector3 &axis, float radian);
-        void fromAxes(const Vector3 &xAxis, const Vector3 &yAxis, const Vector3 &zAxis);
+        // Axis 앵글로 Quaternion을 초기화합니다.
+        void fromAxis(const Vector3 &xAxis, const Vector3 &yAxis, const Vector3 &zAxis);
+        // Euler 앵글로 Quaternion을 초기화합니다.
         void fromEulerAngles(float xAngle, float yAngle, float &zAngle);
 
         Quaternion operator+ (const Quaternion &rhs) const {
@@ -101,10 +121,12 @@ namespace cpf {
             return Quaternion(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w);
         }
 
+        // 주어진 quaternion과 내적을 계산합니다.
         float dot(const Quaternion &quat) const {
             return x * quat.x + y * quat.y + z * quat.z + w * quat.w;
         }
 
+        // quaternion을 정규하합니다.
         float normalize(float tolerance = 1e-04f) {
             float len = std::sqrt(dot(*this));
             if (len > (tolerance * tolerance)) {
@@ -114,6 +136,7 @@ namespace cpf {
             return len;
         }
 
+        // quaternion을 반전시킵니다.
         Quaternion inverse() const;
     };
 }

@@ -4,6 +4,9 @@
 #include "Math/Math.hpp"
 
 namespace cpf {
+    /**
+     * 2차원 좌표를 표연하기 위해 사용됩니다.
+     */
     template <typename T> class TVector2 {
     public:
        T x{0};

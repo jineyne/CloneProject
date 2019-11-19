@@ -13,7 +13,7 @@ namespace cpf {
         w = std::cos(half);
     }
 
-    void Quaternion::fromAxes(const Vector3 &xAxis, const Vector3 &yAxis, const Vector3 &zAxis) {
+    void Quaternion::fromAxis(const Vector3 &xAxis, const Vector3 &yAxis, const Vector3 &zAxis) {
         // TODO:
     }
 
