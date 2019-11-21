@@ -16,12 +16,14 @@ set(CPF_MANAGER_SRC
 set(CPF_MATH_INC
     "Math/Math.hpp"
     "Math/Matrix3.hpp"
+    "Math/Matrix4.hpp"
     "Math/Quaternion.hpp"
     "Math/Vector2.hpp"
     "Math/Vector3.hpp")
 set(CPF_MATH_SRC
     "Math/Math.cpp"
     "Math/Matrix3.cpp"
+    "Math/Matrix4.cpp"
     "Math/Quaternion.cpp"
     "Math/Vector2.cpp"
     "Math/Vector3.cpp")
