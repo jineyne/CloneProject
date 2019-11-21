@@ -2,6 +2,7 @@
 
 #include "cpf.hpp"
 #include "Math/Math.hpp"
+#include "Math/Matrix3.hpp"
 #include "Math/Vector3.hpp"
 
 namespace cpf {
@@ -121,6 +122,7 @@ namespace cpf {
             return Quaternion(lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w);
         }
 
+    public:
         // 주어진 quaternion과 내적을 계산합니다.
         float dot(const Quaternion &quat) const {
             return x * quat.x + y * quat.y + z * quat.z + w * quat.w;
@@ -138,5 +140,8 @@ namespace cpf {
 
         // quaternion을 반전시킵니다.
         Quaternion inverse() const;
+
+        // 해당 quaternion을 회전 행렬로 변환합니다.
+        Matrix3 toRotationMatrix() const;
     };
 }
