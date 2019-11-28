@@ -6,6 +6,8 @@ namespace cpf {
     GpuBuffer::GpuBuffer(GLenum bufferType, uint32_t size, uint32_t count, BufferUsage usage) 
         : Buffer(size, count, usage), mBufferType(bufferType) {
 
+        Debug::LogInfo("Buffer created: size {}, count {}, buffer size {}", size, count, mSize);
+
         glGenBuffers(1, &mBufferId);
         glBindBuffer(bufferType, mBufferId);
         glBufferData(bufferType, mSize, nullptr, GetUsage(mUsage));
@@ -39,19 +41,20 @@ namespace cpf {
         glBindBuffer(mBufferType, mBufferId);
         GLenum access = GL_MAP_READ_BIT | GL_MAP_WRITE_BIT;
 
+        void *buffer = nullptr;
+
         if (length > 0) {
-            void *buffer = glMapBufferRange(mBufferType, offset, length, access);
+            buffer = glMapBufferRange(mBufferType, offset, length, access);
             if (buffer == nullptr) {
                 Debug::LogError("Cannot map opengl buffer!");
             }
             mIsZeroLock = false;
 
-            return buffer;
         } else {
             mIsZeroLock = true;
         }
 
-        return nullptr;
+        return static_cast<void *>(buffer);
     }
 
     void GpuBuffer::unmap() {
@@ -65,5 +68,9 @@ namespace cpf {
                 Debug::LogError("Buffer data currupted!.please reload");
             }
         }
+    }
+
+    GLuint GpuBuffer::getBufferId() const {
+        return mBufferId;
     }
 }

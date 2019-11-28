@@ -17,6 +17,9 @@ namespace cpf {
     protected:
         uint32_t mSize = 0;                         //< 버퍼의 크기입니다.
         BufferUsage mUsage = BufferUsage::Default;  //< 버퍼 데이터를 어떻게 관리하는지 저장합니다.
+
+        uint32_t mElementSize = 0;                  //< 요소의 크기입니다.
+        uint32_t mElementCount = 0;                 //< 요소의 갯수입니다
         bool mIsLocked = false;                     //< 버퍼가 잠겨있는지의 여부입니다.
     
     public:
@@ -26,5 +29,7 @@ namespace cpf {
     public:
         virtual void *map(uint32_t offset, uint32_t length) = 0;
         virtual void unmap() = 0;
+
+        virtual GLuint getBufferId() const = 0;
     };
 }

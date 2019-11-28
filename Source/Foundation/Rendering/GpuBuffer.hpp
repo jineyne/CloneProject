@@ -40,5 +40,7 @@ namespace cpf {
          * 매핑한 데이터를 해제합니다.
          */
         void unmap() override;
+
+        GLuint getBufferId() const override;
     };
 }
