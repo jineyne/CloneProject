@@ -39,13 +39,15 @@ set(CPF_RENDERING_INC
     "Rendering/GpuBuffer.hpp"
     "Rendering/RenderTarget.hpp"
     "Rendering/RenderWindow.hpp"
-    "Rendering/Shader.hpp")
+    "Rendering/Shader.hpp"
+    "Rendering/VertexBuffer.hpp")
 set(CPF_RENDERING_SRC
     "Rendering/Buffer.cpp"
     "Rendering/GpuBuffer.cpp"
     "Rendering/RenderTarget.cpp"
     "Rendering/RenderWindow.cpp"
-    "Rendering/Shader.cpp")
+    "Rendering/Shader.cpp"
+    "Rendering/VertexBuffer.cpp")
 
 set(CPF_STRING_INC
     "String/String.hpp")
