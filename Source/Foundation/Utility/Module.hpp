@@ -18,7 +18,7 @@ namespace cpf {
      * 본질은 특수한 유형의 싱글톤이라 사용 전후에 직접 생성하고 종료해야합니다.
      */
     template<typename T>
-    class DLL_EXPORT TModule : public NonCopyable {
+    class TModule : public NonCopyable {
 #if COMPILER != COMPILER_MSVC
         static T *mInstance;
         static bool mIsStartedUp;
@@ -124,7 +124,7 @@ namespace cpf {
 
     private:
         static T *&_Instance() {
-#if COMPILE == COMPILER_MSVC
+#if COMPILER == COMPILER_MSVC
             static T *inst = nullptr;
             return inst;
 #else 
@@ -133,7 +133,7 @@ namespace cpf {
         }
 
         static bool &IsStartedUp() {
-#if COMPILE == COMPILER_MSVC
+#if COMPILER == COMPILER_MSVC
             static bool inst = false;
             return inst;
 #else
@@ -142,7 +142,7 @@ namespace cpf {
         }
 
         static bool &IsDestroyed() {
-#if COMPILE == COMPILER_MSVC 
+#if COMPILER == COMPILER_MSVC
             static bool inst = false;
             return inst;
 #else
