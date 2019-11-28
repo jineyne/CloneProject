@@ -8,7 +8,8 @@
 namespace cpf {
     class DLL_EXPORT VertexBuffer : public Buffer {
     private:
-        GpuBuffer *mBuffer;
+        GpuBuffer *mBuffer = nullptr;
+
     public:
         VertexBuffer(uint32_t size, uint32_t count, BufferUsage usage);
         virtual ~VertexBuffer();
