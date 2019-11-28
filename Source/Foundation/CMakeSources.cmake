@@ -36,14 +36,14 @@ set(CPF_PREREQUISITES_SRC)
 
 set(CPF_RENDERING_INC
     "Rendering/Buffer.hpp"
-    "Rendering/GpuBuffer.hpp"
     "Rendering/RenderTarget.hpp"
-    "Rendering/RenderWindow.hpp")
+    "Rendering/RenderWindow.hpp"
+    "Rendering/Shader.hpp")
 set(CPF_RENDERING_SRC
     "Rendering/Buffer.cpp"
-    "Rendering/GpuBuffer.cpp"
     "Rendering/RenderTarget.cpp"
-    "Rendering/RenderWindow.cpp")
+    "Rendering/RenderWindow.cpp"
+    "Rendering/Shader.cpp")
 
 set(CPF_STRING_INC
     "String/String.hpp")
