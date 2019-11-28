@@ -6,10 +6,6 @@ echo =    x64 build     =
 echo ====================
 echo.
 
-set PATH=d:\Program Files\LLVM\bin;%PATH%
-set INCLUDE=D:\Program Files\LLVM\lib\clang\8.0.0\include;%INCLUDE%
-
-cmake -H. -GNinja -Bbuild
+cmake -H. -G"Visual Studio 16 2019" -Bbuild -Ax64
 cd build 
-Ninja 
 cd ..
