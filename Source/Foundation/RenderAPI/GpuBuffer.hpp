@@ -1,7 +1,8 @@
 #pragma once
 
 #include "cpf.hpp"
-#include "Buffer.hpp"
+
+#include "RenderAPI/Buffer.hpp"
 
 namespace cpf {
     class DLL_EXPORT GpuBuffer : public Buffer {

@@ -2,7 +2,7 @@
 
 #include "cpf.hpp"
 
-#include "Rendering/RenderWindow.hpp"
+#include "RenderAPI/RenderWindow.hpp"
 #include "Utility/Module.hpp"
 
 namespace cpf {

@@ -34,22 +34,22 @@ set(CPF_PREREQUISITES_INC
     "Prerequisites/StdHeaders.hpp")
 set(CPF_PREREQUISITES_SRC)
 
-set(CPF_RENDERING_INC
-    "Rendering/Buffer.hpp"
-    "Rendering/GpuBuffer.hpp"
-    "Rendering/IndexBuffer.hpp"
-    "Rendering/RenderTarget.hpp"
-    "Rendering/RenderWindow.hpp"
-    "Rendering/Shader.hpp"
-    "Rendering/VertexBuffer.hpp")
-set(CPF_RENDERING_SRC
-    "Rendering/Buffer.cpp"
-    "Rendering/GpuBuffer.cpp"
-    "Rendering/IndexBuffer.cpp"
-    "Rendering/RenderTarget.cpp"
-    "Rendering/RenderWindow.cpp"
-    "Rendering/Shader.cpp"
-    "Rendering/VertexBuffer.cpp")
+set(CPF_RENDERAPI_INC
+    "RenderAPI/Buffer.hpp"
+    "RenderAPI/GpuBuffer.hpp"
+    "RenderAPI/IndexBuffer.hpp"
+    "RenderAPI/RenderTarget.hpp"
+    "RenderAPI/RenderWindow.hpp"
+    "RenderAPI/Shader.hpp"
+    "RenderAPI/VertexBuffer.hpp")
+set(CPF_RENDERAPI_SRC
+    "RenderAPI/Buffer.cpp"
+    "RenderAPI/GpuBuffer.cpp"
+    "RenderAPI/IndexBuffer.cpp"
+    "RenderAPI/RenderTarget.cpp"
+    "RenderAPI/RenderWindow.cpp"
+    "RenderAPI/Shader.cpp"
+    "RenderAPI/VertexBuffer.cpp")
 
 set(CPF_STRING_INC
     "String/String.hpp")
@@ -75,7 +75,7 @@ set(CPF_SRCS
     ${CPF_MANAGER_INC} ${CPF_MANAGER_SRC}
     ${CPF_MATH_INC} ${CPF_MATH_SRC}
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
-    ${CPF_RENDERING_INC} ${CPF_RENDERING_SRC}
+    ${CPF_RENDERAPI_INC} ${CPF_RENDERAPI_SRC}
     ${CPF_STRING_INC} ${CPF_STRING_SRC}
     ${CPF_UTILITY_INC} ${CPF_UTILITY_SRC}
     ${CPF_NOFILTER_INC} ${CPF_NOFILTER_SRC})

@@ -2,17 +2,17 @@
 
 #include "cpf.hpp"
 
-#include "Rendering/Buffer.hpp"
-#include "Rendering/GpuBuffer.hpp"
+#include "RenderAPI/Buffer.hpp"
+#include "RenderAPI/GpuBuffer.hpp"
 
 namespace cpf {
-    class DLL_EXPORT VertexBuffer : public Buffer {
+    class DLL_EXPORT IndexBuffer : public Buffer {
     private:
         GpuBuffer *mBuffer = nullptr;
 
     public:
-        VertexBuffer(uint32_t size, uint32_t count, BufferUsage usage);
-        virtual ~VertexBuffer();
+        IndexBuffer(uint32_t size, uint32_t count, BufferUsage usage);
+        ~IndexBuffer();
 
     public:
         void initialize();

@@ -2,9 +2,9 @@
 
 #include "Manager/RenderWindowManager.hpp"
 
-#include "Rendering/IndexBuffer.hpp"
-#include "Rendering/Shader.hpp"
-#include "Rendering/VertexBuffer.hpp"
+#include "RenderAPI/IndexBuffer.hpp"
+#include "RenderAPI/Shader.hpp"
+#include "RenderAPI/VertexBuffer.hpp"
 
 #include "Debug/Debug.hpp"
 

@@ -1,7 +1,5 @@
 #include "VertexBuffer.hpp"
 
-#include "Rendering/GpuBuffer.hpp"
-
 namespace cpf {
     VertexBuffer::VertexBuffer(uint32_t size, uint32_t count, BufferUsage usage)
         : Buffer(size, count, usage) {}
