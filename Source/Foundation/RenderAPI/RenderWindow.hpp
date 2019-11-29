@@ -36,5 +36,7 @@ namespace cpf {
 
         // 윈도우 버퍼를 교체합니다.
         void swapBuffers(uint32_t mask) override;
+
+        GLFWwindow *getWindowHandle() const { return mWindowPtr; }
     };
 }

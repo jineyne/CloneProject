@@ -30,6 +30,8 @@ namespace cpf {
         virtual void *map(uint32_t offset, uint32_t length) = 0;
         virtual void unmap() = 0;
 
+        uint32_t getSize() const { return mElementSize; }
+        uint32_t getCount() const { return mElementCount; }
         virtual GLuint getBufferId() const = 0;
     };
 }

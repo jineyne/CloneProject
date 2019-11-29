@@ -3,18 +3,14 @@
 #include "Manager/RenderWindowManager.hpp"
 
 #include "RenderAPI/IndexBuffer.hpp"
+#include "RenderAPI/RenderAPI.hpp"
 #include "RenderAPI/Shader.hpp"
 #include "RenderAPI/VertexBuffer.hpp"
 
 #include "Debug/Debug.hpp"
 
 namespace cpf {
-
     TMODULE_IMPLEMENT(DLL_EXPORT, Application);
-
-    void glfwErrorCallback(int error, const char* description) {
-        Debug::LogError(description);
-    }
 
     Application::Application(const ApplicationCreateInfo &info) : mInfo(info), mIsRunning(false) {
     }
@@ -24,6 +20,9 @@ namespace cpf {
 
     void Application::runMainLoop() {
         mIsRunning = true;
+
+        auto &rapi = RenderAPI::Instance();
+        rapi.setRenderTarget(mPrimaryWindow.get());
 
         uint32_t vao = 0;
         glGenVertexArrays(1, &vao);
@@ -35,6 +34,7 @@ namespace cpf {
         shaderCI.fragmentInfo.type = EGpuProgramType::Fragment;
 	    shaderCI.fragmentInfo.source = "#version 330 core\n" "out vec4 FragColor;\n" "void main() {\n" "FragColor = vec4(1.0, 0.5, 0.2, 1.0);\n}";
         Shader *shader = Allocator::New<Shader>(shaderCI);
+        rapi.setShader(shader);
 
         float vertices[] = {
             0.5f,  0.5f, 0.0f,  // top right
@@ -50,16 +50,15 @@ namespace cpf {
 
         VertexBuffer *vb = Allocator::New<VertexBuffer>(sizeof(float), 12, BufferUsage::Default);
         vb->initialize();
+        rapi.setVertexBuffer(0, {vb});
 
         float *vbp = static_cast<float *>(vb->map(0, sizeof(vertices)));
         memcpy(vbp, vertices, sizeof(vertices));
         vb->unmap();
 
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(0);  
-
         IndexBuffer *ib = Allocator::New<IndexBuffer>(sizeof(uint32_t), 6, BufferUsage::Default);
         ib->initialize();
+        rapi.setIndexBuffer(ib);
 
         uint32_t *ibp = static_cast<uint32_t *>(ib->map(0, sizeof(indices)));
         memcpy(ibp, indices, sizeof(indices));
@@ -68,15 +67,9 @@ namespace cpf {
         while (mIsRunning) {
             RenderWindowManager::Instance().update();
 
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            shader->bind();
-            glBindBuffer(GL_VERTEX_ARRAY, vb->getBufferId());
-            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ib->getBufferId());
-
-            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-            mPrimaryWindow->swapBuffers(0);
+            rapi.clearRenderTarget();
+            rapi.drawElements(0, ib->getCount(), 0, vb->getCount(), 0);
+            rapi.swapBuffers();
         }
 
         Allocator::Delete(ib);
@@ -101,11 +94,7 @@ namespace cpf {
     }
 
     void Application::initializeCore() {
-        if (!glfwInit()) {
-            Debug::LogFatal("Failed to initialize glfw!");
-        }
-
-        glfwSetErrorCallback(glfwErrorCallback);
+        RenderAPI::StartUp();
         RenderWindowManager::StartUp();
 
         mPrimaryWindow = RenderWindowManager::Instance().initialize(mInfo.primaryWindowCreateInfo);
@@ -113,7 +102,6 @@ namespace cpf {
 
     void Application::destroyCore() {
         RenderWindowManager::ShutDown();
-
-        glfwTerminate();
+        RenderAPI::ShutDown();
     }
 }

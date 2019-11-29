@@ -33,7 +33,7 @@ namespace cpf {
     private:
         ShaderCreateInfo mInfo;
 
-        GLenum mProgramId;
+        GLuint mProgramId;
         std::unordered_map<EGpuProgramType, SlotInfo> mUniformBlocks;
 
     public:
@@ -46,6 +46,7 @@ namespace cpf {
     public:
         void bind();
 
+        GLuint getProgramId() const { return mProgramId; }
     private:
         /**
          * 주어진 정보로 쉐이더를 생성합니다.
