@@ -2,6 +2,9 @@
 
 #include "cpf.hpp"
 
+#include "UniformBuffer.hpp"
+#include "Math/Matrix4.hpp"
+
 namespace cpf {
     enum class EGpuProgramType {
         Vertex,
@@ -21,20 +24,11 @@ namespace cpf {
         GpuProgramCreateInfo fragmentInfo;  //< Fragment GpuProgram을 만드는데 필요한 정보입니다.
     };
 
-    /**
-     * 쉐이더 요소들의 정보를 저장하는 구조체입니다.
-     */
-    struct SlotInfo {
-        String name;
-        uint32_t slot;
-    };
-
     class DLL_EXPORT Shader {
     private:
         ShaderCreateInfo mInfo;
 
         GLuint mProgramId;
-        std::unordered_map<EGpuProgramType, SlotInfo> mUniformBlocks;
 
     public:
         Shader(const ShaderCreateInfo &info);
@@ -45,6 +39,9 @@ namespace cpf {
 
     public:
         void bind();
+
+        void setUniformInt1(const String &name, uint32_t data);
+        void setUniformMatrix(const String &name, const Matrix4 &data);
 
         GLuint getProgramId() const { return mProgramId; }
     private:

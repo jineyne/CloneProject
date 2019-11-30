@@ -43,6 +43,20 @@ namespace cpf {
         glUseProgram(mProgramId);
     }
 
+    void Shader::setUniformInt1(const String &name, uint32_t data) {
+        uint32_t index = glGetUniformLocation(mProgramId, name.c_str());
+        if (index != -1) {
+            glProgramUniform1iv(mProgramId, index, 1, reinterpret_cast<GLint *>(data));
+        }
+    }
+
+    void Shader::setUniformMatrix(const String &name, const Matrix4 &data) {
+        uint32_t index = glGetUniformLocation(mProgramId, name.c_str());
+        if (index != -1) {
+            glProgramUniformMatrix4fv(mProgramId, index, 1, GL_FALSE, reinterpret_cast<GLfloat *>(&data[0][0]));
+        }
+    }
+
     GLuint Shader::createGpuProgram(GpuProgramCreateInfo info) {
         GLuint id = glCreateShader(GetShaderType(info.type));
         const char *src = info.source.c_str();
