@@ -10,9 +10,11 @@ set(CPF_DEBUG_SRC
 
 set(CPF_FILESYSTEM_INC
     "FileSystem/DataStream.hpp"
+    "FileSystem/FileSystem.hpp"
     "FileSystem/Path.hpp")
 set(CPF_FILESYSTEM_SRC
     "FileSystem/DataStream.cpp"
+    "FileSystem/FileSystem.cpp"
     "FileSystem/Path.cpp")
 
 set(CPF_MANAGER_INC
@@ -80,6 +82,11 @@ set(CPF_NOFILTER_INC
 set(CPF_NOFILTER_SRC
     "Application.cpp")
 
+set(CPF_WIN32_INC
+    "Private/Win32/Win32.hpp")
+set(CPF_WIN32_SRC
+    "Private/Win32/Win32Path.cpp")
+
 set(CPF_SRCS 
     ${CPF_ALLOC_INC} ${CPF_ALLOC_SRC}
     ${CPF_DEBUG_INC} ${CPF_DEBUG_SRC}
@@ -91,3 +98,7 @@ set(CPF_SRCS
     ${CPF_STRING_INC} ${CPF_STRING_SRC}
     ${CPF_UTILITY_INC} ${CPF_UTILITY_SRC}
     ${CPF_NOFILTER_INC} ${CPF_NOFILTER_SRC})
+
+if(WIN32) 
+    list(APPEND CPF_SRCS ${CPF_WIN32_INC} ${CPF_WIN32_SRC})
+endif()
