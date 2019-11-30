@@ -1,5 +1,7 @@
 #include "Actor.hpp"
 
+#include "Manager/ObjectManager.hpp"
+
 namespace cpf {
     IMPL_RUNTIMECLASS(Actor, Object);
 
@@ -25,9 +27,11 @@ namespace cpf {
 
     void Actor::destroyInternal(bool immediate) {
         if (immediate) {
-            // ActorManager::Instance().unregisterObject(this);
+            // TODO: doing something
+            
+            ObjectManager::Instance().unregisterObject(this);
         } else {
-            // ActorManager::Instance().queueForDestroy(this);
+            ObjectManager::Instance().queueForDestroy(this);
         }
     }
 }

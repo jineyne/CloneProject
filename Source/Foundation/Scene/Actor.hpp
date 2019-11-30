@@ -6,8 +6,6 @@
 
 namespace cpf {
     class DLL_EXPORT Actor : public Object {
-    protected:
-
     public:
         Actor(const String &name, uint32_t flags = 0x0);
         virtual ~Actor();
@@ -16,11 +14,11 @@ namespace cpf {
         void destroy(bool immediate = false) override;
 
     protected:
+        // @copydoc Object::initialize
         void initialize(uint32_t id) override;
-        void destroyInternal(bool immediate = false) override;
 
-    private:
-        friend class ActorManager;
+        // @copydoc Object::destroyInternal
+        void destroyInternal(bool immediate = false) override;
 
         DECL_RUNTIMECLASS(Actor);
     };
