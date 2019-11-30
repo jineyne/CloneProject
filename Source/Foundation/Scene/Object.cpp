@@ -17,11 +17,17 @@ namespace cpf {
         return mActiveSelf;
     }
 
+    bool Object::isInitialize() const {
+        return mIsInitialize;
+    }
+
     bool Object::isDestroyed() const {
         return mIsDestroyed;
     }
 
     void Object::initialize(uint32_t id) {
         mObjectId = id;
+
+        mIsInitialize = true;
     }
 }

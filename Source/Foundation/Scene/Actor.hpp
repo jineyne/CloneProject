@@ -17,7 +17,7 @@ namespace cpf {
 
     protected:
         void initialize(uint32_t id) override;
-        void destroyInternal(bool immediate = false);
+        void destroyInternal(bool immediate = false) override;
 
     private:
         friend class ActorManager;

@@ -15,6 +15,8 @@ namespace cpf {
         // TODO: Change to StringId
         String mName;
         bool mActiveSelf = true; //< 해당 오브젝트가 활성화 상태인지 여부
+
+        bool mIsInitialize = false;
         bool mIsDestroyed = false;
 
     public:
@@ -28,7 +30,7 @@ namespace cpf {
          *  바로 삭제할 것인지 여부입니다.
          *  거짓일 경우 다음 Update 시작 전에 삭제됩니다.
          */
-        virtual bool destroy(bool immediate = false);
+        virtual void destroy(bool immediate = false);
 
         // 활성화 상태를 변경합니다.
         void setActive(bool active);
@@ -36,11 +38,24 @@ namespace cpf {
         // 활성화 상태를 반환합니다.
         bool isActive() const;
 
+        // 해당 오브젝트의 이름을 반환합니다.
+        String getName() const { return mName; }
+
+        // 해당 오브젝트의 아이디를 반환합니다.
+        uint32_t getId() const { return mObjectId; }
+
+        // 해당 오브젝트가 초기화되었는지 여부를 반환합니다.
+        bool isInitialize() const;
+
         // 해당 오브젝트가 삭제 혹은 삭제 큐에 들어가있는지 여부를 반환합니다.
         bool isDestroyed() const;
 
     protected:
-        void initialize(uint32_t id);
+        virtual void initialize(uint32_t id);
+        virtual void destroyInternal(bool immediate = false) = 0;
+
+    private:
+        friend class ObjectManager;
 
         DECL_RUNTIMECLASS(Object);
     };
