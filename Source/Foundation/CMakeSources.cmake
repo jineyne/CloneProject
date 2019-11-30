@@ -72,9 +72,10 @@ set(CPF_STRING_SRC
 set(CPF_UTILITY_INC
     "Utility/Flags.hpp"
     "Utility/Module.hpp"
-    "Utility/NonCopyable.hpp")
+    "Utility/NonCopyable.hpp"
+    "Utility/RuntimeClass.hpp")
 set(CPF_UTILITY_SRC
-    )
+    "Utility/RuntimeClass.cpp")
 
 set(CPF_NOFILTER_INC
     "Application.hpp"
