@@ -8,6 +8,13 @@ set(CPF_DEBUG_INC
 set(CPF_DEBUG_SRC
     "Debug/Debug.cpp")
 
+set(CPF_FILESYSTEM_INC
+    "FileSystem/DataStream.hpp"
+    "FileSystem/Path.hpp")
+set(CPF_FILESYSTEM_SRC
+    "FileSystem/DataStream.cpp"
+    "FileSystem/Path.cpp")
+
 set(CPF_MANAGER_INC
     "Manager/RenderWindowManager.hpp")
 set(CPF_MANAGER_SRC
@@ -76,6 +83,7 @@ set(CPF_NOFILTER_SRC
 set(CPF_SRCS 
     ${CPF_ALLOC_INC} ${CPF_ALLOC_SRC}
     ${CPF_DEBUG_INC} ${CPF_DEBUG_SRC}
+    ${CPF_FILESYSTEM_INC} ${CPF_FILESYSTEM_SRC}
     ${CPF_MANAGER_INC} ${CPF_MANAGER_SRC}
     ${CPF_MATH_INC} ${CPF_MATH_SRC}
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
