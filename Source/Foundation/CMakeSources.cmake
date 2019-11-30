@@ -18,8 +18,10 @@ set(CPF_FILESYSTEM_SRC
     "FileSystem/Path.cpp")
 
 set(CPF_MANAGER_INC
+    "Manager/ObjectManager.hpp"
     "Manager/RenderWindowManager.hpp")
 set(CPF_MANAGER_SRC
+    "Manager/ObjectManager.cpp"
     "Manager/RenderWindowManager.cpp")
 
 set(CPF_MATH_INC

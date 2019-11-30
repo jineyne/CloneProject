@@ -1,5 +1,6 @@
 #include "Application.hpp"
 
+#include "Manager/ObjectManager.hpp"
 #include "Manager/RenderWindowManager.hpp"
 
 #include "RenderAPI/IndexBuffer.hpp"
@@ -98,9 +99,13 @@ namespace cpf {
         RenderWindowManager::StartUp();
 
         mPrimaryWindow = RenderWindowManager::Instance().initialize(mInfo.primaryWindowCreateInfo);
+
+        ObjectManager::StartUp();
     }
 
     void Application::destroyCore() {
+        ObjectManager::ShutDown();
+
         RenderWindowManager::ShutDown();
         RenderAPI::ShutDown();
     }
