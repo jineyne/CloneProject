@@ -65,8 +65,10 @@ set(CPF_RENDERAPI_SRC
     "RenderAPI/VertexBuffer.cpp")
 
 set(CPF_SCENE_INC
+    "Scene/Actor.hpp"
     "Scene/Object.hpp")
 set(CPF_SCENE_SRC
+    "Scene/Actor.cpp"
     "Scene/Object.cpp")
 
 set(CPF_STRING_INC
