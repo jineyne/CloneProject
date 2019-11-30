@@ -42,6 +42,7 @@ set(CPF_RENDERAPI_INC
     "RenderAPI/RenderTarget.hpp"
     "RenderAPI/RenderWindow.hpp"
     "RenderAPI/Shader.hpp"
+    "RenderAPI/UniformBuffer.hpp"
     "RenderAPI/VertexBuffer.hpp")
 set(CPF_RENDERAPI_SRC
     "RenderAPI/Buffer.cpp"
@@ -51,6 +52,7 @@ set(CPF_RENDERAPI_SRC
     "RenderAPI/RenderTarget.cpp"
     "RenderAPI/RenderWindow.cpp"
     "RenderAPI/Shader.cpp"
+    "RenderAPI/UniformBuffer.cpp"
     "RenderAPI/VertexBuffer.cpp")
 
 set(CPF_STRING_INC
