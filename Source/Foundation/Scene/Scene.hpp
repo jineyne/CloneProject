@@ -31,9 +31,9 @@ namespace cpf {
         }
 
     protected:
-        virtual void onStartUp() = 0;
-        virtual void onShutDown() = 0;
-        virtual void onUpdate() = 0;
+        virtual void onStartUp() {};
+        virtual void onShutDown() {};
+        virtual void onUpdate() {};
 
     private:
         friend class SceneManager;

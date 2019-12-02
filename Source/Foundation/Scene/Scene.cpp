@@ -6,6 +6,8 @@ namespace cpf {
     }
 
     Scene::~Scene() {
+        mRootActor->destroy(true);
+
         Allocator::Delete(mRootActor);
     }
 
