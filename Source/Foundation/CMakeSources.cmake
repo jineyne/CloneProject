@@ -68,10 +68,12 @@ set(CPF_RENDERAPI_SRC
 
 set(CPF_SCENE_INC
     "Scene/Actor.hpp"
-    "Scene/Object.hpp")
+    "Scene/Object.hpp"
+    "Scene/Scene.hpp")
 set(CPF_SCENE_SRC
     "Scene/Actor.cpp"
-    "Scene/Object.cpp")
+    "Scene/Object.cpp"
+    "Scene/Scene.cpp")
 
 set(CPF_STRING_INC
     "String/String.hpp")
