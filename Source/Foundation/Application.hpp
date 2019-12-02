@@ -39,6 +39,8 @@ namespace cpf {
         // 메인 루프를 멈추게 요청합니다.
         void quitRequest();
 
+        HRenderWindow getPrimaryWindow() { return mPrimaryWindow; }
+
     protected:
         void onStartUp() override;
         void onShutDown() override;
