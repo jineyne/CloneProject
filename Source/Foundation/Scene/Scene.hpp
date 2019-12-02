@@ -19,6 +19,9 @@ namespace cpf {
         ~Scene();
 
     public:
+        /**
+         * 특정 Actor를 해당 장면에 생성합니다.
+         */
         template <typename T>
         T *spawnActor(const String &name) {
             static_assert(std::is_base_of<Actor, T>::value. "spawn actor type is must be derived from actor!");
