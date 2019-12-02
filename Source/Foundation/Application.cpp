@@ -2,6 +2,7 @@
 
 #include "Manager/ObjectManager.hpp"
 #include "Manager/RenderWindowManager.hpp"
+#include "Manager/SceneManager.hpp"
 
 #include "RenderAPI/IndexBuffer.hpp"
 #include "RenderAPI/RenderAPI.hpp"
@@ -67,6 +68,7 @@ namespace cpf {
 
         while (mIsRunning) {
             RenderWindowManager::Instance().update();
+            SceneManager::Instance().update();
 
             rapi.clearRenderTarget();
             rapi.drawElements(0, ib->getCount(), 0, vb->getCount(), 0);
@@ -101,9 +103,11 @@ namespace cpf {
         mPrimaryWindow = RenderWindowManager::Instance().initialize(mInfo.primaryWindowCreateInfo);
 
         ObjectManager::StartUp();
+        SceneManager::StartUp();
     }
 
     void Application::destroyCore() {
+        SceneManager::ShutDown();
         ObjectManager::ShutDown();
 
         RenderWindowManager::ShutDown();
