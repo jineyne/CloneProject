@@ -21,7 +21,7 @@ namespace cpf {
         ThisType &set(Enum val) {
             mFlags |= static_cast<Storage>(val);
 
-            return this;
+            return *this;
         }
 
         bool isSet(Enum val) {
