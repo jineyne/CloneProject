@@ -89,6 +89,13 @@ namespace cpf {
     void Actor::destroyInternal(bool immediate) {
         if (immediate) {
             // TODO: doing something
+            while (!mChildActorList.empty()) {
+                auto child = mChildActorList.back();
+                mChildActorList.pop_back();
+
+                child->destroyInternal(immediate);
+                Allocator::Delete(child);
+            }
             
             ObjectManager::Instance().unregisterObject(this);
         } else {
