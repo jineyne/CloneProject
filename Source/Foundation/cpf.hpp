@@ -39,6 +39,7 @@ namespace cpf {
     using HRenderWindow = SPtr<RenderWindow>;
 
     class Actor;
+    class Component;
     class Object;
     class Scene;
 
