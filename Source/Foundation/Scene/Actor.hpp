@@ -2,12 +2,14 @@
 
 #include "cpf.hpp"
 
+#include "Manager/ObjectManager.hpp"
 #include "Scene/Object.hpp"
 
 namespace cpf {
     class DLL_EXPORT Actor : public Object {
     private:
         std::vector<Actor *> mChildActorList {};
+        std::vector<Component *> mAttachedComponentList {};
         Actor *mParentActor = nullptr;
 
     public:
@@ -28,6 +30,29 @@ namespace cpf {
         
         void addChild(Actor *actor);
         void removeChild(Actor *actor);
+
+        void attachComponent(Component *component);
+
+        template<typename T> T *addComponenet(const String &name) {
+            static_assert(std::is_base_of<Component, T>::value, "Add component type is not derived from component!");
+
+            T *component = Allocator::New<T>(name, this);
+            ObjectManager::Instance().registerObject(component);
+
+            attachComponent(component);
+
+            return compnent;
+        }
+
+        template<typename T> T *getComponenet() {
+            for (auto component : mAttachedComponentList) {
+                if (component->getThisClass() == T::GetRuntimeClass()) {
+                    return component;
+                }
+            }
+
+            return nullptr;
+        }
 
         bool equals(Actor *actor) const;
 

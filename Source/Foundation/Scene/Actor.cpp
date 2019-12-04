@@ -1,6 +1,7 @@
 #include "Actor.hpp"
 
 #include "Manager/ObjectManager.hpp"
+#include "Scene/Component.hpp"
 
 namespace cpf {
     IMPL_RUNTIMECLASS(Actor, Object);
@@ -22,6 +23,10 @@ namespace cpf {
     void Actor::startUp() {
         onStartUp();
 
+        for (auto component : mAttachedComponentList) {
+            component->onStartUp();
+        }
+        
         for (auto actor : mChildActorList) {
             actor->startUp();
         }
@@ -30,6 +35,10 @@ namespace cpf {
     void Actor::shutDown() {
         onShutDown();
 
+        for (auto component : mAttachedComponentList) {
+            component->onShutDown();
+        }
+
         for (auto actor : mChildActorList) {
             actor->shutDown();
         }
@@ -37,6 +46,10 @@ namespace cpf {
 
     void Actor::update() {
         onUpdate();
+
+        for (auto component : mAttachedComponentList) {
+            component->onUpdate();
+        }
 
         for (auto actor : mChildActorList) {
             actor->update();
@@ -95,6 +108,14 @@ namespace cpf {
 
                 child->destroyInternal(immediate);
                 Allocator::Delete(child);
+            }
+
+            while (!mAttachedComponentList.empty()) {
+                auto component = mAttachedComponentList.back();
+                mAttachedComponentList.pop_back();
+
+                component->destroy(immediate);
+                Allocator::Delete(component);
             }
             
             ObjectManager::Instance().unregisterObject(this);
