@@ -68,6 +68,11 @@ set(CPF_RENDERAPI_SRC
     "RenderAPI/UniformBuffer.cpp"
     "RenderAPI/VertexBuffer.cpp")
 
+set(CPF_RENDERER_INC
+    "Renderer/Renderable.hpp")
+set(CPF_RENDERER_SRC
+    "Renderer/Renderable.cpp")
+
 set(CPF_SCENE_INC
     "Scene/Actor.hpp"
     "Scene/Component.hpp"
@@ -111,6 +116,7 @@ set(CPF_SRCS
     ${CPF_MATH_INC} ${CPF_MATH_SRC}
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
     ${CPF_RENDERAPI_INC} ${CPF_RENDERAPI_SRC}
+    ${CPF_RENDERER_INC} ${CPF_RENDERER_SRC}
     ${CPF_SCENE_INC} ${CPF_SCENE_SRC}
     ${CPF_STRING_INC} ${CPF_STRING_SRC}
     ${CPF_UTILITY_INC} ${CPF_UTILITY_SRC}
