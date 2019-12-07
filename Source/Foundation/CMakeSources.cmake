@@ -69,9 +69,11 @@ set(CPF_RENDERAPI_SRC
     "RenderAPI/VertexBuffer.cpp")
 
 set(CPF_RENDERER_INC
-    "Renderer/Renderable.hpp")
+    "Renderer/Renderable.hpp"
+    "Renderer/Renderer.hpp")
 set(CPF_RENDERER_SRC
-    "Renderer/Renderable.cpp")
+    "Renderer/Renderable.cpp"
+    "Renderer/Renderer.cpp")
 
 set(CPF_SCENE_INC
     "Scene/Actor.hpp"
