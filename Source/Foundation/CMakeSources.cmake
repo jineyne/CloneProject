@@ -95,7 +95,8 @@ set(CPF_UTILITY_INC
     "Utility/Flags.hpp"
     "Utility/Module.hpp"
     "Utility/NonCopyable.hpp"
-    "Utility/RuntimeClass.hpp")
+    "Utility/RuntimeClass.hpp"
+    "Utility/Utility.hpp")
 set(CPF_UTILITY_SRC
     "Utility/RuntimeClass.cpp")
 

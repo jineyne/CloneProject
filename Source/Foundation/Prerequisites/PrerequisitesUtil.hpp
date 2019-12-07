@@ -22,6 +22,7 @@
 #include "Alloc/System.hpp"
 
 #include "Utility/NonCopyable.hpp"
+#include "Utility/Utility.hpp"
 
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
