@@ -50,4 +50,30 @@ namespace cpf {
         uint32_t getSemanticIdx() const { return mIndex; }
         uint32_t getInstanceStepRate() const { return mInstanceStepRate; }
     };
+
+    class DLL_EXPORT VertexDeclaration {
+    private:
+        uint32_t mId;
+        std::vector<VertexElement> mElementList;
+
+    public:
+        virtual ~VertexDeclaration() = default;
+
+    public:
+        void initialize();
+
+        bool isCompatible(const VertexDeclaration *shaderDeclare);
+
+        std::vector<VertexElement> getMissingElements(const VertexDeclaration *shaderDecl);
+
+        uint32_t getElementCount() const { return static_cast<uint32_t>(mElementList.size()); }
+        const VertexElement *getElement(uint32_t index) const;
+        const VertexElement *findElementBySemantic(VertexElementSemantic semantic) const;
+        std::vector<VertexElement> getElements() const { return mElementList; }
+
+    protected:
+        friend class HardwareBufferManager;
+
+        VertexDeclaration(const std::vector<VertexElement> &elements);
+    };
 }
