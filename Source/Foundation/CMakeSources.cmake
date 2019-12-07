@@ -56,7 +56,8 @@ set(CPF_RENDERAPI_INC
     "RenderAPI/RenderWindow.hpp"
     "RenderAPI/Shader.hpp"
     "RenderAPI/UniformBuffer.hpp"
-    "RenderAPI/VertexBuffer.hpp")
+    "RenderAPI/VertexBuffer.hpp"
+    "RenderAPI/VertexDeclaration.hpp")
 set(CPF_RENDERAPI_SRC
     "RenderAPI/Buffer.cpp"
     "RenderAPI/GpuBuffer.cpp"
@@ -66,7 +67,8 @@ set(CPF_RENDERAPI_SRC
     "RenderAPI/RenderWindow.cpp"
     "RenderAPI/Shader.cpp"
     "RenderAPI/UniformBuffer.cpp"
-    "RenderAPI/VertexBuffer.cpp")
+    "RenderAPI/VertexBuffer.cpp"
+    "RenderAPI/VertexDeclaration.cpp")
 
 set(CPF_RENDERER_INC
     "Renderer/Renderable.hpp"
