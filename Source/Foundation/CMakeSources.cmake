@@ -60,6 +60,7 @@ set(CPF_RENDERAPI_INC
     "RenderAPI/UniformBuffer.hpp"
     "RenderAPI/Utility.hpp"
     "RenderAPI/VertexBuffer.hpp"
+    "RenderAPI/VertexDataDesc.hpp"
     "RenderAPI/VertexDeclaration.hpp")
 set(CPF_RENDERAPI_SRC
     "RenderAPI/Buffer.cpp"
@@ -71,6 +72,7 @@ set(CPF_RENDERAPI_SRC
     "RenderAPI/Shader.cpp"
     "RenderAPI/UniformBuffer.cpp"
     "RenderAPI/VertexBuffer.cpp"
+    "RenderAPI/VertexDataDesc.cpp"
     "RenderAPI/VertexDeclaration.cpp")
 
 set(CPF_RENDERER_INC
