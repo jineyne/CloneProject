@@ -1,5 +1,6 @@
 #include "RenderAPI.hpp"
 
+#include "Manager/VertexArrayManager.hpp"
 #include "RenderAPI/RenderWindow.hpp"
 
 namespace cpf {
@@ -13,18 +14,10 @@ namespace cpf {
         }
 
         mDrawCallInProgress = true;
-
-        for (auto &vert : mActiveVertexBuffers) {
-            if (vert == nullptr) {
-                continue;
-            }
-            glBindBuffer(GL_ARRAY_BUFFER, vert->getBufferId());
-
-            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-            glEnableVertexAttribArray(0);  
-        }
-
         glUseProgram(mActiveShader->getProgramId());
+
+        const auto &vao = VertexArrayManager::Instance().getVAO(mActiveShader, mVertexDeclarayion, mActiveVertexBuffers);
+        glBindVertexArray(vao.getArrayId());
     }
 
     void RenderAPI::endDraw() {
@@ -65,6 +58,10 @@ namespace cpf {
 
     void RenderAPI::setShader(Shader *shader) {
         mActiveShader = shader;
+    }
+
+    void RenderAPI::setVertexDeclaration(VertexDeclaration *decl) {
+        mVertexDeclarayion = decl;
     }
 
     void RenderAPI::drawElements(uint32_t indexOffset, uint32_t indexCount, uint32_t vertexOffset, uint32_t vertexCount, 

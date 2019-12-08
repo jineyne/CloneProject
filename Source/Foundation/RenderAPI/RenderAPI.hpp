@@ -4,8 +4,9 @@
 
 #include "RenderAPI/IndexBuffer.hpp"
 #include "RenderAPI/RenderTarget.hpp"
-#include "RenderAPI/VertexBuffer.hpp"
 #include "RenderAPI/Shader.hpp"
+#include "RenderAPI/VertexBuffer.hpp"
+#include "RenderAPI/VertexDeclaration.hpp"
 
 #include "Utility/Module.hpp"
 
@@ -21,6 +22,7 @@ namespace cpf {
         std::array<VertexBuffer *, 32> mActiveVertexBuffers {nullptr, };
         IndexBuffer *mActiveIndexBuffer = nullptr;
         Shader *mActiveShader = nullptr;
+        VertexDeclaration *mVertexDeclarayion = nullptr;
 
     public:
         RenderAPI() = default;
@@ -53,6 +55,8 @@ namespace cpf {
          *  GraphicPipeline으로 대체될 예정입니다.
          */
         void setShader(Shader *shader);
+
+        void setVertexDeclaration(VertexDeclaration *decl);
 
         /**
          * 주어진 정보로 배열 데이터에서 그립니다.
