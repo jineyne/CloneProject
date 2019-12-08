@@ -48,7 +48,7 @@ public:
             -0.5f, -0.5f, 0.0f,  // bottom left
             -0.5f,  0.5f, 0.0f   // top left 
         };
-        mBuffer = Allocator::New<VertexBuffer>(vdd->getVertexStride(), 12, BufferUsage::Default);
+        mBuffer = Allocator::New<VertexBuffer>(vdd->getVertexStride(), 4, BufferUsage::Default);
         mBuffer->initialize();
         float *vbp = static_cast<float *>(mBuffer->map(0, sizeof(vertices)));
         memcpy(vbp, vertices, sizeof(vertices));
@@ -80,7 +80,7 @@ public:
         rapi.setIndexBuffer(mIndexBuffer);
         rapi.setShader(mShader);
 
-        rapi.drawElements(0, mIndexBuffer->getCount(), 0, mBuffer->getCount(), 0);
+        rapi.drawElements(0, mIndexBuffer->getIndexCount(), 0, mBuffer->getVertexCount(), 0);
     }
 };
 

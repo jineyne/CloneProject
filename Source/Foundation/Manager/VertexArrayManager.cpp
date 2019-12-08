@@ -125,7 +125,7 @@ namespace cpf {
 
             GLboolean normalized = GL_FALSE;
 
-            GLsizei vertexSize = static_cast<GLsizei>(buffer->getSize());
+            GLsizei vertexSize = static_cast<GLsizei>(buffer->getVertexSize());
             if (isInteger) {
                 glVertexAttribIPointer(attribLoc, typeCount, glType, vertexSize, bufferData);
             } else {

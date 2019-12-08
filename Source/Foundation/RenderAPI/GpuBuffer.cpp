@@ -3,10 +3,10 @@
 #include "Debug/Debug.hpp"
 
 namespace cpf {
-    GpuBuffer::GpuBuffer(GLenum bufferType, uint32_t size, uint32_t count, BufferUsage usage) 
-        : Buffer(size, count, usage), mBufferType(bufferType) {
+    GpuBuffer::GpuBuffer(GLenum bufferType, uint32_t size, BufferUsage usage) 
+        : Buffer(size, usage), mBufferType(bufferType) {
 
-        Debug::LogInfo("Buffer created: size {}, count {}, buffer size {}", size, count, mSize);
+        Debug::LogInfo("Buffer created: size {}, buffer size {}", size, mSize);
 
         glGenBuffers(1, &mBufferId);
         glBindBuffer(bufferType, mBufferId);

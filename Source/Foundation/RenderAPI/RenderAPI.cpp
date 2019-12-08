@@ -77,11 +77,11 @@ namespace cpf {
 
         if (instanceCount <= 1) {
             glDrawElementsBaseVertex(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 
-                    (GLvoid *) (uint64_t) (mActiveIndexBuffer->getSize() * indexOffset),
+                    (GLvoid *) (uint64_t) (mActiveIndexBuffer->getIndexSize() * indexOffset),
                     vertexOffset);
         } else {
             glDrawElementsInstancedBaseVertex(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT,
-                    (GLvoid *) (uint64_t) (mActiveIndexBuffer->getSize() * indexOffset),
+                    (GLvoid *) (uint64_t) (mActiveIndexBuffer->getIndexSize() * indexOffset),
                     instanceCount, vertexOffset);
         }
 

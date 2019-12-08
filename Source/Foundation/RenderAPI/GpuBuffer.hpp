@@ -20,7 +20,7 @@ namespace cpf {
          * @param count 요소의 갯수입니다.
          * @param usage 버퍼 데이터를 관리하는 방법입니다.
          */
-        GpuBuffer(GLenum bufferType, uint32_t size, uint32_t count, BufferUsage usage);
+        GpuBuffer(GLenum bufferType, uint32_t size, BufferUsage usage);
 
         /**
          * 버퍼를 해제시킵니다.

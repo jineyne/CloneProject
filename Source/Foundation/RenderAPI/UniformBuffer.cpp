@@ -2,7 +2,7 @@
 
 namespace cpf {
     UniformBuffer::UniformBuffer(uint32_t size, uint32_t count, BufferUsage usage)
-        : Buffer(size, count, usage) {}
+        : Buffer(size, usage) {}
 
     UniformBuffer::~UniformBuffer() {
         if (mBuffer) {
@@ -11,7 +11,7 @@ namespace cpf {
     }
 
     void UniformBuffer::initialize() {
-        mBuffer = Allocator::New<GpuBuffer>(GL_UNIFORM_BUFFER, mElementSize, mElementCount, mUsage);
+        mBuffer = Allocator::New<GpuBuffer>(GL_UNIFORM_BUFFER, mSize, mUsage);
     }
 
     void *UniformBuffer::map(uint32_t offset, uint32_t length) {
