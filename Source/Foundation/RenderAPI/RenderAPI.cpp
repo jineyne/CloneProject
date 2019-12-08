@@ -16,7 +16,7 @@ namespace cpf {
         mDrawCallInProgress = true;
         glUseProgram(mActiveShader->getProgramId());
 
-        const auto &vao = VertexArrayManager::Instance().getVAO(mActiveShader, mVertexDeclarayion, mActiveVertexBuffers);
+        const auto &vao = VertexArrayManager::Instance().getVAO(mActiveShader, mVertexDeclaration, mActiveVertexBuffers);
         glBindVertexArray(vao.getArrayId());
     }
 
@@ -61,7 +61,7 @@ namespace cpf {
     }
 
     void RenderAPI::setVertexDeclaration(VertexDeclaration *decl) {
-        mVertexDeclarayion = decl;
+        mVertexDeclaration = decl;
     }
 
     void RenderAPI::drawElements(uint32_t indexOffset, uint32_t indexCount, uint32_t vertexOffset, uint32_t vertexCount, 

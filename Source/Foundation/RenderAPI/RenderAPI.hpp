@@ -22,7 +22,7 @@ namespace cpf {
         std::array<VertexBuffer *, 32> mActiveVertexBuffers {nullptr, };
         IndexBuffer *mActiveIndexBuffer = nullptr;
         Shader *mActiveShader = nullptr;
-        VertexDeclaration *mVertexDeclarayion = nullptr;
+        VertexDeclaration *mVertexDeclaration = nullptr;
 
     public:
         RenderAPI() = default;
