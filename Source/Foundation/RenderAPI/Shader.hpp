@@ -2,7 +2,8 @@
 
 #include "cpf.hpp"
 
-#include "UniformBuffer.hpp"
+#include "RenderAPI/UniformBuffer.hpp"
+#include "RenderAPI/VertexDeclaration.hpp"
 #include "Math/Matrix4.hpp"
 
 namespace cpf {
@@ -16,12 +17,26 @@ namespace cpf {
         String source;
     };
 
+    struct DLL_EXPORT Attribute {
+    private:
+        String mName;
+        VertexElementSemantic mSemantic;
+
+    public:
+        Attribute(const String &name, VertexElementSemantic semantic)
+            : mName(name), mSemantic(semantic) {}
+
+    public:
+        int32_t matchesName(const String &name);
+        VertexElementSemantic getSemantic() const { return mSemantic; }
+    };
+
     /**
-     * ½¦ÀÌ´õ¸¦ ¸¸µå´Âµ¥ ÇÊ¿äÇÑ Á¤º¸¸¦ ÀúÀåÇÏ´Â ±¸Á¶Ã¼ÀÔ´Ï´Ù.
+     * ì‰ì´ë”ë¥¼ ë§Œë“œëŠ”ë° í•„ìš”í•œ ì •ë³´ë¥¼ ì €ì¥í•˜ëŠ” êµ¬ì¡°ì²´ì…ë‹ˆë‹¤.
      */
     struct ShaderCreateInfo {
-        GpuProgramCreateInfo vertexInfo;    //< Vertex GpuProgramÀ» ¸¸µå´Âµ¥ ÇÊ¿äÇÑ Á¤º¸ÀÔ´Ï´Ù.
-        GpuProgramCreateInfo fragmentInfo;  //< Fragment GpuProgramÀ» ¸¸µå´Âµ¥ ÇÊ¿äÇÑ Á¤º¸ÀÔ´Ï´Ù.
+        GpuProgramCreateInfo vertexInfo;    //< Vertex GpuProgramì„ ë§Œë“œëŠ”ë° í•„ìš”í•œ ì •ë³´ì…ë‹ˆë‹¤.
+        GpuProgramCreateInfo fragmentInfo;  //< Fragment GpuProgramì„ ë§Œë“œëŠ”ë° í•„ìš”í•œ ì •ë³´ì…ë‹ˆë‹¤.
     };
 
     class DLL_EXPORT Shader {
@@ -29,6 +44,7 @@ namespace cpf {
         ShaderCreateInfo mInfo;
 
         GLuint mProgramId;
+        std::map<EGpuProgramType, VertexDeclaration *> mInputDeclaration;
 
     public:
         Shader(const ShaderCreateInfo &info);
@@ -43,11 +59,18 @@ namespace cpf {
         void setUniformInt1(const String &name, uint32_t data);
         void setUniformMatrix(const String &name, const Matrix4 &data);
 
+        VertexDeclaration *getInputDeclaration(EGpuProgramType type) const { return mInputDeclaration[type]; }
+
         GLuint getProgramId() const { return mProgramId; }
     private:
         /**
-         * ÁÖ¾îÁø Á¤º¸·Î ½¦ÀÌ´õ¸¦ »ı¼ºÇÕ´Ï´Ù.
+         * ì£¼ì–´ì§„ ì •ë³´ë¡œ ì‰ì´ë”ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.
          */
         GLuint createGpuProgram(GpuProgramCreateInfo info);
+
+        void buildVertexDeclarayion(EGpuProgramType type, uint32_t programId);
+
+        bool attribNameToElementSemantic(const String &name, VertexElementSemantic &semantic, uint32_t &index);
+        VertexElementType glTypeToAttribType(GLenum glType);
     };
 }

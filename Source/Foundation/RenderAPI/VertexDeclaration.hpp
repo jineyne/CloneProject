@@ -57,6 +57,7 @@ namespace cpf {
         std::vector<VertexElement> mElementList;
 
     public:
+        VertexDeclaration(const std::vector<VertexElement> &elements);
         virtual ~VertexDeclaration() = default;
 
     public:
@@ -70,10 +71,5 @@ namespace cpf {
         const VertexElement *getElement(uint32_t index) const;
         const VertexElement *findElementBySemantic(VertexElementSemantic semantic) const;
         std::vector<VertexElement> getElements() const { return mElementList; }
-
-    protected:
-        friend class HardwareBufferManager;
-
-        VertexDeclaration(const std::vector<VertexElement> &elements);
     };
 }

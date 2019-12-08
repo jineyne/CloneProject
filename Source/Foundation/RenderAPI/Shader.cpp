@@ -3,6 +3,20 @@
 #include "Debug/Debug.hpp"
 
 namespace cpf {
+    int32_t Attribute::matchesName(const String &name) {
+        if (name.length() >= mName.length()) {
+            if (name.substr(0, mName.length()) == mName) {
+                String indexStr = name.substr(mName.length(), name.length());
+                std::stringstream ss(indexStr.c_str());
+                uint32_t idx = 0;
+                ss >> idx;
+                return idx;
+            }
+        }
+
+        return -1;
+    }
+
     Shader::Shader(const ShaderCreateInfo &info) : mInfo(info) {
         GLuint vert = createGpuProgram(info.vertexInfo);
         GLuint frag = createGpuProgram(info.fragmentInfo);
@@ -72,7 +86,86 @@ namespace cpf {
             return -1;
         }
 
+        buildVertexDeclarayion(info.type, id);
+
         return id;
     }
 
+    void Shader::buildVertexDeclarayion(EGpuProgramType type, uint32_t programId) {
+        int32_t attribCount = 0;
+        glGetProgramiv(programId, GL_ACTIVE_ATTRIBUTES, &attribCount);
+
+        int32_t maxNameSize = 0;
+        glGetProgramiv(programId, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH, &maxNameSize);
+
+        std::vector<char> attribName(maxNameSize);
+        auto it = mInputDeclaration.find(type);
+        if (it != mInputDeclaration.end()) {
+            Allocator::Delete(mInputDeclaration[type]);
+            mInputDeclaration.erase(it);
+        }
+
+        std::vector<VertexElement> elementList;
+
+        for (int32_t i = 0; i < attribCount; i++) {
+            int32_t attribSize = 0;
+            GLenum attribType = 0;
+            glGetActiveAttrib(programId, i, maxNameSize, nullptr, &attribSize, &attribType, attribName.data());
+
+            StringStream ss;
+            ss << attribName.data();
+
+            VertexElementSemantic semantic = VertexElementSemantic::Position;
+            uint32_t index;
+            if (attribNameToElementSemantic(ss.str(), semantic, index)) {
+                VertexElementType type = glTypeToAttribType(attribType);
+                uint32_t slot = glGetAttribLocation(programId, attribName.data());
+
+                elementList.emplace_back(slot, type, semantic, index);
+            }
+        }
+
+        mInputDeclaration.insert(std::make_pair(type, Allocator::New<VertexDeclaration>(elementList)));
+    }
+
+    bool Shader::attribNameToElementSemantic(const String &name, VertexElementSemantic &semantic, uint32_t &index) {
+        Attribute attrib[] {
+            Attribute("cpf_position", VertexElementSemantic::Position),
+            Attribute("cpf_color", VertexElementSemantic::Color),
+            Attribute("cpf_texcoord", VertexElementSemantic::TexCoord),
+            Attribute("POSITION", VertexElementSemantic::Position),
+            Attribute("COLOR", VertexElementSemantic::Color),
+            Attribute("TEXCOORD", VertexElementSemantic::TexCoord),
+        };
+
+        static const uint32_t attribCount = sizeof(attrib) / sizeof(attrib[0]);
+
+        for (uint32_t i = 0; i < attribCount; i++) {
+            int32_t attribIndex = attrib[i].matchesName(name);
+            if (attribIndex != -1) {
+                index = attribIndex;
+                semantic = attrib[i].getSemantic();
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    VertexElementType Shader::glTypeToAttribType(GLenum glType) {
+        switch (glType) {
+        case GL_FLOAT:
+            return VertexElementType::Float1;
+        case GL_FLOAT_VEC2:
+            return VertexElementType::Float2;
+        case GL_FLOAT_VEC3:
+            return VertexElementType::Float3;
+        case GL_FLOAT_VEC4:
+            return VertexElementType::Float4;
+        default:
+            Debug::LogError("Unsupported vertex attribute type.");
+        }
+
+        return VertexElementType::Unknown;
+    }
 }
