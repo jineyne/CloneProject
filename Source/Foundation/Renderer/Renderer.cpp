@@ -6,7 +6,7 @@
 namespace cpf {
     void Renderer::update() {
         RenderAPI &rapi = RenderAPI::Instance();
-        rapi.setRenderTarget(Application::Instance().getPrimaryWindow());
+        rapi.setRenderTarget(Application::Instance().getPrimaryWindow().get());
         rapi.clearRenderTarget();
 
         for (auto *renderable : mRegistedRenderable) {

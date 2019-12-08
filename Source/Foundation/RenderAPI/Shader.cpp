@@ -71,6 +71,16 @@ namespace cpf {
         }
     }
 
+
+    VertexDeclaration *Shader::getInputDeclaration(EGpuProgramType type) const {
+        auto it = mInputDeclaration.find(type);
+        if (it == mInputDeclaration.end()) {
+            return nullptr;
+        } else {
+            return it->second;
+        }
+    }
+
     GLuint Shader::createGpuProgram(GpuProgramCreateInfo info) {
         GLuint id = glCreateShader(GetShaderType(info.type));
         const char *src = info.source.c_str();
