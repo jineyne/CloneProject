@@ -3,6 +3,7 @@
 #include "Manager/ObjectManager.hpp"
 #include "Manager/RenderWindowManager.hpp"
 #include "Manager/SceneManager.hpp"
+#include "Manager/VertexArrayManager.hpp"
 
 #include "RenderAPI/IndexBuffer.hpp"
 #include "RenderAPI/RenderAPI.hpp"
@@ -29,6 +30,7 @@ namespace cpf {
             RenderWindowManager::Instance().update();
             SceneManager::Instance().update();
 
+            Renderer::Instance().update();
         }
     }
 
@@ -58,9 +60,11 @@ namespace cpf {
         SceneManager::StartUp();
 
         Renderer::StartUp();
+        VertexArrayManager::StartUp();
     }
 
     void Application::destroyCore() {
+        VertexArrayManager::ShutDown();
         Renderer::ShutDown();
 
         SceneManager::ShutDown();
