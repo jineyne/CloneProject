@@ -20,11 +20,13 @@ set(CPF_FILESYSTEM_SRC
 set(CPF_MANAGER_INC
     "Manager/ObjectManager.hpp"
     "Manager/RenderWindowManager.hpp"
-    "Manager/SceneManager.hpp")
+    "Manager/SceneManager.hpp"
+    "Manager/VertexArrayManager.hpp")
 set(CPF_MANAGER_SRC
     "Manager/ObjectManager.cpp"
     "Manager/RenderWindowManager.cpp"
-    "Manager/SceneManager.cpp")
+    "Manager/SceneManager.cpp"
+    "Manager/VertexArrayManager.cpp")
 
 set(CPF_MATH_INC
     "Math/Math.hpp"
