@@ -11,13 +11,13 @@ namespace cpf {
         Actor *mOwner = nullptr;
 
     public:
-        Component(const String &name, Actor *owner);
+        Component(Actor *owner, const String &name);
         virtual ~Component() = default;
 
     public:
-        virtual void onStartUp() = 0;
-        virtual void onShutDown() = 0;
-        virtual void onUpdate() = 0;
+        virtual void onStartUp() {};
+        virtual void onShutDown() {};
+        virtual void onUpdate() {};
 
     protected:
         void destroyInternal(bool immediate = false) override;

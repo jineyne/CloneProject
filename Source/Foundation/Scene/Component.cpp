@@ -6,7 +6,7 @@
 namespace cpf {
     IMPL_RUNTIMECLASS(Component, Object);
 
-    Component::Component(const String &name, Actor *owner)
+    Component::Component(Actor *owner, const String &name)
         : Object(name, 0x0), mOwner(owner) {
     }
 

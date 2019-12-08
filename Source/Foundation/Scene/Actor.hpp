@@ -36,7 +36,7 @@ namespace cpf {
         template<typename T> T *addComponenet(const String &name) {
             static_assert(std::is_base_of<Component, T>::value, "Add component type is not derived from component!");
 
-            T *component = Allocator::New<T>(name, this);
+            T *component = Allocator::New<T>(this, std::forward<Args>(args)...);
             ObjectManager::Instance().registerObject(component);
 
             attachComponent(component);
