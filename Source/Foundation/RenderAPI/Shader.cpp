@@ -34,6 +34,8 @@ namespace cpf {
             Debug::LogError("Failed to link shader.\n{}", infoLog);
         }
 
+        buildVertexDeclarayion(mProgramId);
+
         glDeleteShader(vert);
         glDeleteShader(frag);
     }
@@ -72,14 +74,14 @@ namespace cpf {
     }
 
 
-    VertexDeclaration *Shader::getInputDeclaration(EGpuProgramType type) const {
+    /*VertexDeclaration *Shader::getInputDeclaration(EGpuProgramType type) const {
         auto it = mInputDeclaration.find(type);
         if (it == mInputDeclaration.end()) {
             return nullptr;
         } else {
             return it->second;
         }
-    }
+    }*/
 
     GLuint Shader::createGpuProgram(GpuProgramCreateInfo info) {
         GLuint id = glCreateShader(GetShaderType(info.type));
@@ -96,12 +98,11 @@ namespace cpf {
             return -1;
         }
 
-        buildVertexDeclarayion(info.type, id);
 
         return id;
     }
 
-    void Shader::buildVertexDeclarayion(EGpuProgramType type, uint32_t programId) {
+    void Shader::buildVertexDeclarayion(uint32_t programId) {
         int32_t attribCount = 0;
         glGetProgramiv(programId, GL_ACTIVE_ATTRIBUTES, &attribCount);
 
@@ -109,12 +110,6 @@ namespace cpf {
         glGetProgramiv(programId, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH, &maxNameSize);
 
         std::vector<char> attribName(maxNameSize);
-        auto it = mInputDeclaration.find(type);
-        if (it != mInputDeclaration.end()) {
-            Allocator::Delete(mInputDeclaration[type]);
-            mInputDeclaration.erase(it);
-        }
-
         std::vector<VertexElement> elementList;
 
         for (int32_t i = 0; i < attribCount; i++) {
@@ -135,7 +130,7 @@ namespace cpf {
             }
         }
 
-        mInputDeclaration.insert(std::make_pair(type, Allocator::New<VertexDeclaration>(elementList)));
+        mInputDeclaration = Allocator::New<VertexDeclaration>(elementList);
     }
 
     bool Shader::attribNameToElementSemantic(const String &name, VertexElementSemantic &semantic, uint32_t &index) {

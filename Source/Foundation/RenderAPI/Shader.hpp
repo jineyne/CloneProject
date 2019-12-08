@@ -44,7 +44,7 @@ namespace cpf {
         ShaderCreateInfo mInfo;
 
         GLuint mProgramId;
-        std::unordered_map<EGpuProgramType, VertexDeclaration *> mInputDeclaration;
+        VertexDeclaration * mInputDeclaration;
 
     public:
         Shader(const ShaderCreateInfo &info);
@@ -59,7 +59,7 @@ namespace cpf {
         void setUniformInt1(const String &name, uint32_t data);
         void setUniformMatrix(const String &name, const Matrix4 &data);
 
-        VertexDeclaration *getInputDeclaration(EGpuProgramType type) const;
+        VertexDeclaration *getInputDeclaration() const { return mInputDeclaration; }
 
         GLuint getProgramId() const { return mProgramId; }
     private:
@@ -68,7 +68,7 @@ namespace cpf {
          */
         GLuint createGpuProgram(GpuProgramCreateInfo info);
 
-        void buildVertexDeclarayion(EGpuProgramType type, uint32_t programId);
+        void buildVertexDeclarayion(uint32_t programId);
 
         bool attribNameToElementSemantic(const String &name, VertexElementSemantic &semantic, uint32_t &index);
         VertexElementType glTypeToAttribType(GLenum glType);

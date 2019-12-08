@@ -88,7 +88,7 @@ namespace cpf {
         }
 
         VertexArray wantedVAO(0, usedBufferList);
-        const std::vector<VertexElement> &inputAttrib = shader->getInputDeclaration(EGpuProgramType::Vertex)->getElements();
+        const std::vector<VertexElement> &inputAttrib = shader->getInputDeclaration()->getElements();
         
         glGenVertexArrays(1, &wantedVAO.mArrayId);
         glBindVertexArray(wantedVAO.mArrayId);
