@@ -33,7 +33,7 @@ namespace cpf {
 
         void attachComponent(Component *component);
 
-        template<typename T> T *addComponenet(const String &name) {
+        template<typename T, typename ...Args> T *addComponenet(Args&&...args) {
             static_assert(std::is_base_of<Component, T>::value, "Add component type is not derived from component!");
 
             T *component = Allocator::New<T>(this, std::forward<Args>(args)...);
@@ -41,7 +41,7 @@ namespace cpf {
 
             attachComponent(component);
 
-            return compnent;
+            return component;
         }
 
         template<typename T> T *getComponenet() {

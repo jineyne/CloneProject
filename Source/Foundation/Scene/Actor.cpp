@@ -91,6 +91,16 @@ namespace cpf {
         }
     }
 
+    void Actor::attachComponent(Component *component) {
+        auto it = std::find(mAttachedComponentList.begin(), mAttachedComponentList.end(), component);
+        if (it != mAttachedComponentList.end()) {
+            Debug::LogWarning("{} is already attached", component->getName());
+            return;
+        }
+
+        mAttachedComponentList.push_back(component);
+    }
+
     bool Actor::equals(Actor *actor) const {
         return actor != nullptr && getId() == actor->getId();
     }
