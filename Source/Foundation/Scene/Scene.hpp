@@ -24,7 +24,7 @@ namespace cpf {
          */
         template <typename T>
         T *spawnActor(const String &name) {
-            static_assert(std::is_base_of<Actor, T>::value. "spawn actor type is must be derived from actor!");
+            static_assert(std::is_base_of<Actor, T>::value, "spawn actor type is must be derived from actor!");
             T *actor = Allocator::New<T>(name);
 
             ObjectManager::Instance().registerObject(actor);
