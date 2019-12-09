@@ -42,7 +42,7 @@ namespace cpf {
     }
 
     Matrix4 Matrix4::operator *(const Matrix4 &rhs) const {
-        Matrix3 result;
+        Matrix4 result;
 
         for (uint32_t i = 0; i < 4; i++) {
             for (uint32_t j = 0; j < 4; j++) {
