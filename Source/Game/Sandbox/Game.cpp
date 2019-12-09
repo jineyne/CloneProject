@@ -1,6 +1,10 @@
 #include "Application.hpp"
 
+#include "FileSystem/FileSystem.hpp"
+
 #include "Manager/SceneManager.hpp"
+
+#include "Math/Matrix4.hpp"
 
 #include "RenderAPI/IndexBuffer.hpp"
 #include "RenderAPI/RenderAPI.hpp"
@@ -18,6 +22,18 @@
 
 using namespace cpf;
 
+String loadFile(const Path &path) {
+    auto file = FileSystem::OpenFile(path);
+    size_t size = file->size();
+    std::vector<char> str(size + 1);
+
+    file->read(str.data(), size);
+    str[size] = '\0';
+    String result(str.data());
+
+    return result;
+}
+
 class Sprite : public Component, Renderable {
 private:
     VertexDeclaration *mVertexDeclaration;
@@ -31,10 +47,14 @@ public:
 public:
     void onStartUp() override {
         ShaderCreateInfo shaderCI{};
+
         shaderCI.vertexInfo.type = EGpuProgramType::Vertex;
-        shaderCI.vertexInfo.source = "#version 330 core\n" "layout (location = 0) in vec3 POSITION;\n" "void main(){\n" " gl_Position = vec4(POSITION.x, POSITION.y, POSITION.z, 1.0);\n }";
+        shaderCI.vertexInfo.source = loadFile(Path("Assets/Shader/sprite.vert"));
+        // shaderCI.vertexInfo.source = "#version 330 core\n" "layout (location = 0) in vec3 POSITION;\n" "void main(){\n" " gl_Position = vec4(POSITION.x, POSITION.y, POSITION.z, 1.0);\n }";
         shaderCI.fragmentInfo.type = EGpuProgramType::Fragment;
-        shaderCI.fragmentInfo.source = "#version 330 core\n" "out vec4 FragColor;\n" "void main() {\n" "FragColor = vec4(1.0, 0.5, 0.2, 1.0);\n}";
+        shaderCI.fragmentInfo.source = loadFile(Path("Assets/Shader/sprite.frag"));
+        // shaderCI.fragmentInfo.source = "#version 330 core\n" "out vec4 FragColor;\n" "void main() {\n" "FragColor = vec4(1.0, 0.5, 0.2, 1.0);\n}";
+        
         mShader = Allocator::New<Shader>(shaderCI);
 
         VertexDataDesc *vdd = Allocator::New<VertexDataDesc>();
@@ -73,6 +93,7 @@ public:
     }
 
     void render() override {
+        mShader->setUniformMatrix("modelMVP", Matrix4(1.0f));
         RenderAPI &rapi = RenderAPI::Instance();
 
         rapi.setVertexDeclaration(mVertexDeclaration);
