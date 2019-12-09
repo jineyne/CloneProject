@@ -15,7 +15,7 @@ namespace cpf {
 
         if (mDirtyFlags.isSet(ESceneDirtyFlags::SceneChanged)) {
             mActiveScene->startUp();
-            mDirtyFlags.unset(ESceneDirtyFlags::SceneChanged);
+            mDirtyFlags.unSet(ESceneDirtyFlags::SceneChanged);
         }
 
         mActiveScene->update();

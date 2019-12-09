@@ -28,7 +28,7 @@ namespace cpf {
             return (mFlags & static_cast<Storage>(val)) == static_cast<Storage>(val);
         }
 
-        void unset(Enum val) {
+        void unSet(Enum val) {
             mFlags &= ~static_cast<Storage>(val);
         }
 
