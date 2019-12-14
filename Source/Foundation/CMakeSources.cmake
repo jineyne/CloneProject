@@ -86,12 +86,14 @@ set(CPF_SCENE_INC
     "Scene/Actor.hpp"
     "Scene/Component.hpp"
     "Scene/Object.hpp"
-    "Scene/Scene.hpp")
+    "Scene/Scene.hpp"
+    "Scene/Transform.hpp")
 set(CPF_SCENE_SRC
     "Scene/Actor.cpp"
     "Scene/Component.cpp"
     "Scene/Object.cpp"
-    "Scene/Scene.cpp")
+    "Scene/Scene.cpp"
+    "Scene/Transform.cpp")
 
 set(CPF_STRING_INC
     "String/String.hpp")
