@@ -52,27 +52,27 @@ namespace cpf {
         Matrix3 mat(1.0f);
 
         float tx  = x+x;
-		float ty  = y+y;
-		float tz  = z+z;
-		float twx = tx*w;
-		float twy = ty*w;
-		float twz = tz*w;
-		float txx = tx*x;
-		float txy = ty*x;
-		float txz = tz*x;
-		float tyy = ty*y;
-		float tyz = tz*y;
-		float tzz = tz*z;
+        float ty  = y+y;
+        float tz  = z+z;
+        float twx = tx*w;
+        float twy = ty*w;
+        float twz = tz*w;
+        float txx = tx*x;
+        float txy = ty*x;
+        float txz = tz*x;
+        float tyy = ty*y;
+        float tyz = tz*y;
+        float tzz = tz*z;
 
-		mat[0][0] = 1.0f-(tyy+tzz);
-		mat[0][1] = txy-twz;
-		mat[0][2] = txz+twy;
-		mat[1][0] = txy+twz;
-		mat[1][1] = 1.0f-(txx+tzz);
-		mat[1][2] = tyz-twx;
-		mat[2][0] = txz-twy;
-		mat[2][1] = tyz+twx;
-		mat[2][2] = 1.0f-(txx+tyy);
+        mat[0][0] = 1.0f-(tyy+tzz);
+        mat[0][1] = txy-twz;
+        mat[0][2] = txz+twy;
+        mat[1][0] = txy+twz;
+        mat[1][1] = 1.0f-(txx+tzz);
+        mat[1][2] = tyz-twx;
+        mat[2][0] = txz-twy;
+        mat[2][1] = tyz+twx;
+        mat[2][2] = 1.0f-(txx+tyy);
 
         return mat;
     }
