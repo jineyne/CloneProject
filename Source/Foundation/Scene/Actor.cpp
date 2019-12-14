@@ -62,6 +62,55 @@ namespace cpf {
         Object::destroy(immediate);
     }
 
+    const Transform &Actor::getTransform() const {
+        if (isCachedWorldTransformUpToDate()) {
+            updateWorldTransform();
+        }
+
+        return mWorldTransform;
+    }
+
+    void Actor::setWorldPosition(const Vector3 &pos) {
+        mWorldTransform.setPosition(pos);
+        mTransformDirtyFlags.set(ETransformDirtyFlags::WorldTransform);
+    }
+
+    void Actor::setWorldRotation(const Quaternion &rot) {
+        mWorldTransform.setRotation(rot);
+        mTransformDirtyFlags.set(ETransformDirtyFlags::WorldTransform);
+    }
+
+    void Actor::setWorldScale(const Vector3 &scale) {
+        mWorldTransform.setScale(scale);
+        mTransformDirtyFlags.set(ETransformDirtyFlags::WorldTransform);
+    }
+
+    const Matrix4 &Actor::getLocalMatrix() const {
+        if (isCachedLocalTransformUpToDate()) {
+            updateLocalTransform();
+        }
+
+        return mCachedLocalTransform;
+    }
+
+    const Matrix4 &Actor::getWorldMatrix() const {
+        if (isCachedWorldTransformUpToDate()) {
+            updateWorldTransform();
+        }
+
+        return mCachedWorldTransform;
+    }
+
+    void Actor::move(const Vector3 &vec) {
+        mLocalTransform.move(vec);
+        mTransformDirtyFlags.set(ETransformDirtyFlags::LocalTransform);
+    }
+
+    void Actor::rotate(const Quaternion &quat) {
+        mLocalTransform.rotate(quat);
+        mTransformDirtyFlags.set(ETransformDirtyFlags::LocalTransform);
+    }
+
     void Actor::setParent(Actor *actor) {
         if (mParentActor == actor) {
             return;
@@ -132,5 +181,21 @@ namespace cpf {
         } else {
             ObjectManager::Instance().queueForDestroy(this);
         }
+    }
+
+    void Actor::updateLocalTransform() const {
+        mCachedLocalTransform = mLocalTransform.getMatrix();
+        mTransformDirtyFlags.unSet(ETransformDirtyFlags::LocalTransform);
+    }
+
+    void Actor::updateWorldTransform() const {
+        mWorldTransform = mLocalTransform;
+
+        if (mParentActor != nullptr) {
+            mCachedWorldTransform = mWorldTransform.getMatrix();
+        } else {
+            mCachedWorldTransform = getLocalMatrix();
+        }
+        mTransformDirtyFlags.unSet(ETransformDirtyFlags::WorldTransform);
     }
 }

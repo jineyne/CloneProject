@@ -4,12 +4,28 @@
 
 #include "Manager/ObjectManager.hpp"
 #include "Scene/Object.hpp"
+#include "Scene/Transform.hpp"
 
 namespace cpf {
+    enum class ETransformDirtyFlags {
+        LocalTransform,
+        WorldTransform,
+    };
+    using TransformDirtyFlags = Flags<ETransformDirtyFlags>;
+
     class DLL_EXPORT Actor : public Object {
     private:
         std::vector<Actor *> mChildActorList {};
         std::vector<Component *> mAttachedComponentList {};
+
+        mutable TransformDirtyFlags mTransformDirtyFlags;
+
+        Transform mLocalTransform;
+        mutable Transform mWorldTransform;
+
+        mutable Matrix4 mCachedLocalTransform = Matrix4(1.0f);
+        mutable Matrix4 mCachedWorldTransform = Matrix4(1.0f);
+
         Actor *mParentActor = nullptr;
 
     public:
@@ -25,6 +41,18 @@ namespace cpf {
         void update();
 
         void destroy(bool immediate = false) override;
+
+        const Transform &getTransform() const;
+
+        void setWorldPosition(const Vector3 &pos);
+        void setWorldRotation(const Quaternion &rot);
+        void setWorldScale(const Vector3 &scale);
+
+        const Matrix4 &getWorldMatrix() const;
+        const Matrix4 &getLocalMatrix() const;
+
+        void move(const Vector3 &vec);
+        void rotate(const Quaternion &quat);
 
         void setParent(Actor *actor);
         
@@ -62,6 +90,16 @@ namespace cpf {
 
         // @copydoc Object::destroyInternal
         void destroyInternal(bool immediate = false) override;
+
+        void updateLocalTransform() const;
+        void updateWorldTransform() const;
+        bool isCachedLocalTransformUpToDate() const {
+            return (mTransformDirtyFlags.isSet(ETransformDirtyFlags::LocalTransform));
+        }
+        bool isCachedWorldTransformUpToDate() const {
+            return (mTransformDirtyFlags.isSet(ETransformDirtyFlags::WorldTransform));
+        }
+
 
         virtual void onStartUp() {}
         virtual void onShutDown() {}
