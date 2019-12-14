@@ -11,14 +11,14 @@ namespace cpf {
         : m{{m[0][0], m[0][1], m[0][2], 0.0f},
             {m[1][0], m[1][1], m[1][2], 0.0f},
             {m[2][0], m[2][1], m[2][2], 0.0f},
-            {0.0f, 0.0f, 0.0f, 0.0f}}{}
+            {0.0f, 0.0f, 0.0f, 1.0f}}{}
 
     Matrix4 Matrix4::Translation(const Vector3 &position) {
         Matrix4 m(1);
 
-        m[0][3] = position.x; 
-        m[1][3] = position.y;
-        m[2][3] = position.z;
+        m[3][0] = position.x;
+        m[3][1] = position.y;
+        m[3][2] = position.z;
 
         return m;
     }

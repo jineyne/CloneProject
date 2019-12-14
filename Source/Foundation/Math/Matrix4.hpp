@@ -45,6 +45,5 @@ namespace cpf {
         float *operator[](uint32_t row) const;
 
         Matrix4 operator*(const Matrix4 &rhs) const;
-
     };
 }
