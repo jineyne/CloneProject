@@ -73,6 +73,10 @@ namespace cpf {
         }
     }
 
+    void Shader::setTexture(const Texture *texture) {
+        glBindTexture(GL_TEXTURE_2D, texture->getTextureId());
+    }
+
 
     /*VertexDeclaration *Shader::getInputDeclaration(EGpuProgramType type) const {
         auto it = mInputDeclaration.find(type);

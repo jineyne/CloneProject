@@ -2,8 +2,11 @@
 
 #include "cpf.hpp"
 
+#include "RenderAPI/Texture.hpp"
+#include "RenderAPI/SamplerState.hpp"
 #include "RenderAPI/UniformBuffer.hpp"
 #include "RenderAPI/VertexDeclaration.hpp"
+
 #include "Math/Matrix4.hpp"
 
 namespace cpf {
@@ -58,6 +61,8 @@ namespace cpf {
 
         void setUniformInt1(const String &name, uint32_t data);
         void setUniformMatrix(const String &name, const Matrix4 &data);
+
+        void setTexture(const Texture *texture);
 
         VertexDeclaration *getInputDeclaration() const { return mInputDeclaration; }
 
