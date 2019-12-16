@@ -1,3 +1,6 @@
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 #include "Application.hpp"
 
 #include "FileSystem/FileSystem.hpp"
@@ -6,9 +9,12 @@
 
 #include "Math/Matrix4.hpp"
 
+
+#include "RenderAPI/SamplerState.hpp"
 #include "RenderAPI/IndexBuffer.hpp"
 #include "RenderAPI/RenderAPI.hpp"
 #include "RenderAPI/Shader.hpp"
+#include "RenderAPI/Texture.hpp"
 #include "RenderAPI/VertexBuffer.hpp"
 #include "RenderAPI/VertexDataDesc.hpp"
 #include "RenderAPI/VertexDeclaration.hpp"
@@ -36,37 +42,41 @@ String loadFile(const Path &path) {
 
 class Sprite : public Component, Renderable {
 private:
-    VertexDeclaration *mVertexDeclaration;
-    VertexBuffer *mBuffer;
-    IndexBuffer *mIndexBuffer;
-    Shader *mShader;
+    VertexDeclaration *mVertexDeclaration = nullptr;
+    VertexBuffer *mBuffer = nullptr;
+    IndexBuffer *mIndexBuffer = nullptr;
+    Shader *mShader = nullptr;
+    Texture *mTexture = nullptr;
 
 public:
     Sprite(Actor *owner) : Component(owner, "Sprite"), Renderable() {}
 
 public:
+    void setTexture(Texture *texture) {
+        mTexture = texture;
+    }
     void onStartUp() override {
         ShaderCreateInfo shaderCI{};
 
         shaderCI.vertexInfo.type = EGpuProgramType::Vertex;
         shaderCI.vertexInfo.source = loadFile(Path("Assets/Shader/sprite.vert"));
-        // shaderCI.vertexInfo.source = "#version 330 core\n" "layout (location = 0) in vec3 POSITION;\n" "void main(){\n" " gl_Position = vec4(POSITION.x, POSITION.y, POSITION.z, 1.0);\n }";
+
         shaderCI.fragmentInfo.type = EGpuProgramType::Fragment;
         shaderCI.fragmentInfo.source = loadFile(Path("Assets/Shader/sprite.frag"));
-        // shaderCI.fragmentInfo.source = "#version 330 core\n" "out vec4 FragColor;\n" "void main() {\n" "FragColor = vec4(1.0, 0.5, 0.2, 1.0);\n}";
         
         mShader = Allocator::New<Shader>(shaderCI);
 
         VertexDataDesc *vdd = Allocator::New<VertexDataDesc>();
         vdd->addElement(VertexElementType::Float3, VertexElementSemantic::Position);
+        vdd->addElement(VertexElementType::Float2, VertexElementSemantic::TexCoord);
         // vdd->addElement(VertexElementType::Float4, VertexElementSemantic::Color);
         mVertexDeclaration = Allocator::New<VertexDeclaration>(vdd->createElements());
 
         float vertices[] = {
-            0.5f,  0.5f, 0.0f,  // top right
-            0.5f, -0.5f, 0.0f,  // bottom right
-            -0.5f, -0.5f, 0.0f,  // bottom left
-            -0.5f,  0.5f, 0.0f   // top left 
+            0.5f,  0.5f, 0.0f, 1.0f, 1.0f,      // top right
+            0.5f, -0.5f, 0.0f, 1.0f, 0.0f,      // bottom right
+            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,     // bottom left
+            -0.5f,  0.5f, 0.0f, 0.0f, 1.0f,     // top left 
         };
         mBuffer = Allocator::New<VertexBuffer>(vdd->getVertexStride(), 4, BufferUsage::Default);
         mBuffer->initialize();
@@ -93,7 +103,10 @@ public:
     }
 
     void render() override {
-        mShader->setUniformMatrix("modelMVP", Matrix4(1.0f));
+        mShader->setUniformMatrix("ModelMVP", mOwner->getLocalMatrix());
+        if (mTexture) {
+            mShader->setTexture(mTexture);
+        }
         RenderAPI &rapi = RenderAPI::Instance();
 
         rapi.setVertexDeclaration(mVertexDeclaration);
@@ -106,17 +119,40 @@ public:
 };
 
 class SandboxScene : public Scene {
+private:
+    Actor *rectangle;
+    Texture *mGlobalTexture;
+
 public:
     SandboxScene() : Scene("SandboxScene") {}
 
 protected:
     void onStartUp() override {
-        Actor *rectangle = spawnActor<Actor>("rectangle");
-        rectangle->addComponenet<Sprite>();
+        int width, height, nrChannels;
+        unsigned char *buf = stbi_load("Assets/Image/wall.jpg", &width, &height, &nrChannels, 0); 
+
+        TextureCreateInfo textureCI{};
+        textureCI.width = width;
+        textureCI.height = height;
+        textureCI.depth = 1;
+        textureCI.mipsCount = 1;
+
+        mGlobalTexture = Allocator::New<Texture>(textureCI);
+        mGlobalTexture->write(buf);
+
+        stbi_image_free(buf);
+
+        rectangle = spawnActor<Actor>("rectangle");
+        Sprite *sprite = rectangle->addComponenet<Sprite>();
+        sprite->setTexture(mGlobalTexture);
     }
 
     void onShutDown() override {
         Debug::LogInfo("SandboxScene::ShutDown");
+    }
+
+    void onUpdate() override {
+        // rectangle->move(Vector3(0.01f, 0.0f, 0.0f));
     }
 };
 
