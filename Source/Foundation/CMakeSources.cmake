@@ -3,6 +3,11 @@ set(CPF_ALLOC_INC
 set(CPF_ALLOC_SRC
     )
 
+set(CPF_COMPONENT_INC
+    "Component/Sprite.hpp")
+set(CPF_COMPONENT_SRC
+    "Component/Sprite.cpp")
+
 set(CPF_DEBUG_INC
     "Debug/Debug.hpp")
 set(CPF_DEBUG_SRC
@@ -129,6 +134,7 @@ set(CPF_WIN32_SRC
 
 set(CPF_SRCS 
     ${CPF_ALLOC_INC} ${CPF_ALLOC_SRC}
+    ${CPF_COMPONENT_INC} ${CPF_COMPONENT_SRC}
     ${CPF_DEBUG_INC} ${CPF_DEBUG_SRC}
     ${CPF_FILESYSTEM_INC} ${CPF_FILESYSTEM_SRC}
     ${CPF_MANAGER_INC} ${CPF_MANAGER_SRC}
