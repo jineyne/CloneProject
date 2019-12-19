@@ -4,6 +4,7 @@
 
 #include "Scene/Object.hpp"
 #include "Utility/Module.hpp"
+#include "Utility/RuntimeClass.hpp"
 
 namespace cpf {
     /**
@@ -31,6 +32,8 @@ namespace cpf {
          * 해당 아이디를 가진 오브젝트를 반환합니다.
          */
         Object *getObject(uint32_t id);
+
+        Object *findObjectByType(const RuntimeClass *rc);
 
         /**
          * 오브젝트를 삭제 대기열에 추가합니다.

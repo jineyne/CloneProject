@@ -38,6 +38,16 @@ namespace cpf {
         return nullptr;
     }
 
+    Object *ObjectManager::findObjectByType(const RuntimeClass *rc) {
+        for (auto it = mRegistedObjectList.begin(); it != mRegistedObjectList.end(); it++) {
+            if (it->second->getRuntimeClass() == rc) {
+                return it->second;
+            }
+        }
+
+        return nullptr;
+    }
+
     void ObjectManager::queueForDestroy(const Object *object) { 
         if (object->isDestroyed()) {
             Debug::LogWarning("Try to queue Object already destroyed: {}", object->getName());
