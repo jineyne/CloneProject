@@ -54,6 +54,10 @@ namespace cpf {
          * 해당 클래스가 주어진 런타임 클래스의 자식인지 확인합니다.
          */
         bool isDerivedFrom(const RuntimeClass *base) const;
+
+        uint32_t getId() const { return mClassId; }
+        const String &getName() const { return mClassName; }
+        const RuntimeClass *getBaseClass() const { return mBaseClass; }
     };
 
     /**
@@ -68,5 +72,13 @@ namespace cpf {
         } else {
             return nullptr;
         }
+    }
+
+    /**
+     * TypeOf!
+     */
+    template<typename T>
+    const RuntimeClass *TypeOf() {
+        return T::GetThisClass();
     }
 }
