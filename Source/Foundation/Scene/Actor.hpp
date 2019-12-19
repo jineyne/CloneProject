@@ -61,7 +61,7 @@ namespace cpf {
 
         void attachComponent(Component *component);
 
-        template<typename T, typename ...Args> T *addComponenet(Args&&...args) {
+        template<typename T, typename ...Args> T *addComponent(Args&&...args) {
             static_assert(std::is_base_of<Component, T>::value, "Add component type is not derived from component!");
 
             T *component = Allocator::New<T>(this, std::forward<Args>(args)...);
@@ -72,7 +72,7 @@ namespace cpf {
             return component;
         }
 
-        template<typename T> T *getComponenet() {
+        template<typename T> T *getComponent() {
             for (auto component : mAttachedComponentList) {
                 if (component->getThisClass() == T::GetRuntimeClass()) {
                     return component;
