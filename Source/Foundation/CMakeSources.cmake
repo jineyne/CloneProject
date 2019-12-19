@@ -84,6 +84,11 @@ set(CPF_RENDERER_SRC
     "Renderer/Renderable.cpp"
     "Renderer/Renderer.cpp")
 
+set(CPF_RESOURCE_INC
+    "Resource/Resource.hpp")
+set(CPF_RESOURCE_SRC
+    "Resource/Resource.cpp")
+
 set(CPF_SCENE_INC
     "Scene/Actor.hpp"
     "Scene/Component.hpp"
@@ -131,6 +136,7 @@ set(CPF_SRCS
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
     ${CPF_RENDERAPI_INC} ${CPF_RENDERAPI_SRC}
     ${CPF_RENDERER_INC} ${CPF_RENDERER_SRC}
+    ${CPF_RESOURCE_INC} ${CPF_RESOURCE_SRC}
     ${CPF_SCENE_INC} ${CPF_SCENE_SRC}
     ${CPF_STRING_INC} ${CPF_STRING_SRC}
     ${CPF_UTILITY_INC} ${CPF_UTILITY_SRC}
