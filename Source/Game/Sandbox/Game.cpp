@@ -3,28 +3,13 @@
 
 #include "Application.hpp"
 
+#include "Component/Sprite.hpp"
 #include "FileSystem/FileSystem.hpp"
 
 #include "Manager/SceneManager.hpp"
 
 #include "Math/Matrix4.hpp"
-
-
-#include "RenderAPI/SamplerState.hpp"
-#include "RenderAPI/IndexBuffer.hpp"
-#include "RenderAPI/RenderAPI.hpp"
-#include "RenderAPI/Shader.hpp"
-#include "RenderAPI/Texture.hpp"
-#include "RenderAPI/VertexBuffer.hpp"
-#include "RenderAPI/VertexDataDesc.hpp"
-#include "RenderAPI/VertexDeclaration.hpp"
-
-#include "Renderer/Renderable.hpp"
-
-#include "Scene/Component.hpp"
 #include "Scene/Scene.hpp"
-
-#include "Debug/Debug.hpp"
 
 using namespace cpf;
 
@@ -40,88 +25,11 @@ String loadFile(const Path &path) {
     return result;
 }
 
-class Sprite : public Component, Renderable {
-private:
-    VertexDeclaration *mVertexDeclaration = nullptr;
-    VertexBuffer *mBuffer = nullptr;
-    IndexBuffer *mIndexBuffer = nullptr;
-    Shader *mShader = nullptr;
-    Texture *mTexture = nullptr;
-
-public:
-    Sprite(Actor *owner) : Component(owner, "Sprite"), Renderable() {}
-
-public:
-    void setTexture(Texture *texture) {
-        mTexture = texture;
-    }
-    void onStartUp() override {
-        ShaderCreateInfo shaderCI{};
-
-        shaderCI.vertexInfo.type = EGpuProgramType::Vertex;
-        shaderCI.vertexInfo.source = loadFile(Path("Assets/Shader/sprite.vert"));
-
-        shaderCI.fragmentInfo.type = EGpuProgramType::Fragment;
-        shaderCI.fragmentInfo.source = loadFile(Path("Assets/Shader/sprite.frag"));
-        
-        mShader = Allocator::New<Shader>(shaderCI);
-
-        VertexDataDesc *vdd = Allocator::New<VertexDataDesc>();
-        vdd->addElement(VertexElementType::Float3, VertexElementSemantic::Position);
-        vdd->addElement(VertexElementType::Float2, VertexElementSemantic::TexCoord);
-        // vdd->addElement(VertexElementType::Float4, VertexElementSemantic::Color);
-        mVertexDeclaration = Allocator::New<VertexDeclaration>(vdd->createElements());
-
-        float vertices[] = {
-            0.5f,  0.5f, 0.0f, 1.0f, 1.0f,      // top right
-            0.5f, -0.5f, 0.0f, 1.0f, 0.0f,      // bottom right
-            -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,     // bottom left
-            -0.5f,  0.5f, 0.0f, 0.0f, 1.0f,     // top left 
-        };
-        mBuffer = Allocator::New<VertexBuffer>(vdd->getVertexStride(), 4, BufferUsage::Default);
-        mBuffer->initialize();
-        float *vbp = static_cast<float *>(mBuffer->map(0, sizeof(vertices)));
-        memcpy(vbp, vertices, sizeof(vertices));
-        mBuffer->unmap();
-
-        uint32_t indices[] = {
-            0, 1, 2,   // first triangle
-            2, 3, 0    // second triangle
-        };
-
-        mIndexBuffer = Allocator::New<IndexBuffer>(sizeof(uint32_t), 6, BufferUsage::Default);
-        mIndexBuffer->initialize();
-        uint32_t *ibp = static_cast<uint32_t *>(mIndexBuffer->map(0, sizeof(indices)));
-        memcpy(ibp, indices, sizeof(indices));
-        mIndexBuffer->unmap();
-    }
-
-    void onShutDown() override {
-        Allocator::Delete(mIndexBuffer);
-        Allocator::Delete(mBuffer);
-        Allocator::Delete(mVertexDeclaration);
-    }
-
-    void render() override {
-        mShader->setUniformMatrix("ModelMVP", mOwner->getLocalMatrix());
-        if (mTexture) {
-            mShader->setTexture(mTexture);
-        }
-        RenderAPI &rapi = RenderAPI::Instance();
-
-        rapi.setVertexDeclaration(mVertexDeclaration);
-        rapi.setVertexBuffer(0, {mBuffer});
-        rapi.setIndexBuffer(mIndexBuffer);
-        rapi.setShader(mShader);
-
-        rapi.drawElements(0, mIndexBuffer->getIndexCount(), 0, mBuffer->getVertexCount(), 0);
-    }
-};
-
 class SandboxScene : public Scene {
 private:
     Actor *rectangle;
-    Texture *mGlobalTexture;
+    Texture *mTexture;
+    Shader *mShader;
 
 public:
     SandboxScene() : Scene("SandboxScene") {}
@@ -137,14 +45,22 @@ protected:
         textureCI.depth = 1;
         textureCI.mipsCount = 1;
 
-        mGlobalTexture = Allocator::New<Texture>(textureCI);
-        mGlobalTexture->write(buf);
+        mTexture = Allocator::New<Texture>(textureCI);
+        mTexture->write(buf);
 
         stbi_image_free(buf);
 
+        ShaderCreateInfo shaderCI{};
+        shaderCI.vertexInfo.type = EGpuProgramType::Vertex;
+        shaderCI.vertexInfo.source = loadFile(Path("Assets/Shader/sprite.vert"));
+        shaderCI.fragmentInfo.type = EGpuProgramType::Fragment;
+        shaderCI.fragmentInfo.source = loadFile(Path("Assets/Shader/sprite.frag"));
+        mShader = Allocator::New<Shader>(shaderCI);
+
         rectangle = spawnActor<Actor>("rectangle");
-        Sprite *sprite = rectangle->addComponenet<Sprite>();
-        sprite->setTexture(mGlobalTexture);
+        Sprite *sprite = rectangle->addComponent<Sprite>();
+        sprite->setTexture(mTexture);
+        sprite->setShader(mShader);
     }
 
     void onShutDown() override {
