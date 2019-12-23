@@ -16,6 +16,9 @@ namespace cpf {
         Flags(ThisType &val) : mFlags(val.mFlags) {}
 
     public:
+        operator bool() const {
+            return mFlags == 0;
+        }
 
     public:
         ThisType &set(Enum val) {
