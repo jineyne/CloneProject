@@ -83,9 +83,11 @@ set(CPF_RENDERAPI_SRC
     "RenderAPI/VertexDeclaration.cpp")
 
 set(CPF_RENDERER_INC
+    "Renderer/Camera.hpp"
     "Renderer/Renderable.hpp"
     "Renderer/Renderer.hpp")
 set(CPF_RENDERER_SRC
+    "Renderer/Camera.cpp"
     "Renderer/Renderable.cpp"
     "Renderer/Renderer.cpp")
 
