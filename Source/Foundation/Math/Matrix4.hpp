@@ -41,6 +41,10 @@ namespace cpf {
         // 주어진 크기를 기반으로 행렬을 생성합니다.
         static Matrix4 Scaling(const Vector3 &scale);
 
+        static Matrix4 Perspective(float fov, float aspect, float near, float far);
+
+        static Matrix4 Orthograhic(float left, float right, float bottom, float top, float near, float far);
+
     public:
         float *operator[](uint32_t row) const;
 

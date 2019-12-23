@@ -37,6 +37,37 @@ namespace cpf {
         return m;
     }
 
+    Matrix4 Matrix4::Perspective(float fov, float aspect, float near, float far) {
+        float q = 1.0f / tan(fov / 2.0f);
+        float a = q / aspect;
+
+        float b = -(far + near) / (far - near);
+        float c = -(2 * far * near) / (far - near);
+
+        Matrix4 result(1.0f);
+
+        result._11 = a;
+        result._22 = q;
+        result._33 = b;
+        result._34 = -1.0f;
+        result._43 = c;
+
+        return result;
+    }
+
+    Matrix4 Matrix4::Orthograhic(float left, float right, float bottom, float top, float near, float far) {
+        Matrix4 result(1.0f);
+
+        result._11 = static_cast<float>(2) / (right - left);
+        result._22 = static_cast<float>(2) / (top - bottom);
+        result._33 = -static_cast<float>(2) / (far - near);
+        result._41 = -(right + left) / (right - left);
+        result._42 = -(top + bottom) / (top - bottom);
+        result._43 = -(far + near) / (far - near);
+
+        return result;
+    }
+
     float *Matrix4::operator[](uint32_t row) const {
         return (float *)m[row];
     }
