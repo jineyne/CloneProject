@@ -50,6 +50,11 @@ set(CPF_MATH_SRC
     "Math/Vector2.cpp"
     "Math/Vector3.cpp")
 
+set(CPF_MESH_INC
+    "Mesh/MeshData.hpp")
+set(CPF_MESH_SRC
+    "Mesh/MeshData.hpp")
+
 set(CPF_PREREQUISITES_INC
     "Prerequisites/PlatformDefines.hpp"
     "Prerequisites/PrerequisitesUtil.hpp"
@@ -143,6 +148,7 @@ set(CPF_SRCS
     ${CPF_FILESYSTEM_INC} ${CPF_FILESYSTEM_SRC}
     ${CPF_MANAGER_INC} ${CPF_MANAGER_SRC}
     ${CPF_MATH_INC} ${CPF_MATH_SRC}
+    ${CPF_MESH_INC} ${CPF_MESH_SRC}
     ${CPF_PREREQUISITES_INC} ${CPF_PREREQUISITES_SRC}
     ${CPF_RENDERAPI_INC} ${CPF_RENDERAPI_SRC}
     ${CPF_RENDERER_INC} ${CPF_RENDERER_SRC}
