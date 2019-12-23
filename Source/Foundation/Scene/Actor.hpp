@@ -53,6 +53,7 @@ namespace cpf {
 
         void move(const Vector3 &vec);
         void rotate(const Quaternion &quat);
+        void scale(const Vector3 &scl);
 
         void setParent(Actor *actor);
         

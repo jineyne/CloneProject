@@ -110,6 +110,10 @@ namespace cpf {
         mLocalTransform.rotate(quat);
         mTransformDirtyFlags.set(ETransformDirtyFlags::LocalTransform);
     }
+    void Actor::scale(const Vector3 &scl) {
+        mLocalTransform.scale(scl);
+        mTransformDirtyFlags.set(ETransformDirtyFlags::LocalTransform);
+    }
 
     void Actor::setParent(Actor *actor) {
         if (mParentActor == actor) {
