@@ -4,8 +4,10 @@ set(CPF_ALLOC_SRC
     )
 
 set(CPF_COMPONENT_INC
+    "Component/Camera.hpp"
     "Component/Sprite.hpp")
 set(CPF_COMPONENT_SRC
+    "Component/Camera.cpp"
     "Component/Sprite.cpp")
 
 set(CPF_DEBUG_INC
