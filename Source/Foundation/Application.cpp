@@ -2,6 +2,7 @@
 
 #include "Manager/ObjectManager.hpp"
 #include "Manager/RenderWindowManager.hpp"
+#include "Manager/ResourceManager.hpp"
 #include "Manager/SceneManager.hpp"
 #include "Manager/VertexArrayManager.hpp"
 
@@ -61,9 +62,13 @@ namespace cpf {
 
         Renderer::StartUp();
         VertexArrayManager::StartUp();
+
+        ResourceManager::StartUp();
     }
 
     void Application::destroyCore() {
+        ResourceManager::ShutDown();
+
         VertexArrayManager::ShutDown();
         Renderer::ShutDown();
 
