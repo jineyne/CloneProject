@@ -17,13 +17,30 @@ namespace cpf {
     }
 
     void Renderer::notifyRenderableCreated(Renderable *renderable) {
-        mRegistedRenderable.push_back(renderable);
+        mRegistedRenderableList.push_back(renderable);
     }
 
     void Renderer::notifyRenderableRemoved(Renderable *renderable) {
-        auto it = std::find(mRegistedRenderable.begin(), mRegistedRenderable.end(), renderable);
-        if (it != mRegistedRenderable.end()) {
-            mRegistedRenderable.erase(it);
+        auto it = std::find(mRegistedRenderableList.begin(), mRegistedRenderableList.end(), renderable);
+        if (it != mRegistedRenderableList.end()) {
+            mRegistedRenderableList.erase(it);
+        }
+    }
+
+    void Renderer::notifyCameraCreated(CameraBase *camera) {
+        mRegistedCameraList.push_back(camera);
+    }
+    
+    void Renderer::notifyCameraChangeMain(CameraBase *camera) {
+        if (mMainCamera != camera) {
+            mMainCamera = camera;
+        }
+    }
+
+    void Renderer::notifyCameraRemoved(CameraBase *camera) {
+        auto it = std::find(mRegistedCameraList.begin(), mRegistedCameraList.end(), camera);
+        if (it != mRegistedCameraList.end()) {
+            mRegistedCameraList.erase(it);
         }
     }
 }
