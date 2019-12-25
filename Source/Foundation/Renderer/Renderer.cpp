@@ -9,8 +9,20 @@ namespace cpf {
         rapi.setRenderTarget(Application::Instance().getPrimaryWindow().get());
         rapi.clearRenderTarget();
 
-        for (auto *renderable : mRegistedRenderable) {
-            renderable->render();
+
+        for (auto *renderable : mRegistedRenderableList) {
+            Mesh *mesh = renderable->getMesh();
+            Shader *shader = renderable->getShader();
+
+            renderable->updateShaderData(shader);
+
+            rapi.setShader(shader);
+            rapi.setVertexDeclaration(mesh->getVertexDeclaration());
+
+            rapi.setVertexBuffer(0, {mesh->getVertexBuffer()});
+            rapi.setIndexBuffer(mesh->getIndexBuffer());
+
+            rapi.drawElements(0, mesh->getIndexCount(), 0, mesh->getVertexCount(), 0);
         }
 
         rapi.swapBuffers();

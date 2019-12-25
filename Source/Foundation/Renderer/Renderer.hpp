@@ -2,6 +2,8 @@
 
 #include "cpf.hpp"
 
+#include "RenderAPI/Shader.hpp"
+
 #include "Renderer/Camera.hpp"
 #include "Renderer/Renderable.hpp"
 
