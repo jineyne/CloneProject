@@ -14,24 +14,21 @@
 #include "Scene/Component.hpp"
 
 namespace cpf {
-    class DLL_EXPORT Sprite : public Component, Renderable {
+    class DLL_EXPORT Sprite : public Component, public Renderable {
     private:
-        VertexDeclaration *mVertexDeclaration = nullptr;
-        VertexBuffer *mBuffer = nullptr;
-        IndexBuffer *mIndexBuffer = nullptr;
-        Shader *mShader = nullptr;
         Texture *mTexture = nullptr;
 
     public:
         Sprite(Actor *owner);
 
     public:
+        void updateShaderData(Shader *shader) override;
+
         void setTexture(Texture *texture);
-        void setShader(Shader *shader);
+        Texture *getTexture() const { return mTexture; }
 
     private:
         void onStartUp() override;
         void onShutDown() override;
-        void render() override;
     };
 }
