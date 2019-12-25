@@ -4,6 +4,8 @@
 
 #include "RenderAPI/Buffer.hpp"
 
+#include "Resource/Resource.hpp"
+
 namespace cpf {
     enum class ETextureType {
         e2D,
@@ -28,7 +30,7 @@ namespace cpf {
         ETextureUsage usage = ETextureUsage::Default;
     };
 
-    class DLL_EXPORT Texture {
+    class DLL_EXPORT Texture : public Resource {
     private:
         TextureCreateInfo mInfo;
         uint32_t mTextureId;

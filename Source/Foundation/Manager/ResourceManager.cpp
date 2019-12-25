@@ -1,12 +1,42 @@
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 #include "ResourceManager.hpp"
 
 #include "Debug/Debug.hpp"
 
+#include "RenderAPI/Texture.hpp"
+
 namespace cpf {
-    template<class T, typename ...Args> T *ResourceManager::load(Args&&...args) {
+    template<class T> T *ResourceManager::load(const Path &path) {
         Debug::LogError("{} is not support resource type", TypeOf<T>()->getName());
 
         return nullptr;
+    }
+
+    template<> DLL_EXPORT Texture *ResourceManager::load(const Path &path) {
+        auto it = mLoadedResourceList.find(path);
+        if (it != mLoadedResourceList.end()) {
+            return static_cast<Texture *>(it->second);
+        } {
+            int width, height, nrChannels;
+            unsigned char *buf = stbi_load(path.toString().c_str(), &width, &height, &nrChannels, 0); 
+
+            TextureCreateInfo textureCI{};
+            textureCI.width = width;
+            textureCI.height = height;
+            textureCI.depth = 1;
+            textureCI.mipsCount = 1;
+
+            Texture *texture = Allocator::New<Texture>(textureCI);
+            texture->write(buf);
+
+            stbi_image_free(buf);
+
+            mLoadedResourceList.insert(std::make_pair(path, texture));
+
+            return texture;
+        }
     }
 
     void ResourceManager::onStartUp() {

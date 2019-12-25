@@ -2,6 +2,8 @@
 
 #include "cpf.hpp"
 
+#include "FileSystem/FileSystem.hpp"
+
 #include "Mesh/Mesh.hpp"
 #include "Resource/Resource.hpp"
 
@@ -10,7 +12,7 @@
 namespace cpf {
     class DLL_EXPORT ResourceManager : public TModule<ResourceManager> {
     private:
-        std::unordered_map<String, Resource> mLoadedResourceList;
+        std::unordered_map<Path, Resource *> mLoadedResourceList;
 
         Mesh *mSpriteMesh;
 
@@ -18,7 +20,7 @@ namespace cpf {
         ResourceManager() = default;
         
     public:
-        template<class T, typename ...Args> T *load(Args&&...args);
+        template<class T> T *load(const Path &path);
 
         Mesh *getSpriteMesh() const { return mSpriteMesh; }
 
