@@ -1,7 +1,6 @@
-#define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
-
 #include "Application.hpp"
+
+#include "Manager/ResourceManager.hpp"
 
 #include "Component/Sprite.hpp"
 #include "FileSystem/FileSystem.hpp"
@@ -36,20 +35,6 @@ public:
 
 protected:
     void onStartUp() override {
-        int width, height, nrChannels;
-        unsigned char *buf = stbi_load("Assets/Image/wall.jpg", &width, &height, &nrChannels, 0); 
-
-        TextureCreateInfo textureCI{};
-        textureCI.width = width;
-        textureCI.height = height;
-        textureCI.depth = 1;
-        textureCI.mipsCount = 1;
-
-        mTexture = Allocator::New<Texture>(textureCI);
-        mTexture->write(buf);
-
-        stbi_image_free(buf);
-
         ShaderCreateInfo shaderCI{};
         shaderCI.vertexInfo.type = EGpuProgramType::Vertex;
         shaderCI.vertexInfo.source = loadFile(Path("Assets/Shader/sprite.vert"));
@@ -59,7 +44,7 @@ protected:
 
         rectangle = spawnActor<Actor>("rectangle");
         Sprite *sprite = rectangle->addComponent<Sprite>();
-        sprite->setTexture(mTexture);
+        sprite->setTexture(ResourceManager::Instance().load<Texture>(Path("Assets/Image/wall.jpg")));
         sprite->setShader(mShader);
     }
 
