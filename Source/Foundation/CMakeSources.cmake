@@ -51,9 +51,11 @@ set(CPF_MATH_SRC
     "Math/Vector3.cpp")
 
 set(CPF_MESH_INC
+    "Mesh/Mesh.hpp"
     "Mesh/MeshData.hpp")
 set(CPF_MESH_SRC
-    "Mesh/MeshData.hpp")
+    "Mesh/Mesh.cpp"
+    "Mesh/MeshData.cpp")
 
 set(CPF_PREREQUISITES_INC
     "Prerequisites/PlatformDefines.hpp"
