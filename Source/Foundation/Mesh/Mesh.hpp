@@ -6,6 +6,7 @@
 
 #include "RenderAPI/IndexBuffer.hpp"
 #include "RenderAPI/VertexBuffer.hpp"
+#include "RenderAPI/VertexDeclaration.hpp"
 
 #include "Resource/Resource.hpp"
 
@@ -24,6 +25,7 @@ namespace cpf {
     private:
         VertexBuffer *mVertexBuffer;
         IndexBuffer *mIndexBuffer;
+        VertexDeclaration *mVertexDeclaration;
 
     public:
         Mesh(const MeshCreateInfo &info);
@@ -37,5 +39,7 @@ namespace cpf {
 
         uint32_t getVertexCount() const;
         uint32_t getIndexCount() const;
+
+        VertexDeclaration *getVertexDeclaration() const { return mVertexDeclaration; }
     };
 }

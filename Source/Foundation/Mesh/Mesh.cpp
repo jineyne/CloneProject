@@ -10,12 +10,15 @@ namespace cpf {
         mIndexBuffer = Allocator::New<IndexBuffer>(sizeof(uint32_t), info.indexCount, BufferUsage::Default);
         mIndexBuffer->initialize();
 
+        mVertexDeclaration = Allocator::New<VertexDeclaration>(info.vertexDesc->createElements());
+
         if (info.initialData != nullptr) {
             write(info.initialData);
         }
     }
 
     Mesh::~Mesh() {
+        Allocator::Delete(mVertexDeclaration);
         Allocator::Delete(mIndexBuffer);
         Allocator::Delete(mVertexBuffer);
     }
