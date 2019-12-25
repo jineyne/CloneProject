@@ -27,7 +27,6 @@ namespace cpf {
 
     void SceneManager::unloadScene() {
         if (mActiveScene != nullptr) {
-            mActiveScene->shutDown();
             Allocator::Delete(mActiveScene);
         }
     }

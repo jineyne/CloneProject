@@ -58,21 +58,23 @@ namespace cpf {
         mPrimaryWindow = RenderWindowManager::Instance().initialize(mInfo.primaryWindowCreateInfo);
 
         ObjectManager::StartUp();
-        SceneManager::StartUp();
 
         Renderer::StartUp();
         VertexArrayManager::StartUp();
 
         ResourceManager::StartUp();
+
+        SceneManager::StartUp();
     }
 
     void Application::destroyCore() {
+        SceneManager::ShutDown();
+
         ResourceManager::ShutDown();
 
         VertexArrayManager::ShutDown();
         Renderer::ShutDown();
 
-        SceneManager::ShutDown();
         ObjectManager::ShutDown();
 
         RenderWindowManager::ShutDown();

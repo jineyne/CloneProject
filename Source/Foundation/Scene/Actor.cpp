@@ -41,6 +41,7 @@ namespace cpf {
 
         for (auto actor : mChildActorList) {
             actor->shutDown();
+            actor->destroy();
         }
     }
 
@@ -180,6 +181,8 @@ namespace cpf {
                 component->destroy(immediate);
                 Allocator::Delete(component);
             }
+
+            mIsDestroyed = true;
             
             ObjectManager::Instance().unregisterObject(this);
         } else {
