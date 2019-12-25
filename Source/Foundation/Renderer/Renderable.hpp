@@ -2,12 +2,26 @@
 
 #include "cpf.hpp"
 
+#include "Mesh/Mesh.hpp"
+#include "RenderAPI/Shader.hpp"
+
 namespace cpf {
     class DLL_EXPORT Renderable {
+    protected:
+        Mesh *mMesh;
+        Shader *mShader;
+
     public:
         Renderable();
         virtual ~Renderable();
+
     public:
-        virtual void render() = 0;
+        void setMesh(Mesh *mesh);
+        Mesh *getMesh() const;
+
+        void setShader(Shader *shader);
+        Shader *getShader() const;
+
+        virtual void updateShaderData(Shader *shader) = 0;
     };
 }
