@@ -13,18 +13,7 @@ namespace cpf {
         virtual ~Resource() = default;
 
     public:
-        virtual size_t hash() const;
-
         const String &getName() const;
         void setName(const String &name);
-    };
-}
-
-namespace std {
-    template<>
-    struct hash<cpf::Resource> {
-        size_t operator()(const cpf::Resource &resource) const {
-            return resource.hash();
-        }
     };
 }
