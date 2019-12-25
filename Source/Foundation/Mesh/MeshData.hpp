@@ -10,13 +10,13 @@ namespace cpf {
         uint32_t mVertexCount;
         uint32_t mIndexCount;
 
-        int8_t *mVertexData;
-        int8_t *mIndexData;
+        uint8_t *mVertexData;
+        uint8_t *mIndexData;
 
-        VertexDataDesc *mVertexDesc;
+        SPtr<VertexDataDesc> mVertexDesc;
 
     public:
-        MeshData(uint32_t vertexCount, uint32_t indexCount, VertexDataDesc *vertexDesc);
+        MeshData(uint32_t vertexCount, uint32_t indexCount, const SPtr<VertexDataDesc> &vertexDesc);
         ~MeshData();
 
     public:
@@ -31,5 +31,11 @@ namespace cpf {
             addIndexData(data.data(), sizeof(T) * data.size());
         }
         void addIndexData(void *data, uint32_t size);
+
+        uint32_t getVertexCount() const { return mVertexCount; }
+        uint32_t getIndexCount() const { return mIndexCount; }
+
+        const uint8_t *getVertexData() const { return mVertexData; }
+        const uint8_t *getIndexData() const { return mIndexData; }
     };
 }

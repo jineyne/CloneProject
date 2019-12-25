@@ -3,13 +3,10 @@
 #include "Debug/Debug.hpp"
 
 namespace cpf {
-    MeshData::MeshData(uint32_t vertexCount, uint32_t indexCount, VertexDataDesc *vertexDesc) 
+    MeshData::MeshData(uint32_t vertexCount, uint32_t indexCount, const SPtr<VertexDataDesc> &vertexDesc) 
         : mVertexCount(vertexCount), mIndexCount(indexCount), mVertexDesc(vertexDesc) {
-        mVertexData = Allocator::Alloc(vertexDesc->getVertexStride() * vertexCount);
-        nVertexData->initialize();
-
+        mVertexData = Allocator::Alloc<uint8_t>(vertexDesc->getVertexStride() * vertexCount);
         mIndexData = Allocator::Alloc<uint8_t>(sizeof(uint32_t) * indexCount);
-        mIndexData->initialize();
     }
 
     MeshData::~MeshData() {}
@@ -25,9 +22,9 @@ namespace cpf {
     }
 
     void MeshData::addIndexData(void *data, uint32_t size) {
-        uint32_t offset = mVertexDesc->getVertexStride();
+        uint32_t offset = sizeof(uint32_t);
         if (size % offset != 0) {
-            Debug::LogWarning("aaddIndexData: Invalid size");
+            Debug::LogWarning("addIndexData: Invalid size");
             return;
         }
 
