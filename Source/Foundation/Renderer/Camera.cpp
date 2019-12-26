@@ -30,6 +30,12 @@ namespace cpf {
 
         mDirtyFlags = true;
     }
+
+    void CameraBase::setProjectionType(EProjectionType type) {
+        mProjectionType = type;
+
+        mDirtyFlags = true;
+    }
     
     void CameraBase::setMain(bool main) {
         if (!mIsMain && main) {

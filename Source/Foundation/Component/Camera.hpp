@@ -10,7 +10,7 @@
 #include "Scene/Component.hpp"
 
 namespace cpf {
-    class DLL_EXPORT Camera : public Component, CameraBase {
+    class DLL_EXPORT Camera : public Component, public CameraBase {
     public:
         Camera(Actor *owner);
         ~Camera() = default;

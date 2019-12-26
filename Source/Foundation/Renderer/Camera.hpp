@@ -34,6 +34,8 @@ namespace cpf {
         virtual void setAspect(float aspect);
         virtual void setOrthoHeight(float height);
 
+        virtual void setProjectionType(EProjectionType type);
+
         void setMain(bool main = true);
         bool isMain() const { return mIsMain; }
 
