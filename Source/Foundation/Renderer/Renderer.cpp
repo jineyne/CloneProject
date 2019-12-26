@@ -9,10 +9,15 @@ namespace cpf {
         rapi.setRenderTarget(Application::Instance().getPrimaryWindow().get());
         rapi.clearRenderTarget();
 
+        Matrix4 projectMat(1.0f);
+        if (mMainCamera) {
+            projectMat = mMainCamera->getViewMatrix();
+        }
 
         for (auto *renderable : mRegistedRenderableList) {
             Mesh *mesh = renderable->getMesh();
             Shader *shader = renderable->getShader();
+            shader->setUniformMatrix("cpProj", projectMat);
 
             renderable->updateShaderData(shader);
 

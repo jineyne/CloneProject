@@ -21,8 +21,7 @@ namespace cpf {
     }
 
     void Sprite::updateShaderData(Shader *shader) {
-        // shader->setUniformMatrix("ModelMVP", mOwner->getLocalMatrix());
-        shader->setUniformMatrix("ModelMVP", Matrix4(1.0f));
+        shader->setUniformMatrix("cpModel", mOwner->getLocalMatrix());
         shader->setTexture(mTexture);
     }
 }

@@ -3,6 +3,8 @@
 #include "Manager/ResourceManager.hpp"
 
 #include "Component/Sprite.hpp"
+#include "Component/Camera.hpp"
+
 #include "FileSystem/FileSystem.hpp"
 
 #include "Manager/SceneManager.hpp"
@@ -27,6 +29,8 @@ String loadFile(const Path &path) {
 class SandboxScene : public Scene {
 private:
     Actor *rectangle;
+    Actor *mMainCamera;
+
     Texture *mTexture;
     Shader *mShader;
 
@@ -43,9 +47,20 @@ protected:
         mShader = Allocator::New<Shader>(shaderCI);
 
         rectangle = spawnActor<Actor>("rectangle");
+        // rectangle->setWorldPosition(Vector3(1, 0, 0));
+        rectangle->scale(Vector3(4, 4, 1));
         Sprite *sprite = rectangle->addComponent<Sprite>();
         sprite->setTexture(ResourceManager::Instance().load<Texture>(Path("Assets/Image/wall.jpg")));
         sprite->setShader(mShader);
+
+        mMainCamera = spawnActor<Actor>("main camera");
+        Camera *camera = mMainCamera->addComponent<Camera>();
+        camera->setProjectionType(EProjectionType::Orthograhic);
+        camera->setNear(-1.0f);
+        camera->setFar(500.0f);
+        camera->setAspect(1280.0f / 720.0f);
+        camera->setOrthoHeight(100);
+        camera->setMain(true);
     }
 
     void onShutDown() override {
