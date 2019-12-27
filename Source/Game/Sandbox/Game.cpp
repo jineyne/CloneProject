@@ -47,19 +47,20 @@ protected:
         mShader = Allocator::New<Shader>(shaderCI);
 
         rectangle = spawnActor<Actor>("rectangle");
-        // rectangle->setWorldPosition(Vector3(1, 0, 0));
-        rectangle->scale(Vector3(4, 4, 1));
+        rectangle->move(Vector3(640, 360, 0));
+        rectangle->scale(Vector3(10, 10, 1));
         Sprite *sprite = rectangle->addComponent<Sprite>();
         sprite->setTexture(ResourceManager::Instance().load<Texture>(Path("Assets/Image/wall.jpg")));
         sprite->setShader(mShader);
 
         mMainCamera = spawnActor<Actor>("main camera");
+        mMainCamera->move(Vector3(0, 0, -10));
         Camera *camera = mMainCamera->addComponent<Camera>();
         camera->setProjectionType(EProjectionType::Orthograhic);
-        camera->setNear(-1.0f);
+        camera->setNear(0.0f);
         camera->setFar(500.0f);
         camera->setAspect(1280.0f / 720.0f);
-        camera->setOrthoHeight(100);
+        camera->setOrthoHeight(720);
         camera->setMain(true);
     }
 
@@ -68,7 +69,6 @@ protected:
     }
 
     void onUpdate() override {
-        // rectangle->move(Vector3(0.01f, 0.0f, 0.0f));
     }
 };
 
