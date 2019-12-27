@@ -17,7 +17,7 @@ namespace cpf {
 
     public:
         operator bool() const {
-            return mFlags == 0;
+            return mFlags != 0;
         }
 
     public:

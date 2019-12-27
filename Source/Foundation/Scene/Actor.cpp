@@ -71,19 +71,27 @@ namespace cpf {
         return mWorldTransform;
     }
 
+    const Transform &Actor::getLocalTransform() const {
+        if (isCachedLocalTransformUpToDate()) {
+            updateLocalTransform();
+        }
+
+        return mLocalTransform;
+    }
+
     void Actor::setWorldPosition(const Vector3 &pos) {
         mWorldTransform.setPosition(pos);
-        mTransformDirtyFlags.set(ETransformDirtyFlags::WorldTransform);
+        notifyTransformChanged(ETransformChangedFlags::Transform);
     }
 
     void Actor::setWorldRotation(const Quaternion &rot) {
         mWorldTransform.setRotation(rot);
-        mTransformDirtyFlags.set(ETransformDirtyFlags::WorldTransform);
+        notifyTransformChanged(ETransformChangedFlags::Transform);
     }
 
     void Actor::setWorldScale(const Vector3 &scale) {
         mWorldTransform.setScale(scale);
-        mTransformDirtyFlags.set(ETransformDirtyFlags::WorldTransform);
+        notifyTransformChanged(ETransformChangedFlags::Transform);
     }
 
     const Matrix4 &Actor::getLocalMatrix() const {
@@ -104,16 +112,16 @@ namespace cpf {
 
     void Actor::move(const Vector3 &vec) {
         mLocalTransform.move(vec);
-        mTransformDirtyFlags.set(ETransformDirtyFlags::LocalTransform);
+        notifyTransformChanged(ETransformChangedFlags::Transform);
     }
 
     void Actor::rotate(const Quaternion &quat) {
         mLocalTransform.rotate(quat);
-        mTransformDirtyFlags.set(ETransformDirtyFlags::LocalTransform);
+        notifyTransformChanged(ETransformChangedFlags::Transform);
     }
     void Actor::scale(const Vector3 &scl) {
         mLocalTransform.scale(scl);
-        mTransformDirtyFlags.set(ETransformDirtyFlags::LocalTransform);
+        notifyTransformChanged(ETransformChangedFlags::Transform);
     }
 
     void Actor::setParent(Actor *actor) {
@@ -192,7 +200,7 @@ namespace cpf {
 
     void Actor::updateLocalTransform() const {
         mCachedLocalTransform = mLocalTransform.getMatrix();
-        mTransformDirtyFlags.unSet(ETransformDirtyFlags::LocalTransform);
+        mDirtyFlags.unSet(ETransformDirtyFlags::LocalTransform);
     }
 
     void Actor::updateWorldTransform() const {
@@ -203,6 +211,24 @@ namespace cpf {
         } else {
             mCachedWorldTransform = getLocalMatrix();
         }
-        mTransformDirtyFlags.unSet(ETransformDirtyFlags::WorldTransform);
+        mDirtyFlags.unSet(ETransformDirtyFlags::WorldTransform);
+    }
+
+    void Actor::notifyTransformChanged(TransformChangedFlags flags) const {
+        TransformChangedFlags componentFlags = flags;
+        mDirtyFlags.set(ETransformDirtyFlags::LocalTransform).set(ETransformDirtyFlags::WorldTransform);
+
+        if (componentFlags) {
+            for (auto &entry : mAttachedComponentList) {
+                entry->onTransformChanged(componentFlags);
+            }
+        }
+
+        flags.unSet(ETransformChangedFlags::Mobility);
+        if (flags) {
+            for (auto &entry : mChildActorList) {
+                entry->notifyTransformChanged(flags);
+            }
+        }
     }
 }

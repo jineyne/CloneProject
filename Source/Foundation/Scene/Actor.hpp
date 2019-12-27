@@ -18,7 +18,7 @@ namespace cpf {
         std::vector<Actor *> mChildActorList {};
         std::vector<Component *> mAttachedComponentList {};
 
-        mutable TransformDirtyFlags mTransformDirtyFlags;
+        mutable TransformDirtyFlags mDirtyFlags;
 
         Transform mLocalTransform;
         mutable Transform mWorldTransform;
@@ -43,6 +43,7 @@ namespace cpf {
         void destroy(bool immediate = false) override;
 
         const Transform &getTransform() const;
+        const Transform &getLocalTransform() const;
 
         void setWorldPosition(const Vector3 &pos);
         void setWorldRotation(const Quaternion &rot);
@@ -95,12 +96,13 @@ namespace cpf {
         void updateLocalTransform() const;
         void updateWorldTransform() const;
         bool isCachedLocalTransformUpToDate() const {
-            return (mTransformDirtyFlags.isSet(ETransformDirtyFlags::LocalTransform));
+            return (mDirtyFlags.isSet(ETransformDirtyFlags::LocalTransform));
         }
         bool isCachedWorldTransformUpToDate() const {
-            return (mTransformDirtyFlags.isSet(ETransformDirtyFlags::WorldTransform));
+            return (mDirtyFlags.isSet(ETransformDirtyFlags::WorldTransform));
         }
 
+        void notifyTransformChanged(TransformChangedFlags flags) const;
 
         virtual void onStartUp() {}
         virtual void onShutDown() {}
