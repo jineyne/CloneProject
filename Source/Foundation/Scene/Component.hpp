@@ -19,6 +19,8 @@ namespace cpf {
         virtual void onShutDown() {};
         virtual void onUpdate() {};
 
+        virtual void onTransformChanged(const TransformChangedFlags &flags) {};
+
     protected:
         void destroyInternal(bool immediate = false) override;
 

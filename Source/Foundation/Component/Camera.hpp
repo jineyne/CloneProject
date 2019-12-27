@@ -14,5 +14,8 @@ namespace cpf {
     public:
         Camera(Actor *owner);
         ~Camera() = default;
+
+    protected:
+        void onTransformChanged(const TransformChangedFlags &flags) override;
     };
 }

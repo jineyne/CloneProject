@@ -2,9 +2,18 @@
 
 #include "cpf.hpp"
 
+#include "Utility/Flags.hpp"
 #include "Utility/RuntimeClass.hpp"
 
 namespace cpf {
+    enum class ETransformChangedFlags {
+        None = 1 << 0,
+        Transform = 1 << 1,
+        Parent = 1 << 2,
+        Mobility = 1 << 3,
+    };
+    using TransformChangedFlags = Flags<ETransformChangedFlags>;
+
     class DLL_EXPORT Object {
     protected:
         uint32_t mObjectId;
