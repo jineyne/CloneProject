@@ -3,7 +3,6 @@
 #include "cpf.hpp"
 
 #include "RenderAPI/Texture.hpp"
-#include "RenderAPI/SamplerState.hpp"
 #include "RenderAPI/UniformBuffer.hpp"
 #include "RenderAPI/VertexDeclaration.hpp"
 
@@ -34,12 +33,9 @@ namespace cpf {
         VertexElementSemantic getSemantic() const { return mSemantic; }
     };
 
-    /**
-     * 쉐이더를 만드는데 필요한 정보를 저장하는 구조체입니다.
-     */
     struct ShaderCreateInfo {
-        GpuProgramCreateInfo vertexInfo;    //< Vertex GpuProgram을 만드는데 필요한 정보입니다.
-        GpuProgramCreateInfo fragmentInfo;  //< Fragment GpuProgram을 만드는데 필요한 정보입니다.
+        GpuProgramCreateInfo vertexInfo;
+        GpuProgramCreateInfo fragmentInfo;
     };
 
     class DLL_EXPORT Shader {
@@ -67,10 +63,8 @@ namespace cpf {
         VertexDeclaration *getInputDeclaration() const { return mInputDeclaration; }
 
         GLuint getProgramId() const { return mProgramId; }
+
     private:
-        /**
-         * 주어진 정보로 쉐이더를 생성합니다.
-         */
         GLuint createGpuProgram(GpuProgramCreateInfo info);
 
         void buildVertexDeclarayion(uint32_t programId);
