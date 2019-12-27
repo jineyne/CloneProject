@@ -3,6 +3,7 @@
 #include "cpf.hpp"
 
 #include "Math/Matrix4.hpp"
+#include "Scene/Transform.hpp"
 
 namespace cpf {
     enum class EProjectionType {
@@ -11,8 +12,9 @@ namespace cpf {
     };
 
     class DLL_EXPORT CameraBase {
-    private:
+    protected:
         EProjectionType mProjectionType;
+
         float mNear, mFar;
         float mOrthoHeight;
         float mAspect;
@@ -21,6 +23,7 @@ namespace cpf {
         bool mDirtyFlags = false;
         bool mIsMain = false;
 
+        Transform mTransform;
         mutable Matrix4 mCachedView;
 
     public:
@@ -28,6 +31,8 @@ namespace cpf {
         virtual ~CameraBase() = default;
 
     public:
+        void setTransform(const Transform &transform);
+
         virtual void setNear(float value);
         virtual void setFar(float value);
         virtual void setFov(float fov);

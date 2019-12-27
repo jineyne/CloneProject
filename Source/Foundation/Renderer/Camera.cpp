@@ -3,6 +3,12 @@
 #include "Renderer/Renderer.hpp"
 
 namespace cpf {
+    void CameraBase::setTransform(const Transform &transform) {
+        mTransform = transform;
+
+        mDirtyFlags = true;
+    }
+
     void CameraBase::setNear(float value) {
         mNear = value;
 
@@ -60,6 +66,8 @@ namespace cpf {
                 mCachedView = Matrix4::Orthograhic(0, width, 0, height, mNear, mFar);
                 break;
             }
+
+            mCachedView = mTransform.getMatrix() * mCachedView;
         }
 
         return mCachedView;
